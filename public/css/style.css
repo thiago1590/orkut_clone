@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    }
+    
+    #coluna-esquerda{
+        height: 100%;
+        background: #e458a2;
+    }
+
+    .texto-esquerda{
+        color: white;
+        font-size: 1.5em;
+    }
+    
+    #conteudo{
+        margin: 50px auto;
+        width: 400px;
+    }
+    
+    .container-fluid #coluna-esquerda{
+     height: 100%; 
+    }
+
+    #cadastro{
+        width: 92%;
+        margin: 0 auto;
+    }
