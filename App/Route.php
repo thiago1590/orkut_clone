@@ -22,7 +22,7 @@ class Route extends Bootstrap {
 
 		$routes['autenticar'] = array(
 			'route' => '/autenticar',
-			'controller' => 'indexController',
+			'controller' => 'AuthController',
 			'action' => 'autenticar'
 		);
 
