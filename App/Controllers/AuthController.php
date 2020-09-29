@@ -24,7 +24,7 @@ class AuthController extends Action {
 			$_SESSION['id'] = $usuarioAuth->__get('id');
 			$_SESSION['nome'] = $usuarioAuth->__get('nome');
 
-			header('Location: /');
+			header('Location: /timeline');
 
 		} else {
 			header('Location: /?login=erro');
@@ -37,4 +37,6 @@ class AuthController extends Action {
 		session_destroy();
 		header('Location: /');
 	}
+
+	
 }

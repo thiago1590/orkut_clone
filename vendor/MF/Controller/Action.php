@@ -10,7 +10,7 @@ abstract class Action {
 		$this->view = new \stdClass();
 	}
 
-	protected function render($view, $layout = 'layout') {
+	protected function render($view, $layout) {
 		$this->view->page = $view;
 
 		if(file_exists("App/Views/".$layout.".phtml")) {

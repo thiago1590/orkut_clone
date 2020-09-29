@@ -10,7 +10,7 @@ class IndexController extends Action {
 
 	public function index() {
 
-		$this->render('index');
+		$this->render('index','layout1');
 	}
 
 
@@ -29,7 +29,7 @@ class IndexController extends Action {
 		if($usuario->validarCadastro() && count($usuario->getUsuarioPorEmail()) == 0) {
 		
 				$usuario->salvar();
-				$this->render('index');
+				$this->render('index','layout1');
 
 		} else {
 
@@ -41,7 +41,7 @@ class IndexController extends Action {
 
 			$this->view->erroCadastro = true;
 
-			$this->render('inscreverse');
+			$this->render('inscreverse','layout2');
 		}
 
 	}
