@@ -68,6 +68,58 @@
            h4{
                font-size: 1em;
            }
+           .botao{
+               border: 1px solid rgba(128, 128, 128, 0.548);
+               border-radius: 15px;
+               margin: 0;
+           }
+            .botao a{
+               margin: 0;
+               font-size: 0.9em;
+               color: blue;
+               font-weight: 750;
+               opacity: 0.5;
+           }
+           .botao a:hover{
+               text-decoration: underline;
+               color: blue;
+           }
+           .radius{
+               border-radius: 10px;
+           }
+           img {
+                max-width: 100%;
+                height: auto;
+                width: auto\9; /* ie8 */
+            }
+            .texto-perfil{
+                font-size: 0.9em;
+                color: rgb(105, 105, 243);
+                text-align: center;
+            }
+            #explorar{
+                padding: 1% 11%;
+                background: #7091bd;
+                display: inline-block;
+                border-radius: 8px 8px 0 0;
+            }
+            #explorar p{
+                color: white;
+                font-size: 0.9em;
+            }
+            #info-nome{
+               margin: 0;
+               font-size: 0.9em;
+               color: rgb(8, 8, 129);
+               font-weight: 750;
+               opacity: 0.6;
+            }
+            .texto-info{
+                font-size: 0.9em;
+                color: #3a8ab2;
+                font-family:Verdana,Arial,sans-serif;
+                display: inline-block;
+            }
         </style>
 </head>
 <body>
@@ -146,33 +198,49 @@
         <div class="row h-100">
             
             <!--Coluna Esquerda-->
-            <div class="col-2 mr-1  pt-4 bg-white p-3" style="border-radius: 2%;">
-
-                    <div id="conteudo-esquerda" class="" >
+            <div class="col-2  bg-transparentp-3" style="padding: 0;">
+                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
+                    <div id="conteudo-esquerda" class="ml-1" >
                         <div>
-                            <img src="/Front_end/foto-perfil.png" width="80%" alt="">
-                            <p class="mt-2">Thiago André</p>
+                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
+                            <p id="info-nome" class="mt-2 mb-1">Thiago André</p>
                              <div class="campos">
-                                Perfil <br>
-                                recados <br>
-                                fotos <br>
-                                videos <br>
-                                depoimentos <br>
+                                <div class="mt-2 mb-2">
+                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                                    <p class="no-margin texto-info">perfil</p> <br>
+                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                                    <p class="no-margin texto-info">recados</p>  <br>
+                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                                    <p class="no-margin texto-info">fotos</p> <br>
+                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                                    <p class="no-margin texto-info">vídeos</p>  <br>
+                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                                    <p class="no-margin texto-info">depoimentos</p>  <br>
+                                </div>
                             </div>
                             <div class="campos">
-                                Apps <br>
-                                adicionar apps
+                                <div class="mb-2">
+                                    <h4>Apps</h4>
+                                <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                    <p class="no-margin texto-info">adicionar apps</p>  <br>
+                                </div>
                             </div>
-                            <div class="campos pb-2">
-                                listas <br>
-                                atualizaçoes <br>
-                                configuraçoes 
+                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
+                                <div class="mt-2">
+                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                    <p class="no-margin texto-info">listas</p>  <br>
+                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                    <p class="no-margin texto-info">atualizações</p>  <br>
+                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                    <p class="no-margin texto-info">configurações</p>  <br>
+                                </div>
                             </div>
                         <div>
 
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
 
             <!--Fim Coluna Esquerda-->
@@ -180,7 +248,7 @@
             <!--Coluna Centro-->
             <div class="col-6 bg-transparent mr-1">
                 <div class="bg-white p-2" id="info-gerais">
-                    <h2>Bem-vindo(a), thiago</h2>
+                    <h3 style="font-weight: 400;">Bem-vindo(a), fulano</h3>
                    <div class="row ml-2 mt-3">
                     <div class="menu-geral">
                         <p class="no-margin">recados</p>
@@ -218,25 +286,87 @@
                    </div>
 
                 </div>
-                <div class="mt-4 bg-primary">
-                    aa
+                <div class="mt-4 bg-white radius p-2">
+                    <p style="font-size: 0.9em; font-weight: 500;">sugestões de amigos do orkut</p>
+                    
+                    <div class="clearfix" id="sugestao"> 
+                        <div>
+                            <button class="btn btn-primary menu-geral"></button>
+                        </div>
+                        <div class="menu-geral" style=" max-width: 90px">
+                            <div class="pb-1" style="background: #f0f0f0;">
+                                <img src="/Front_end/foto-perfil.png" class="img pt-2 pl-2 pr-2" alt="">
+                            <a href=""><p class="no-margin mb-2 texto-perfil">Fulano</p></a>
+                            </div>
+                            <a href=""><p class="no-margin texto-perfil">adicionar</p></a>    
+                        </div>
+
+                        <div class="menu-geral" style=" max-width: 90px">
+                            <div class="pb-1" style="background: #f0f0f0;">
+                                <img src="/Front_end/foto-perfil.png" class="img pt-2 pl-2 pr-2" alt="">
+                            <a href=""><p class="no-margin mb-2 texto-perfil">Fulano</p></a>
+                            </div>
+                            <a href=""><p class="no-margin texto-perfil">adicionar</p></a>    
+                        </div>
+
+                       <div class="menu-geral" style=" max-width: 90px">
+                            <div class="pb-1" style="background: #f0f0f0;">
+                                <img src="/Front_end/foto-perfil.png" class="img pt-2 pl-2 pr-2" alt="">
+                            <a href=""><p class="no-margin mb-2 texto-perfil">Fulano</p></a>
+                            </div>
+                            <a href=""><p class="no-margin texto-perfil">adicionar</p></a>    
+                        </div>
+
+                        <div class="menu-geral" style=" max-width: 90px">
+                            <div class="pb-1" style="background: #f0f0f0;">
+                                <img src="/Front_end/foto-perfil.png" class="img pt-2 pl-2 pr-2" alt="">
+                            <a href=""><p class="no-margin mb-2 texto-perfil">Fulano</p></a>
+                            </div>
+                            <a href=""><p class="no-margin texto-perfil">adicionar</p></a>    
+                        </div>
+
+                        <div>
+                            <button class="btn btn-primary" style="float: right;"></button>
+                        </div>
+                   </div>
                 </div>
+
+                <div id="explorar" class="mt-2">
+                    <p class="no-margin">explorar</p>
+                </div>
+                
             </div>
+
             <!--Fim Centro-->
 
-            <div class="col-3 bg-transparent">
+            <!--Começo Coluna Direita-->
+            <div class="col-3 bg-transparent" style="padding: 0;">
                 <div class="bg-white p-2" style="border-radius: 10px;">
                     <h4>meus amigos <span>(0)</span></h4>
                     <div class="mt-1 p-1" style="background: #eef7ff;">
                         <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
                     </div>
-                    <div class="campos">
-                        <button class="btn btn-light">Adicionar amigos</button>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                        <button class="btn btn-sm botao">
+                            <a class="texto-botao">Adicionar amigos</a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>minhas comunidades <span>(0)</span></h4>
+                    
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                        <button class="btn btn-sm botao">
+                            <a class="texto-botao">Adicionar comunidades</a>
+                        </button>
                     </div>
                 </div>
                 
             </div>
-           
+            <!--Fim Coluna Direita-->
 
 
         </div>

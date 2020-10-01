@@ -31,4 +31,92 @@ html, body {
         margin: 0 auto;
     }
 
-    
+    #conteudo-botao{
+        height: 70%;
+        width: 100%;
+        background: white;
+        border-radius: 5%;
+    }
+    #foto-perfil{
+        width: 30%;
+        margin: 0 auto;
+    }
+    #nome{
+        height: 10%;
+        border-bottom: 1px solid #b7e8fa;
+        border-top: 1px solid #b7e8fa ;
+    }
+    .campos{
+        border-top: 1px solid #b7e8fa;
+        border-bottom: 1px solid #b7e8fa;
+    }
+    @media (min-width: 1200px) {
+        .container{
+            max-width: 1060px;
+                  }
+                            }
+   #info-gerais{
+    border-radius: 10px 50px 10px 10px;
+    }
+   .menu-geral{
+       float: left;
+       margin-right: 15px;
+   }
+   .no-margin{
+       margin: 0;
+   }
+   h4{
+       font-size: 1em;
+   }
+   .botao{
+       border: 1px solid rgba(128, 128, 128, 0.548);
+       border-radius: 15px;
+       margin: 0;
+   }
+    .botao a{
+       margin: 0;
+       font-size: 0.9em;
+       color: blue;
+       font-weight: 750;
+       opacity: 0.5;
+   }
+   .botao a:hover{
+       text-decoration: underline;
+       color: blue;
+   }
+   .radius{
+       border-radius: 10px;
+   }
+   img {
+        max-width: 100%;
+        height: auto;
+        width: auto\9; /* ie8 */
+    }
+    .texto-perfil{
+        font-size: 0.9em;
+        color: rgb(105, 105, 243);
+        text-align: center;
+    }
+    #explorar{
+        padding: 1% 11%;
+        background: #7091bd;
+        display: inline-block;
+        border-radius: 8px 8px 0 0;
+    }
+    #explorar p{
+        color: white;
+        font-size: 0.9em;
+    }
+    #info-nome{
+       margin: 0;
+       font-size: 0.9em;
+       color: rgb(8, 8, 129);
+       font-weight: 750;
+       opacity: 0.6;
+    }
+    .texto-info{
+        font-size: 0.9em;
+        color: #3a8ab2;
+        font-family:Verdana,Arial,sans-serif;
+        display: inline-block;
+    }

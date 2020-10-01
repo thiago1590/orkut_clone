@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <nav class="navbar navbar-expand-sm py-0" id="nav">
+            <div class="container">
+                <!--Logo-->
+                <a href="#" class="navbar-left"><img src="/Front_end/logo.png"></a>
+
+                <div class="d-none d-md-block">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Página de recados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Amigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Comunidades</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--Menu botões para SM-->
+
+                <button class="navbar-toggler ml-auto">
+                    <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
+                </button>
+
+                <button onclick="myFunction()" class="navbar-toggler" data-toggle="collapse" data-target="#nav-target2">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars"
+                            style="color:#fff; font-size:28px;"></i></span>
+                </button>
+
+                <!--Navegação-->
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="" class="nav-link d-none d-lg-block">thiagoandre2121@gmail.com</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Sair</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Pesquisar no orkut</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <!--<div id="nav-target2" class="collapse navbar-collapse">
+                <div id="conteudo-botao">
+                    <div id="foto-perfil">
+                        <img src="/Front_end/foto-perfil.png" width="100%" alt="">
+                    </div>
+                    <div id="nome">
+                        <p style="text-align: center;">Thiago André</p>
+                    </div>
+                </div>
+            </div>-->
+            </div>
+
+
+    </div>
+
+    <div class="container mt-2 " style="border-radius: 5%; ">
+
+        <div class="row h-100">
+
+            <!--Coluna Esquerda-->
+            <div class="col-2  bg-transparentp-3" style="padding: 0;">
+                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
+                    <div id="conteudo-esquerda" class="ml-1">
+                        <div>
+                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
+                            <p id="info-nome" class="mt-2 mb-1">Thiago André</p>
+                            <div class="campos">
+                                <div class="mt-2 mb-2">
+                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">perfil</p></a> <br>
+                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">recados</p></a> <br>
+                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">fotos</p></a> <br>
+                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">vídeos</p></a> <br>
+                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">depoimentos</p></a> <br>
+                                </div>
+                            </div>
+                            <div class="campos">
+                                <div class="mb-2">
+                                    <h4>Apps</h4>
+                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">adicionar apps</p></a> <br>
+                                </div>
+                            </div>
+                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
+                                <div class="mt-2">
+                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">listas</p></a> <br>
+                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                   <a href=""> <p class="no-margin texto-info">atualizações</p></a> <br>
+                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                    <a href=""><p class="no-margin texto-info">configurações</p></a> <br>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Fim Coluna Esquerda-->
+
+            <!--Coluna Centro-->
+            <div class="col-6 bg-transparent mr-1">
+                <div class="bg-white p-2" id="info-gerais">
+                    <h3 style="font-weight: 400;">Fulano Beltrano</h3>
+                    <div class="p-1">
+                        <span><a href="">Início</a></span> <span style="color: gray;">> Meu perfil</span>
+                    </div>
+
+
+                    <div class="row mx-2 mt-2" id="frase-perfil">
+                        <div class="col-8">
+                            <a href=""><p class="no-margin">Qual é a sua frase de perfil?</p></a>
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                    </div>
+
+                    <div class="row ml-2 mt-3">
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">recados</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/recados.png" width="25%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">fotos</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/fotos.png" width="50%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">videos</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/videos.png" width="40%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">fas</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/fas.png" width="52%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">mensagens</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/mensagens.png" width="25%" alt="">1
+                        </div>
+                    </div>
+                    <div class="row ml-2 mt-3 mb-3">
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">confiável</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/confiavel.png" alt="">
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">legal</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/legal.png" alt="">
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin texto-menu">sexy</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/coracoes.png" alt="">
+                        </div>
+
+                    </div>
+
+                   
+                        <div id="social" class="mt-2">
+                            <p class="no-margin">social</p>
+                        </div>
+                    
+
+                        <div id="social-info">
+                            <div class="no-margin social-info1 py-2">
+                                <p class="no-margin">aniversario:	1 de janeiro de 1999</p>
+                            </div>
+                            <div class="no-margin social-info2 py-2">
+                                <p class="no-margin">relacionamento:	solteiro(a)</p>
+                            </div>
+                            <div class="no-margin social-info1 py-2">
+                                <p class="no-margin">país:	Brasil</p>
+                            </div>
+                        </div>
+                    
+
+                </div>
+
+
+            </div>
+
+            <!--Fim Centro-->
+
+            <!--Começo Coluna Direita-->
+            <div class="col-3 bg-transparent" style="padding: 0;">
+                <div class="bg-white p-2" style="border-radius: 10px;">
+                    <h4>meus amigos <span>(0)</span></h4>
+                    <div class="mt-1 p-1" style="background: #eef7ff;">
+                        <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
+                    </div>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                        <button class="btn btn-sm botao">
+                            <a class="texto-botao">Adicionar amigos</a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>minhas comunidades <span>(0)</span></h4>
+
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                        <button class="btn btn-sm botao">
+                            <a class="texto-botao">Adicionar comunidades</a>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fim Coluna Direita-->
+
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
