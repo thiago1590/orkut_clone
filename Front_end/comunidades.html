@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
 
     <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
 </head>
@@ -45,13 +44,12 @@
                 <!--Menu botões para SM-->
 
                 <button class="navbar-toggler ml-auto">
-                    <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
-                </button>
+                <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
+            </button>
 
                 <button onclick="myFunction()" class="navbar-toggler" data-toggle="collapse" data-target="#nav-target2">
-                    <span class="navbar-toggler-icon"><i class="fas fa-bars"
-                            style="color:#fff; font-size:28px;"></i></span>
-                </button>
+                <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
+            </button>
 
                 <!--Navegação-->
                 <div class="collapse navbar-collapse">
@@ -90,59 +88,41 @@
         <div class="row h-100">
 
             <!--Coluna Esquerda-->
-            <div class="col-md-1-5  bg-transparentp-3  ml-3" style="padding: 0;">
+            <div class="col-md-1-5 bg-transparentp-3 ml-3" style="padding: 0;">
                 <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
                     <div id="conteudo-esquerda" class="ml-1">
                         <div>
                             <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
-                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
+                            <p id="info-nome" class="mt-2 mb-1">Thiago André</p>
                             <div class="campos">
                                 <div class="mt-2 mb-2">
                                     <span><img src="/Front_end/icons/perfil.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">perfil</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">perfil</p> <br>
                                     <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">recados</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">recados</p> <br>
                                     <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">fotos</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">fotos</p> <br>
                                     <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">vídeos</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">vídeos</p> <br>
                                     <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">depoimentos</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">depoimentos</p> <br>
                                 </div>
                             </div>
                             <div class="campos">
                                 <div class="mb-2">
                                     <h4>Apps</h4>
                                     <span><img src="/Front_end/icons/apps.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">adicionar apps</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">adicionar apps</p> <br>
                                 </div>
                             </div>
                             <div class="campos pb-2" style="border-bottom: 1px solid white;">
                                 <div class="mt-2">
                                     <span><img src="/Front_end/icons/lista.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">listas</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">listas</p> <br>
                                     <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">atualizações</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">atualizações</p> <br>
                                     <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">configurações</p>
-                                    </a> <br>
+                                    <p class="no-margin texto-info">configurações</p> <br>
                                 </div>
                             </div>
                             <div>
@@ -157,67 +137,51 @@
 
             <!--Coluna Centro-->
             <div class="col-7 bg-transparent mr-1">
-                <div class="bg-white" style="border-radius: 5px;">
+                <div class="bg-white p-2" id="info-gerais">
 
-                    <form class="p-2 mb-1" action="">
-                        <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.116);">
-                            <textarea placeholder="digite o texto ou cole HTML" name="" id="" rows="4" cols="75"></textarea>
-                        </div>
-                    </form>
-
-                    <div class="mx-2 ">
-                        <button class="btn btn-sm botao shadow-sm mb-3">
-                            <a class="texto-botao">enviar recado</a>
-                        </button>
+                    <h3>Comunidades</h3>
+                    <div class="p-1 mb-2">
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Comunidades</span>
+                    </div>
+                    <div id="explorar" style="padding: 2px 5px;" class="mt-2">
+                        <p class="no-margin">todas (1)</p>
+                    </div>
+                    <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.253);"></div>
+                    <h4 class="pl-1 mt-3">nome</h4>
+                    <div class="p-2" style="background: #f0f7ff;">
+                        <a href="">
+                            <p style="display: inline;" class="no-margin">Eu odeio acordar cedo </p>
+                        </a>
                     </div>
 
-                </div>
-
-                <div class="bg-white clearfix" style="border-radius: 5px;">
-                    <div class=" ml-2" style="border-bottom: 1px solid rgba(128, 128, 128, 0.24);">
-                        <h3>Minha página de recados (0)</h3>
-                        <div class="p-1 mb-2">
-                            <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Minha página de recados</span>
-                        </div>
-                    </div>
-
-                    <div class="m-2 clearfix" style="background: #f0f7ff;">
-                        <div style="float: left;" class="clearfix">
-                            <div style="max-width: 240px;" class="ml-4 row">
-                                <img class="col mt-2" src="/Front_end/foto-perfil.png" alt="">
-                                <div class="col mt-3">
-                                    <a href="" class="info-nome">Fulano:</a>
-                                    <p class="mt-2">
-                                        loremimpson
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-1" style="float: right">
-                            <p style="display: inline;">25 de setembro </p>
-                            <button class="btn btn-sm botao shadow-sm mb-3 mt-2 mr-3" style="text-align: center; 
-                                ">
-                                <a class="texto-botao">Apagar</a>
-                            </button>
-                        </div>
-
-
-
-
-                    </div>
                 </div>
 
             </div>
 
+            <!--Fim Centro-->
+
+            <!--Começo Coluna Direita-->
+            <div class="col-md-2-5 bg-transparent" style="padding: 0;">
+
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>todas as comunidades<span>(0)</span></h4>
+
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+
+                        <p class="no-margin mb-1" style="font-size:0.9em">pesquisar por nome:</p>
+                        <input type="text" style="line-height: normal;">
+                        <button style="display: block;" class="btn btn-sm botao mt-1">
+                        <a class="texto-botao">pesquisar</a>
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fim Coluna Direita-->
 
 
         </div>
-
-        <!--Fim Centro-->
-
-
-
-    </div>
     </div>
 
 
