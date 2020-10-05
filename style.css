@@ -6,6 +6,7 @@
 html,
 body {
     height: 100%;
+    background: #d9e6f7;
 }
 
 #coluna-esquerda {
@@ -45,6 +46,17 @@ body {
 nav a {
     color: white;
     font-size: 0.9em;
+}
+
+#nav{
+    background: url('/Front_end/barra.png') repeat-x;
+    
+}
+
+.logo {
+    width: 79px;
+    height: 32px;
+    background: url('/Front_end/logo.png') -158px 0;
 }
 
 body {
@@ -200,6 +212,13 @@ img {
 
 .texto-info {
     font-size: 0.7em;
+    color: #3a8ab2;
+    font-family: Verdana, Arial, sans-serif;
+    display: inline-block;
+}
+
+.texto-info2{
+    font-size: 0.9em;
     color: #3a8ab2;
     font-family: Verdana, Arial, sans-serif;
     display: inline-block;

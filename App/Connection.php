@@ -8,9 +8,9 @@ class Connection {
 		try {
 
 			$conn = new \PDO(
-				"mysql:host=localhost;dbname=twitter_clone;charset=utf8",
-				"root",
-				""
+				"mysql:host=sql300.epizy.com;dbname=epiz_26861800_orkut;charset=utf8",
+				"epiz_26861800",
+				"JfLYTCzBwl4mc"
 			);
 
 			return $conn;

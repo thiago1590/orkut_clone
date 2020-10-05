@@ -5,18 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
+
+    <style>
+        .texto-info2{
+    font-size: 1em;
+    color: #3a8ab2;
+    font-family: Verdana, Arial, sans-serif;
+    display: inline-block;
+}
+    </style>
 
 </head>
 
 <body>
     <div id="container">
 
-        <nav class="navbar navbar-expand-sm py-0" id="nav">
+        <nav class="navbar navbar-expand-md py-0" id="nav">
             <div class="container">
                 <!--Logo-->
                 <a href="#" class="navbar-left"><img src="/Front_end/logo.png"></a>
@@ -45,15 +55,16 @@
                 <!--Menu botões para SM-->
 
                 <button class="navbar-toggler ml-auto">
-                <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
-            </button>
+                    <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
+                </button>
 
                 <button onclick="myFunction()" class="navbar-toggler" data-toggle="collapse" data-target="#nav-target2">
-                <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
-            </button>
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars"
+                            style="color:#fff; font-size:28px;"></i></span>
+                </button>
 
                 <!--Navegação-->
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse ">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a href="" class="nav-link d-none d-lg-block">thiagoandre2121@gmail.com</a>
@@ -66,19 +77,72 @@
                         </li>
                     </ul>
                 </div>
+                
+                    <div class="collapse navbar-collapse" id="nav-target2">
+                        <div class="areas d-md-none">
+                         <div>
+                             <img src="/Front_end/foto-perfil.png" style="margin-left: 30%;" alt="">
+                         </div>
+                         <div class="campos mt-2">
+                             <p class="info-nome p-2" style="text-align: center;">Thiago André</p>
+                         </div>
+     
+                         <div class="mx-3 my-2">
+                             <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                             <a href="">
+                                 <p class="no-margin texto-info2 ">perfil</p>
+                             </a> <br>
+                             <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                             <a href="">
+                                 <p class="no-margin texto-info2">recados</p>
+                             </a> <br>
+                             <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                             <a href="">
+                                 <p class="no-margin texto-info2">fotos</p>
+                             </a> <br>
+                             <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                             <a href="">
+                                 <p class="no-margin texto-info2">vídeos</p>
+                             </a> <br>
+                             <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                             <a href="">
+                                 <p class="no-margin texto-info2">depoimentos</p>
+                             </a> <br>
+                         </div>
+     
+                         <div class="campos mx-3 my-2">
+                             <div class="mb-2">
+                                 <h4>Apps</h4>
+                                 <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                 <a href="">
+                                     <p class="no-margin texto-info2">adicionar apps</p>
+                                 </a> <br>
+                             </div>
+                         </div>
+                         <div class=" pb-2 mx-3 my-2" style="border-bottom: 1px solid white;">
+                             <div class="mt-2">
+                                 <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                 <a href="">
+                                     <p class="no-margin texto-info2">listas</p>
+                                 </a> <br>
+                                 <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                 <a href="">
+                                     <p class="no-margin texto-info2">atualizações</p>
+                                 </a> <br>
+                                 <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                 <a href="">
+                                     <p class="no-margin texto-info2">configurações</p>
+                                 </a> <br>
+                             </div>
+                         </div>
+                        
+                        </div>
+                     </div>
+                
+                
 
-
-
-                <!--<div id="nav-target2" class="collapse navbar-collapse">
-                <div id="conteudo-botao">
-                    <div id="foto-perfil">
-                        <img src="/Front_end/foto-perfil.png" width="100%" alt="">
-                    </div>
-                    <div id="nome">
-                        <p style="text-align: center;">Thiago André</p>
-                    </div>
-                </div>
-            </div>-->
+                
+                
             </div>
 
 
@@ -99,19 +163,19 @@
                                 <div class="mt-2 mb-2">
                                     <span><img src="/Front_end/icons/perfil.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">perfil</p>
+                                        <p class="no-margin texto">perfil</p>
                                     </a> <br>
                                     <span><img src="/Front_end/icons/recados.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">recados</p>
+                                        <p class="no-margin texto">recados</p>
                                     </a> <br>
                                     <span><img src="/Front_end/icons/fotos.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">fotos</p>
+                                        <p class="no-margin texto">fotos</p>
                                     </a> <br>
                                     <span><img src="/Front_end/icons/videos.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">vídeos</p>
+                                        <p class="no-margin texto">vídeos</p>
                                     </a> <br>
                                     <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
                                     <a href="">
@@ -190,7 +254,8 @@
                         </div>
                         <div class="mt-3">
                             <h4>Sorte de hoje:</h4>
-                            <p class="no-margin" style="font-size: 0.9em;">Uma imaginação bem canalizada é fonte de grandes proezas.</p>
+                            <p class="no-margin" style="font-size: 0.9em;">Uma imaginação bem canalizada é fonte de
+                                grandes proezas.</p>
                         </div>
                     </div>
 
@@ -227,15 +292,15 @@
                                     </div>
                                     <p class="sugestao-texto">Thiago André</p>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <div class="col-1 ">
                             <button class="btn btn-primary"></button>
-                    
+
                         </div>
-                       
+
                     </div>
-                    
+
                 </div>
 
                 <div id="explorar" class="mt-2">
@@ -247,27 +312,27 @@
             <!--Fim Centro-->
 
             <!--Começo Coluna Direita-->
-            <div class="col-md d-none d-md-block" bg-transparent " style="padding: 0; ">
-                <div class="bg-white p-2 " style="border-radius: 10px; ">
+            <div class="col-md d-none d-md-block" bg-transparent " style=" padding: 0; ">
+                <div class=" bg-white p-2 " style=" border-radius: 10px; ">
                     <h4>meus amigos <span>(0)</span></h4>
-                    <div class="mt-1 p-1 " style="background: #eef7ff; ">
-                        <p class="no-margin " style="font-size: 0.8em; ">você ainda não adicionou nenhum amigo</p>
+                    <div class=" mt-1 p-1 " style=" background: #eef7ff; ">
+                        <p class=" no-margin " style=" font-size: 0.8em; ">você ainda não adicionou nenhum amigo</p>
                     </div>
-                    <div class="campos mt-2 " style="border-bottom: 1px solid white; ">
-                        <div class="mb-1 "></div>
-                        <button class="btn btn-sm botao ">
-                            <a class="texto-botao ">Adicionar amigos</a>
+                    <div class=" campos mt-2 " style=" border-bottom: 1px solid white; ">
+                        <div class=" mb-1 "></div>
+                        <button class=" btn btn-sm botao ">
+                            <a class=" texto-botao ">Adicionar amigos</a>
                         </button>
                     </div>
                 </div>
 
-                <div class="bg-white p-2 mt-2 " style="border-radius: 10px; ">
+                <div class=" bg-white p-2 mt-2 " style=" border-radius: 10px; ">
                     <h4>minhas comunidades <span>(0)</span></h4>
 
-                    <div class="campos mt-2 " style="border-bottom: 1px solid white; ">
-                        <div class="mb-1 "></div>
-                        <button class="btn btn-sm botao ">
-                            <a class="texto-botao ">Adicionar comunidades</a>
+                    <div class=" campos mt-2 " style=" border-bottom: 1px solid white; ">
+                        <div class=" mb-1 "></div>
+                        <button class=" btn btn-sm botao ">
+                            <a class=" texto-botao ">Adicionar comunidades</a>
                         </button>
                     </div>
                 </div>
@@ -280,9 +345,12 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js " integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin="anonymous "></script>
+    <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="
+                sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin=" anonymous "></script>
+    <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js " integrity="
+                sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN " crossorigin=" anonymous "></script>
+    <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="
+                sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin=" anonymous "></script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ class Usuario extends Model {
 
     public function salvar() {
 
-		$query = "insert into usuariosteste(nome, email, senha, sobrenome)
+		$query = "insert into usuarios(nome, email, senha, sobrenome)
 		values(:nome, :email, :senha, :sobrenome)";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':nome', $this->__get('nome'));
@@ -63,7 +63,7 @@ class Usuario extends Model {
 
 	public function autenticar() {
 
-		$query = "select id, nome, email from usuariosteste where email = :email and senha = :senha";
+		$query = "select id, nome, email from usuarios where email = :email and senha = :senha";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':email', $this->__get('email'));
 		$stmt->bindValue(':senha', $this->__get('senha'));
