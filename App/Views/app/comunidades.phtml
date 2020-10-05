@@ -9,8 +9,7 @@
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
-
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
 </head>
 
 <body>
@@ -84,9 +83,47 @@
 
     </div>
 
-    <div class="container mt-2" style="border-radius: 5%; ">
+    <div class="container mt-2 " style="border-radius: 5%; ">
 
         <div class="row h-100">
+
+            <!--Layout para SM-->
+            <!--Coluna Centro-->
+            <div class="col-md-7 bg-transparent mr-1 d-md-none">
+                <div class="bg-white p-2" id="info-gerais">
+
+                    <h3>Comunidades</h3>
+                    <div class="p-1 mb-2">
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Comunidades</span>
+                    </div>
+                    <p class="size9">Compartilhe suas paixões. Conheça pessoas que têm interesses em comum. Troque idéias. Planeje eventos...</p>
+                    <p class="size9">Você pode pesquisar comunidades ou criar sua própria comunidade.</p>
+
+                </div>
+
+            </div>
+
+            <!--Fim Centro-->
+
+            <!--Começo Coluna Direita-->
+            <div class="col-md p-2 d-md-none " style="padding: 0;">
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>todas as comunidades<span>(0)</span></h4>
+
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+
+                        <p class="no-margin mb-1" style="font-size:0.9em">pesquisar por nome:</p>
+                        <input type="text" style="line-height: normal; width: 100%;">
+                        <button style="display: block;" class="btn btn-sm botao mt-1">
+                        <a class="texto-botao">pesquisar</a>
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fim Coluna Direita-->
+            <!--Fim Layout para SM-->
 
             <!--Coluna Esquerda-->
             <div class="col-md-2 d-none d-md-block" style="padding: 0;">
@@ -155,91 +192,24 @@
             <!--Fim Coluna Esquerda-->
 
             <!--Coluna Centro-->
-            <div class="col-md-7 bg-transparent mr-1">
+            <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
                 <div class="bg-white p-2" id="info-gerais">
-                    <h3 style="font-weight: 400;">Bem-vindo(a), fulano</h3>
-                    <div class="row ml-2 mt-3">
-                        <div class="menu-geral">
-                            <p class="no-margin">recados</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/recados.png" width="25%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin">fotos</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/fotos.png" width="50%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin">videos</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/videos.png" width="40%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin">fas</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/fas.png" width="52%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin">mensagens</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/mensagens.png" width="25%" alt="">1
-                        </div>
-                        <div class="mt-4 mr-3">
-                            <h4>Visualizações de seu perfil:</h4>
-                            <p class="no-margin" style="font-size: 0.9em;">
-                                Desde Jul. 2017: 0, Semana passada: 0, Ontem: 0</p>
-                        </div>
-                        <div class="mt-3">
-                            <h4>Seus visitantes recentes:</h4>
-                            <p class="no-margin" style="font-size: 0.9em;">nenhum</p>
-                        </div>
-                        <div class="mt-3">
-                            <h4>Sorte de hoje:</h4>
-                            <p class="no-margin" style="font-size: 0.9em;">Uma imaginação bem canalizada é fonte de grandes proezas.</p>
-                        </div>
+
+                    <h3>Comunidades</h3>
+                    <div class="p-1 mb-2">
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Comunidades</span>
+                    </div>
+                    <div id="explorar" style="padding: 2px 5px;" class="mt-2">
+                        <p class="no-margin">todas (1)</p>
+                    </div>
+                    <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.253);"></div>
+                    <h4 class="pl-1 mt-3">nome</h4>
+                    <div class="p-2" style="background: #f0f7ff;">
+                        <a href="">
+                            <p style="display: inline;" class="no-margin">Eu odeio acordar cedo </p>
+                        </a>
                     </div>
 
-                </div>
-                <div class="mt-4 bg-white radius p-2 ">
-                    <p style="font-size: 0.9em; font-weight: 500;">sugestões de amigos do orkut</p>
-                    <div class="row p-2">
-                        <div class="col-1">
-                            <button class="btn btn-primary"></button>
-                        </div>
-                        <div class="col-10">
-                            <div class="row ">
-                                <div class="col-3 fundo borda-sugestao">
-                                    <div class="img-fluid mt-2">
-                                        <img src="/Front_end/foto-perfil.png" alt="">
-                                    </div>
-                                    <p class="sugestao-texto">Thiago André</p>
-                                </div>
-                                <div class="col-3 fundo borda-sugestao">
-                                    <div class="img-fluid mt-2">
-                                        <img src="/Front_end/foto-perfil.png" alt="">
-                                    </div>
-                                    <p class="sugestao-texto">Thiago André</p>
-                                </div>
-                                <div class="col-3 fundo borda-sugestao">
-                                    <div class="img-fluid mt-2">
-                                        <img src="/Front_end/foto-perfil.png" alt="">
-                                    </div>
-                                    <p class="sugestao-texto">Thiago André</p>
-                                </div>
-                                <div class="col-3 fundo">
-                                    <div class="img-fluid mt-2">
-                                        <img src="/Front_end/foto-perfil.png" alt="">
-                                    </div>
-                                    <p class="sugestao-texto">Thiago André</p>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="col-1 ">
-                            <button class="btn btn-primary"></button>
-                    
-                        </div>
-                       
-                    </div>
-                    
-                </div>
-
-                <div id="explorar" class="mt-2">
-                    <p class="no-margin">explorar</p>
                 </div>
 
             </div>
@@ -247,28 +217,18 @@
             <!--Fim Centro-->
 
             <!--Começo Coluna Direita-->
-            <div class="col-md d-none d-md-block" bg-transparent " style="padding: 0; ">
-                <div class="bg-white p-2 " style="border-radius: 10px; ">
-                    <h4>meus amigos <span>(0)</span></h4>
-                    <div class="mt-1 p-1 " style="background: #eef7ff; ">
-                        <p class="no-margin " style="font-size: 0.8em; ">você ainda não adicionou nenhum amigo</p>
-                    </div>
-                    <div class="campos mt-2 " style="border-bottom: 1px solid white; ">
-                        <div class="mb-1 "></div>
-                        <button class="btn btn-sm botao ">
-                            <a class="texto-botao ">Adicionar amigos</a>
-                        </button>
-                    </div>
-                </div>
+            <div class="col-md d-none d-md-block" style="padding: 0;">
 
-                <div class="bg-white p-2 mt-2 " style="border-radius: 10px; ">
-                    <h4>minhas comunidades <span>(0)</span></h4>
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>todas as comunidades<span>(0)</span></h4>
 
-                    <div class="campos mt-2 " style="border-bottom: 1px solid white; ">
-                        <div class="mb-1 "></div>
-                        <button class="btn btn-sm botao ">
-                            <a class="texto-botao ">Adicionar comunidades</a>
-                        </button>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+
+                        <p class="no-margin mb-1" style="font-size:0.9em">pesquisar por nome:</p>
+                        <input type="text" style="line-height: normal; width: 100%;">
+                        <button style="display: block;" class="btn btn-sm botao mt-1">
+                        <a class="texto-botao">pesquisar</a>
+                    </button>
                     </div>
                 </div>
 
@@ -280,9 +240,9 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js " integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 
 </html>

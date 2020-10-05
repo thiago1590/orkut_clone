@@ -32,6 +32,30 @@ class Route extends Bootstrap {
 			'action' => 'timeline'
 		);
 
+		$routes['perfil'] = array(
+			'route' => '/perfil',
+			'controller' => 'AppController',
+			'action' => 'perfil'
+		);
+
+		$routes['recados'] = array(
+			'route' => '/recados',
+			'controller' => 'AppController',
+			'action' => 'recados'
+		);
+
+		$routes['amigos'] = array(
+			'route' => '/amigos',
+			'controller' => 'AppController',
+			'action' => 'amigos'
+		);
+
+		$routes['comunidades'] = array(
+			'route' => '/comunidades',
+			'controller' => 'AppController',
+			'action' => 'comunidades'
+		);
+
 
 		$this->setRoutes($routes);
 	}

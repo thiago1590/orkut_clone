@@ -35,8 +35,21 @@ class AppController extends Action {
 
 		$this->render('timeline','layout2');
 		
-		
 	}
+
+	public function perfil(){
+		$this->render('perfil','layout2');
+	}
+	public function recados(){
+		$this->render('recados','layout2');
+	}
+	public function amigos(){
+		$this->render('amigos','layout2');
+	}
+	public function comunidades(){
+		$this->render('comunidades','layout2');
+	}
+	
 
 
 	public function validaAutenticacao() {

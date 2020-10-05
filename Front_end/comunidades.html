@@ -87,42 +87,98 @@
 
         <div class="row h-100">
 
+            <!--Layout para SM-->
+            <!--Coluna Centro-->
+            <div class="col-md-7 bg-transparent mr-1 d-md-none">
+                <div class="bg-white p-2" id="info-gerais">
+
+                    <h3>Comunidades</h3>
+                    <div class="p-1 mb-2">
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Comunidades</span>
+                    </div>
+                    <p class="size9">Compartilhe suas paixões. Conheça pessoas que têm interesses em comum. Troque idéias. Planeje eventos...</p>
+                    <p class="size9">Você pode pesquisar comunidades ou criar sua própria comunidade.</p>
+
+                </div>
+
+            </div>
+
+            <!--Fim Centro-->
+
+            <!--Começo Coluna Direita-->
+            <div class="col-md p-2 d-md-none " style="padding: 0;">
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>todas as comunidades<span>(0)</span></h4>
+
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+
+                        <p class="no-margin mb-1" style="font-size:0.9em">pesquisar por nome:</p>
+                        <input type="text" style="line-height: normal; width: 100%;">
+                        <button style="display: block;" class="btn btn-sm botao mt-1">
+                        <a class="texto-botao">pesquisar</a>
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fim Coluna Direita-->
+            <!--Fim Layout para SM-->
+
             <!--Coluna Esquerda-->
-            <div class="col-md-1-5 bg-transparentp-3 ml-3" style="padding: 0;">
+            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
                 <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
                     <div id="conteudo-esquerda" class="ml-1">
                         <div>
                             <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
-                            <p id="info-nome" class="mt-2 mb-1">Thiago André</p>
+                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
                             <div class="campos">
                                 <div class="mt-2 mb-2">
                                     <span><img src="/Front_end/icons/perfil.png" alt=""></span>
-                                    <p class="no-margin texto-info">perfil</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">perfil</p>
+                                    </a> <br>
                                     <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                    <p class="no-margin texto-info">recados</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">recados</p>
+                                    </a> <br>
                                     <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                    <p class="no-margin texto-info">fotos</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">fotos</p>
+                                    </a> <br>
                                     <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                    <p class="no-margin texto-info">vídeos</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">vídeos</p>
+                                    </a> <br>
                                     <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                    <p class="no-margin texto-info">depoimentos</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">depoimentos</p>
+                                    </a> <br>
                                 </div>
                             </div>
                             <div class="campos">
                                 <div class="mb-2">
                                     <h4>Apps</h4>
                                     <span><img src="/Front_end/icons/apps.png" alt=""></span>
-                                    <p class="no-margin texto-info">adicionar apps</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">adicionar apps</p>
+                                    </a> <br>
                                 </div>
                             </div>
                             <div class="campos pb-2" style="border-bottom: 1px solid white;">
                                 <div class="mt-2">
                                     <span><img src="/Front_end/icons/lista.png" alt=""></span>
-                                    <p class="no-margin texto-info">listas</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">listas</p>
+                                    </a> <br>
                                     <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
-                                    <p class="no-margin texto-info">atualizações</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">atualizações</p>
+                                    </a> <br>
                                     <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
-                                    <p class="no-margin texto-info">configurações</p> <br>
+                                    <a href="">
+                                        <p class="no-margin texto-info">configurações</p>
+                                    </a> <br>
                                 </div>
                             </div>
                             <div>
@@ -136,7 +192,7 @@
             <!--Fim Coluna Esquerda-->
 
             <!--Coluna Centro-->
-            <div class="col-7 bg-transparent mr-1">
+            <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
                 <div class="bg-white p-2" id="info-gerais">
 
                     <h3>Comunidades</h3>
@@ -161,8 +217,7 @@
             <!--Fim Centro-->
 
             <!--Começo Coluna Direita-->
-            <div class="col-md-2-5 bg-transparent" style="padding: 0;">
-
+            <div class="col-md d-none d-md-block" style="padding: 0;">
 
                 <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
                     <h4>todas as comunidades<span>(0)</span></h4>
@@ -170,7 +225,7 @@
                     <div class="campos mt-2" style="border-bottom: 1px solid white;">
 
                         <p class="no-margin mb-1" style="font-size:0.9em">pesquisar por nome:</p>
-                        <input type="text" style="line-height: normal;">
+                        <input type="text" style="line-height: normal; width: 100%;">
                         <button style="display: block;" class="btn btn-sm botao mt-1">
                         <a class="texto-botao">pesquisar</a>
                     </button>

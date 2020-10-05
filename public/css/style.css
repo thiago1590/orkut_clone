@@ -1,122 +1,277 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-html, body {
+html,
+body {
     height: 100%;
-    }
-    
-    #coluna-esquerda{
-        height: 100%;
-        background: #e458a2;
-    }
+}
 
-    .texto-esquerda{
-        color: white;
-        font-size: 1.5em;
-    }
-    
-    #conteudo{
-        margin: 50px auto;
-        width: 400px;
-    }
-    
-    .container-fluid #coluna-esquerda{
-     height: 100%; 
-    }
+#coluna-esquerda {
+    height: 100%;
+    background: #e458a2;
+}
 
-    #cadastro{
-        width: 92%;
-        margin: 0 auto;
-    }
+#conteudo {
+    margin: 50px auto;
+    width: 400px;
+}
 
-    #conteudo-botao{
-        height: 70%;
-        width: 100%;
-        background: white;
-        border-radius: 5%;
+.container-fluid #coluna-esquerda{
+    height: 100%; 
+   }
+
+#cadastro {
+    width: 92%;
+    margin: 0 auto;
+}
+
+#nav {
+    background: url('/Front_end/barra.png') repeat-x;
+}
+
+.logo {
+    width: 79px;
+    height: 32px;
+    background: url('/Front_end/logo.png') -158px 0;
+}
+
+.nav {
+    width: 67%;
+    margin: 0 auto;
+}
+
+nav a {
+    color: white;
+    font-size: 0.9em;
+}
+
+body {
+    background: #d9e6f7;
+}
+
+.borda{
+    border: 1px solid red;
+}
+.sugestao{
+    width: 50%;
+    margin: 0 auto;
+}
+
+#conteudo-botao {
+    height: 70%;
+    width: 100%;
+    background: white;
+    border-radius: 5%;
+}
+
+#foto-perfil {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#nome {
+    height: 10%;
+    border-bottom: 1px solid #b7e8fa;
+    border-top: 1px solid #b7e8fa;
+}
+
+.campos {
+    border-top: 1px solid #b7e8fa;
+    border-bottom: 1px solid #b7e8fa;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
     }
-    #foto-perfil{
-        width: 30%;
-        margin: 0 auto;
-    }
-    #nome{
-        height: 10%;
-        border-bottom: 1px solid #b7e8fa;
-        border-top: 1px solid #b7e8fa ;
-    }
-    .campos{
-        border-top: 1px solid #b7e8fa;
-        border-bottom: 1px solid #b7e8fa;
-    }
-    @media (min-width: 1200px) {
-        .container{
-            max-width: 1060px;
-                  }
-                            }
-   #info-gerais{
+}
+
+.col-md-1-5 {
+    width: 15%;
+}
+
+.col-md-2-5 {
+    width: 20, 83333%;
+}
+
+.col-md-6-5 {
+    width: 54, 16667%;
+}
+
+#info-gerais {
     border-radius: 10px 50px 10px 10px;
-    }
-   .menu-geral{
-       float: left;
-       margin-right: 15px;
-   }
-   .no-margin{
-       margin: 0;
-   }
-   h4{
-       font-size: 1em;
-   }
-   .botao{
-       border: 1px solid rgba(128, 128, 128, 0.548);
-       border-radius: 15px;
-       margin: 0;
-   }
-    .botao a{
-       margin: 0;
-       font-size: 0.9em;
-       color: blue;
-       font-weight: 750;
-       opacity: 0.5;
-   }
-   .botao a:hover{
-       text-decoration: underline;
-       color: blue;
-   }
-   .radius{
-       border-radius: 10px;
-   }
-   img {
-        max-width: 100%;
-        height: auto;
-        width: auto\9; /* ie8 */
-    }
-    .texto-perfil{
-        font-size: 0.9em;
-        color: rgb(105, 105, 243);
-        text-align: center;
-    }
-    #explorar{
-        padding: 1% 11%;
-        background: #7091bd;
-        display: inline-block;
-        border-radius: 8px 8px 0 0;
-    }
-    #explorar p{
-        color: white;
-        font-size: 0.9em;
-    }
-    #info-nome{
-       margin: 0;
-       font-size: 0.9em;
-       color: rgb(8, 8, 129);
-       font-weight: 750;
-       opacity: 0.6;
-    }
-    .texto-info{
-        font-size: 0.9em;
-        color: #3a8ab2;
-        font-family:Verdana,Arial,sans-serif;
-        display: inline-block;
-    }
+}
+
+.menu-geral {
+    float: left;
+    margin-right: 15px;
+}
+
+textarea{
+    width: 100%;
+}
+
+.no-margin {
+    margin: 0!important;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+.botao {
+    border: 1px solid rgba(128, 128, 128, 0.548);
+    border-radius: 15px;
+    margin: 0;
+    line-height: normal;
+}
+
+.botao a {
+    margin: 0;
+    font-size: 0.9em;
+    color: blue;
+    font-weight: 750;
+    opacity: 0.5;
+}
+
+.botao a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.radius {
+    border-radius: 10px;
+}
+.size8{
+    font-size: 0.8em;
+}
+.size9{
+    font-size: 0.8em;
+}
+
+.areas{
+    background: white;
+    border-radius: 5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+    /* ie8 */
+}
+
+.texto-perfil {
+    font-size: 0.9em;
+    color: rgb(105, 105, 243);
+    text-align: center;
+}
+
+#explorar {
+    padding: 1% 11%;
+    background: #7091bd;
+    display: inline-block;
+    border-radius: 8px 8px 0 0;
+}
+
+#explorar p {
+    color: white;
+    font-size: 0.9em;
+}
+
+.info-nome {
+    margin: 0;
+    font-size: 0.9em;
+    color: rgb(8, 8, 129);
+    font-weight: 750;
+    opacity: 0.6;
+}
+
+.texto-info {
+    font-size: 0.7em;
+    color: #3a8ab2;
+    font-family: Verdana, Arial, sans-serif;
+    display: inline-block;
+}
+
+#frase-perfil {
+    border: 1px solid rgba(128, 128, 128, 0.205);
+    margin: 0 0px;
+}
+
+#frase-perfil p {
+    color: rgba(128, 128, 128, 0.836);
+    font-size: 0.9em;
+}
+
+#frase-perfil a {
+    text-decoration: none;
+}
+
+#menu p {
+    font-size: 0.9em;
+    margin: 0px;
+}
+
+.icone-album {
+    width: 14px;
+    height: 14px;
+    background: url(/Front_end/sprite.png) -37px 0;
+    display: block;
+    float: left;
+}
+
+.texto-menu {
+    font-size: 0.8em;
+}
+
+#social {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: #87a1c6;
+    display: inline-block;
+    padding: 3px 10px;
+}
+
+#social p {
+    color: white;
+}
+
+#social-info p {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.social-info1 {
+    background: #ddeefe;
+}
+
+.social-info2 {
+    background: #eff8ff;
+}
+.fundo{
+    background: #F0F0F0;
+}
+.sugestao-texto{
+    font-size: 0.8em;
+    color: rgb(120, 120, 221);
+    margin: 0;
+    text-align: center;
+}
+.borda-sugestao{
+    border-right: 7px solid white;
+}
+#grupos a{
+    display: block;
+}
