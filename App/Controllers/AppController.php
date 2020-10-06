@@ -49,6 +49,9 @@ class AppController extends Action {
 	public function comunidades(){
 		$this->render('comunidades','layout2');
 	}
+	public function pesquisa_comunidade(){
+		$this->render('pesquisa_comunidade','layout2');
+	}
 	
 
 
@@ -60,7 +63,9 @@ class AppController extends Action {
 			header('Location: /?login=erro');
 		}	
 
-    }
+	}
+	
+
     
 }
 

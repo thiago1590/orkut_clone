@@ -56,6 +56,12 @@ class Route extends Bootstrap {
 			'action' => 'comunidades'
 		);
 
+		$routes['pesquisa_comunidade'] = array(
+			'route' => '/pesquisa_comunidade',
+			'controller' => 'AppController',
+			'action' => 'pesquisa_comunidade'
+		);
+
 
 		$this->setRoutes($routes);
 	}
