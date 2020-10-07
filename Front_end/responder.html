@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
+    <style>
+        #mini-nav a:hover{
+    text-decoration: none;
+}
+#mini-nav span{
+    font-size: 0.9em;
+}
+.texto-info-comunidade{
+    text-align: right; vertical-align: top; width: 90px; font-size: 0.9em;
+
+}
+.size9{
+    font-size: 0.9em;
+}
+.tabela-header{
+    font-weight: 500;
+    font-size: 0.9em;
+}
+.td-left{
+    padding-left: 5%;
+    text-align: left;
+}
+.td-right{
+    padding-right: 5%;
+    text-align: right;
+}
+.tr-1{
+    background: #ddeefe;
+}
+.tr-2{
+    background: #eff8ff;
+}
+#todos-topicos{
+    font-size: 0.9em;
+    text-decoration: underline;
+    font-weight: 500;
+}
+#galeria-membros td{
+    background: #f0f0f0;
+    border: 4px solid white;
+}
+#galeria-membros img{
+    padding: 5px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <nav class="navbar navbar-expand-sm py-0" id="nav">
+            <div class="container">
+                <!--Logo-->
+                <a href="#" class="navbar-left"><img src="/Front_end/logo.png"></a>
+
+                <div class="d-none d-md-block">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Página de recados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Amigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Comunidades</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--Menu botões para SM-->
+
+                <button class="navbar-toggler ml-auto">
+                    <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
+                </button>
+
+                <button onclick="myFunction()" class="navbar-toggler" data-toggle="collapse" data-target="#nav-target2">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars"
+                            style="color:#fff; font-size:28px;"></i></span>
+                </button>
+
+                <!--Navegação-->
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="" class="nav-link d-none d-lg-block">thiagoandre2121@gmail.com</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Sair</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Pesquisar no orkut</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <!--<div id="nav-target2" class="collapse navbar-collapse">
+                <div id="conteudo-botao">
+                    <div id="foto-perfil">
+                        <img src="/Front_end/foto-perfil.png" width="100%" alt="">
+                    </div>
+                    <div id="nome">
+                        <p style="text-align: center;">Thiago André</p>
+                    </div>
+                </div>
+            </div>-->
+            </div>
+
+
+    </div>
+
+    <div class="container mt-2 " style="border-radius: 5%; ">
+
+        <div class="row h-100">
+
+            <!--Layout para SM-->
+
+            
+
+            <div class="col-12 d-md-none">
+                <div class="areas p-2">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/public/img/logo-teste.jpg" alt="">
+                        </div>
+                        <div class="col p-3">
+                            <a style="font-size: 1.3em;" href="">Eu odeio acordar cedo</a> <br>
+                            <button class="btn btn-sm botao mt-2">
+                                <img src="/Front_end/icons/deixar.png" alt="">
+                                <a class="texto-botao">deixar comunidade</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+            <!-- Fim Layout para SM-->
+
+            <!--Coluna Esquerda-->
+
+
+            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
+                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
+                    <div id="conteudo-esquerda">
+                        <div>
+                            
+                                <img class=" center" src="/Front_end/foto-perfil.png" alt="">
+                        
+                            <p class="mt-2 mb-1 info-nome">Eu Odeio Acordar Cedo</p>
+                            <div class="campos">
+                                <div class=" mb-2">
+                                    <span><img src="/Front_end/icons/participar.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">participar</p>
+                                    </a> <br>
+                                </div>
+                            </div>
+                                    
+                                    <span><img src="/Front_end/icons/forum.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">fórum</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/enquetes.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">enquetes</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/eventos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">eventos</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/membros.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">membros</p>
+                                    </a> <br>
+                                
+                            
+                           
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Fim Coluna Esquerda-->
+
+            <!--Coluna Centro-->
+            <div class="col bg-transparent mr-1 mt-2">
+                <div class="bg-white p-2  areas">
+                    <h3 style="font-weight: 400;">Novo tópico</h3>
+                    <div class="p-1" id="mini-nav">
+                        <span><a href="">Início ></a></span> 
+                        <span><a href=""> Comunidades > </a></span> 
+                        <span><a href=""> Eu Odeio Acordar Cedo </a></span> 
+                        <span style="color: gray;">> Fórum</span>
+                        <span style="color: gray;">> Novo tópico</span>
+                    </div>
+
+                    <div class="no-margin social-info2 py-2">
+                        <table class="ml-4">
+                            <tr class="ml-4">
+                                <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">Comunidade:</td>
+                                <td class="size9"> Eu Odeio Acordar Cedo
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="no-margin social-info2 py-2">
+                        <table class="ml-4">
+                            <tr class="ml-4">
+                                <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">Tópico:</td>
+                                <td class="size9"> Nome tópico
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="no-margin social-info1 py-2">
+                        <table class="ml-4">
+                            <tr class="ml-4">
+                                <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">Autor:</td>
+                                <td class="size9"> Thiago André
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="no-margin social-info2 py-2">
+                        <table class="ml-4">
+                            <tr class="ml-4">
+                                <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">Assunto:</td>
+                                <td class="size9"> <input type="text">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="no-margin social-info1 py-2">
+                        <table class="ml-4">
+                            <tr class="ml-4">
+                                <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">Mensagem:</td>
+                                <td class="size9"> <textarea name="" id="" cols="70" rows="10"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="clearfix mt-1" style="border-top: 1px solid rgba(128, 128, 128, 0.144);">
+                        <div style="float: left;">
+                            <button class="btn btn-sm botao mt-2">
+                                <a class="texto-botao">enviar</a>
+                            </button>
+                        </div>
+                        <div style="float: left;" class="ml-3">
+                            <button class="btn btn-sm botao mt-2">
+                                <a class="texto-botao">cancelar</a>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <!--Fim Centro-->
+
+            
+
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
