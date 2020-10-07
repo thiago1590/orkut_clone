@@ -11,6 +11,50 @@
     <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/Front_end/estilos/estilo.css">
     <style>
+        #mini-nav a:hover{
+    text-decoration: none;
+}
+#mini-nav span{
+    font-size: 0.9em;
+}
+.texto-info-comunidade{
+    text-align: right; vertical-align: top; width: 90px; font-size: 0.9em;
+
+}
+.size9{
+    font-size: 0.9em;
+}
+.tabela-header{
+    font-weight: 500;
+    font-size: 0.9em;
+}
+.td-left{
+    padding-left: 5%;
+    text-align: left;
+}
+.td-right{
+    padding-right: 5%;
+    text-align: right;
+}
+.tr-1{
+    background: #ddeefe;
+}
+.tr-2{
+    background: #eff8ff;
+}
+#todos-topicos{
+    font-size: 0.9em;
+    text-decoration: underline;
+    font-weight: 500;
+}
+#galeria-membros td{
+    background: #f0f0f0;
+    border: 4px solid white;
+}
+#galeria-membros img{
+    padding: 5px;
+}
+
 
     </style>
 </head>
@@ -92,106 +136,55 @@
         <div class="row h-100">
 
             <!--Layout para SM-->
-            <div class="col d-block d-md-none bg-transparent">
 
-                <div class="areas p-1">
+            
+
+            <div class="col-12 d-md-none">
+                <div class="areas p-2">
                     <div class="row">
-                        <div class="col-3 ">
-                            <img src="/Front_end/foto-perfil.png" class="mt-3" alt="">
+                        <div class="col-3">
+                            <img src="/public/img/logo-teste.jpg" alt="">
                         </div>
-                        <div class="col-6">
-                            <p class="info-nome">Thiago André</p>
-                            <div class="clearfix">
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">recados</p>
-                                    <img src="/Front_end/icons/recados.png" alt=""> 2
-                                </div>
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">fotos</p>
-                                    <img src="/Front_end/icons/fotos.png" alt=""> 2
-                                </div>
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">vídeos</p>
-                                    <img src="/Front_end/icons/videos.png" alt=""> 2
-                                </div>
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">fãs</p>
-                                    <img src="/Front_end/icons/fas.png" alt=""> 2
-                                </div>
-                                <br><br>
-
-
-                                <div class="row pl-3">
-                                    <div class="menu-geral">
-                                        <p class="no-margin texto-menu">confiável</p>
-                                        <img class="no-margin mr-1" src="/Front_end/icons/confiavel.png" alt="">
-                                    </div>
-                                    <div class="menu-geral">
-                                        <p class="no-margin texto-menu">legal</p>
-                                        <img class="no-margin mr-1" src="/Front_end/icons/legal.png" alt="">
-                                    </div>
-                                    <div class="menu-geral">
-                                        <p class="no-margin texto-menu">sexy</p>
-                                        <img class="no-margin mr-1" src="/Front_end/icons/coracoes.png" alt="">
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-3 ">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col areas p-2 mt-2">
-                    <div id="social" class="mt-2">
-                        <p class="no-margin">social</p>
-                    </div>
-
-
-                    <div id="social-info">
-                        <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">aniversario: 1 de janeiro de 1999</p>
-                        </div>
-                        <div class="no-margin social-info2 py-2">
-                            <p class="no-margin">relacionamento: solteiro(a)</p>
-                        </div>
-                        <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">país: Brasil</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md mt-2" style="padding: 0;">
-                    <div class="bg-white p-2" style="border-radius: 10px;">
-                        <h4>meus amigos <span>(0)</span></h4>
-                        <div class="mt-1 p-1" style="background: #eef7ff;">
-                            <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
-                        </div>
-                        <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                            <div class="mb-1"></div>
-                            <button class="btn btn-sm botao">
-                                <a class="texto-botao">Adicionar amigos</a>
+                        <div class="col p-3">
+                            <a style="font-size: 1.3em;" href="">Eu odeio acordar cedo</a> <br>
+                            <button class="btn btn-sm botao mt-2">
+                                <img src="/Front_end/icons/deixar.png" alt="">
+                                <a class="texto-botao">deixar comunidade</a>
                             </button>
                         </div>
                     </div>
-
-                    <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
-                        <h4>minhas comunidades <span>(0)</span></h4>
-
-                        <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                            <div class="mb-1"></div>
-                            <button class="btn btn-sm botao">
-                                <a class="texto-botao">Adicionar comunidades</a>
-                            </button>
-                        </div>
-                    </div>
-
                 </div>
-
+                <div class="areas p-2">
+                    <div class="tr-1 p-2">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">descrição:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod molestias dolor, ut assumenda, pariatur a perferendis quia placeat aperiam, impedit ab sequi repudiandae deserunt eius tempore consequuntur reprehenderit fugiat rerum!</p>
+                    </div>
+                    <div class="tr-2 p-2">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">idioma:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">Português</p>
+                    </div>
+                    <div class="tr-1 p-1">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">categoria:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">Outros</p>
+                    </div>
+                    <div class="tr-2 p-2">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">dono:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">Thiago</p>
+                    </div>
+                    <div class="tr-1 p-1">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">tipo:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">pública</p>
+                    </div>
+                    <div class="tr-2 p-2">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">local:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">Brasil</p>
+                    </div>
+                    <div class="tr-1 p-1">
+                        <p class="no-margin size9" style="color: rgb(104, 101, 101);">criado em:</p>
+                        <p class="no-margin" style="font-weight: 500; color: rgb(124, 121, 121);">07 de outubro de 2020 02:31</p>
+                    </div>
+                    
+                </div>
             </div>
 
 
@@ -202,59 +195,40 @@
 
             <div class="col-md-2 d-none d-md-block" style="padding: 0;">
                 <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda" class="ml-1">
+                    <div id="conteudo-esquerda">
                         <div>
-                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
-                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
+                            
+                                <img class=" center" src="/Front_end/foto-perfil.png" alt="">
+                        
+                            <p class="mt-2 mb-1 info-nome">Eu Odeio Acordar Cedo</p>
                             <div class="campos">
-                                <div class="mt-2 mb-2">
-                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                                <div class=" mb-2">
+                                    <span><img src="/Front_end/icons/participar.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">perfil</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">recados</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">fotos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">vídeos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">depoimentos</p>
+                                        <p class="no-margin texto-info">participar</p>
                                     </a> <br>
                                 </div>
                             </div>
-                            <div class="campos">
-                                <div class="mb-2">
-                                    <h4>Apps</h4>
-                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                    
+                                    <span><img src="/Front_end/icons/forum.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">adicionar apps</p>
+                                        <p class="no-margin texto-info">fórum</p>
                                     </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
-                                <div class="mt-2">
-                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                    <span><img src="/Front_end/icons/enquetes.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">listas</p>
+                                        <p class="no-margin texto-info">enquetes</p>
                                     </a> <br>
-                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                    <span><img src="/Front_end/icons/eventos.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">atualizações</p>
+                                        <p class="no-margin texto-info">eventos</p>
                                     </a> <br>
-                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                    <span><img src="/Front_end/icons/membros.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">configurações</p>
+                                        <p class="no-margin texto-info">membros</p>
                                     </a> <br>
-                                </div>
-                            </div>
+                                
+                            
+                           
                             <div>
 
                             </div>
@@ -266,114 +240,191 @@
             <!--Fim Coluna Esquerda-->
 
             <!--Coluna Centro-->
-            <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
-                <div class="bg-white p-2" id="info-gerais">
-                    <h3 style="font-weight: 400;">Fulano Beltrano</h3>
-                    <div class="p-1">
-                        <span><a href="">Início</a></span> <span style="color: gray;">> Meu perfil</span>
+            <div class="col-md-7 bg-transparent mr-1">
+                <div class="bg-white p-2  d-none d-md-block" id="info-gerais">
+                    <h3 style="font-weight: 400;">Eu Odeio Acordar Cedo</h3>
+                    <div class="p-1" id="mini-nav">
+                        <span><a href="">Início ></a></span> 
+                        <span><a href=""> Comunidades </a></span> 
+                        <span style="color: gray;">> Meu perfil</span>
                     </div>
 
-
-                    <div class="row mx-2 mt-2" id="frase-perfil">
-                        <div class="col-8">
-                            <a href="">
-                                <p class="no-margin">Qual é a sua frase de perfil?</p>
-                            </a>
-                        </div>
-                        <div class="col-4">
-
-                        </div>
-                    </div>
-
-                    <div class="row ml-2 mt-3">
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">recados</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/recados.png" width="25%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">fotos</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/fotos.png" width="50%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">videos</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/videos.png" width="40%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">fas</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/fas.png" width="52%" alt="">1
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">mensagens</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/mensagens.png" width="25%" alt="">1
-                        </div>
-                    </div>
-                    <div class="row ml-2 mt-3 mb-3">
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">confiável</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/confiavel.png" alt="">
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">legal</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/legal.png" alt="">
-                        </div>
-                        <div class="menu-geral">
-                            <p class="no-margin texto-menu">sexy</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/coracoes.png" alt="">
-                        </div>
-
-                    </div>
-
-
-                    <div id="social" class="mt-2">
-                        <p class="no-margin">social</p>
-                    </div>
-
-
-                    <div id="social-info">
+                    <div id="social-info" class="mt-2">
                         <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">aniversario: 1 de janeiro de 1999</p>
+                          <table class="ml-4">
+                              <tr class="ml-4">
+                                  <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">descricao:</td>
+                                  <td class="size9">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quo sunt doloribus perspiciatis? Quo, repudiandae molestias officiis eveniet quisquam eius maiores doloribus voluptatem neque similique dolores rerum sint accusantium eaque!
+                                  </td>
+                              </tr>
+                          </table>
                         </div>
                         <div class="no-margin social-info2 py-2">
-                            <p class="no-margin">relacionamento: solteiro(a)</p>
+                            <table class="ml-4">
+                                <tr class="ml-4">
+                                    <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">idioma:</td>
+                                    <td class="size9"> Português
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">país: Brasil</p>
+                            <table class="ml-4">
+                                <tr class="ml-4">
+                                    <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">categoria:</td>
+                                    <td class="size9"> Outros
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
+
+                        <div class="no-margin social-info2 py-2">
+                            <table class="ml-4">
+                                <tr class="ml-4">
+                                    <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">dono:</td>
+                                    <td class="size9"> Thiago
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="no-margin social-info1 py-2">
+                            <table class="ml-4">
+                                <tr class="ml-4">
+                                    <td class="pr-3 texto-info-comunidade">tipo:</td>
+                                    <td class="size9"> pública
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="no-margin social-info2 py-2">
+                            <table class="ml-4">
+                                <tr class="ml-4">
+                                    <td class="pr-3 texto-info-comunidade" >local:</td>
+                                    <td class="size9"> Brasil
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="no-margin social-info1 py-2">
+                            <table class="ml-4">
+                                <tr class="ml-4">
+                                    <td class="pr-3 texto-info-comunidade">criado em:</td>
+                                    <td class="size9"> 07 de Out de 2020 às 00:46
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
                     </div>
 
 
                 </div>
 
+                <div class="bg-white mt-2 p-2 areas mb-3">
+                    <strong class="size9">fórum</strong>
+                    <table style="width: 100%; margin: 0 auto;">
+                        <thead>
+                                <td style="padding: 10px;" class="td-left"><p class="no-margin tabela-header">tópico</p></td>
+                                
+                                <td style="padding: 10px;" class="td-right"><p class="no-margin tabela-header">última postagem</p></td>
+                        </thead>
+                        
+                        <tr class="tr-1">
+                            <td class="td-left py-1"><a href="">Madrugantes</a></td>
+                            <td class="td-right">01:03</td>
+                        </tr>
+
+                        <tr class="tr-2">
+                            <td class="td-left py-1">
+                                <a href="">O que vc faria se fosse rico</a>
+                            </td>
+                            <td class="td-right">19:43</td>
+                        </tr>
+                        
+                        <tr class="tr-1">
+                            <td class="td-left py-1">
+                                <a href="">Qual sua sorte de hoje?</a>
+                            </td>
+                            <td class="td-right">18:43</td>
+                        </tr>
+                        <tr class="tr-2">
+                            <td class="td-left py-1">
+                                <a href="">Colheia feliz ou Mini fazenda?</a>
+                            </td>
+                            <td class="td-right">18:43</td>
+                        </tr>
+                    </table>
+                    <div class="campos clearfix">
+                        <div style="float: left;">
+                            <button class="btn btn-sm botao mt-2">
+                                <a class="texto-botao">Novo tópico</a>
+                            </button>
+                        </div>
+                        <div style="float: right;" class="mt-2">
+                            <a id="todos-topicos" href="">ver todos os tópicos >></a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
             <!--Fim Centro-->
 
             <!--Começo Coluna Direita-->
-            <div class="col-md d-none d-md-block mt-2" style="padding: 0;">
+            <div class="col-md mt-2" style="padding: 0;">
                 <div class="bg-white p-2" style="border-radius: 10px;">
-                    <h4>meus amigos <span>(0)</span></h4>
-                    <div class="mt-1 p-1" style="background: #eef7ff;">
-                        <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
-                    </div>
-                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                        <div class="mb-1"></div>
-                        <button class="btn btn-sm botao">
-                            <a class="texto-botao">Adicionar amigos</a>
-                        </button>
-                    </div>
+                    <h4>membros <span>(0)</span></h4>
+                    <table style="width: 100%;" id="galeria-membros">
+                        <tr>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                            <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href=""><p class="no-margin" style="text-align: center;">fulano</p></a>
+                            </td>
+                        </tr>
+                    </table>
+                    
                 </div>
 
-                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
-                    <h4>minhas comunidades <span>(0)</span></h4>
-
-                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                        <div class="mb-1"></div>
-                        <button class="btn btn-sm botao">
-                            <a class="texto-botao">Adicionar comunidades</a>
-                        </button>
-                    </div>
-                </div>
+                
 
             </div>
             <!--Fim Coluna Direita-->

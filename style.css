@@ -169,7 +169,7 @@ h3 {
     font-size: 0.8em;
 }
 .size9{
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .areas{
@@ -301,4 +301,7 @@ img {
 .nav-item a:hover{
     color: white;
     text-decoration: underline;
+}
+#mini-nav a:hover{
+    text-decoration: none;
 }

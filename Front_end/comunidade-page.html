@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .texto-info2{
+            font-size: 0.9em;
+            color: #3a8ab2;
+            font-family: Verdana, Arial, sans-serif;
+            display: inline-block;
+        }
+        .nav-item a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-2" style="border-radius: 5%; ">
+
+        <div class="row h-100">
+
+            <!--Coluna Esquerda-->
+            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
+                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
+                    <div id="conteudo-esquerda" class="ml-1">
+                        <div>
+                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
+                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
+                            <div class="campos">
+                                <div class="mt-2 mb-2">
+                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">perfil</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">recados</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">fotos</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">vídeos</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">depoimentos</p>
+                                    </a> <br>
+                                </div>
+                            </div>
+                            <div class="campos">
+                                <div class="mb-2">
+                                    <h4>Apps</h4>
+                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">adicionar apps</p>
+                                    </a> <br>
+                                </div>
+                            </div>
+                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
+                                <div class="mt-2">
+                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">listas</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">atualizações</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">configurações</p>
+                                    </a> <br>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Fim Coluna Esquerda-->
+
+            <!--Coluna Centro-->
+            <div class="col-md-7 bg-transparent mr-1">
+                <div class="bg-white p-2" id="info-gerais">
+                    <h3 style="font-weight: 400;">Bem-vindo(a), fulano</h3>
+                    <div class="row ml-2 mt-3">
+                        <div class="menu-geral">
+                            <p class="no-margin">recados</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/recados.png" width="25%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin">fotos</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/fotos.png" width="50%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin">videos</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/videos.png" width="40%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin">fas</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/fas.png" width="52%" alt="">1
+                        </div>
+                        <div class="menu-geral">
+                            <p class="no-margin">mensagens</p>
+                            <img class="no-margin mr-1" src="/Front_end/icons/mensagens.png" width="25%" alt="">1
+                        </div>
+                        <div class="mt-4 mr-3">
+                            <h4>Visualizações de seu perfil:</h4>
+                            <p class="no-margin" style="font-size: 0.9em;">
+                                Desde Jul. 2017: 0, Semana passada: 0, Ontem: 0</p>
+                        </div>
+                        <div class="mt-3">
+                            <h4>Seus visitantes recentes:</h4>
+                            <p class="no-margin" style="font-size: 0.9em;">nenhum</p>
+                        </div>
+                        <div class="mt-3">
+                            <h4>Sorte de hoje:</h4>
+                            <p class="no-margin" style="font-size: 0.9em;">Uma imaginação bem canalizada é fonte de grandes proezas.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mt-4 bg-white radius p-2 ">
+                    <p style="font-size: 0.9em; font-weight: 500;">sugestões de amigos do orkut</p>
+                    <div class="row p-2">
+                        <div class="col-1">
+                            <button class="btn btn-primary"></button>
+                        </div>
+                        <div class="col-10">
+                            <div class="row ">
+                                <div class="col-3 fundo borda-sugestao">
+                                    <div class="img-fluid mt-2">
+                                        <img src="/Front_end/foto-perfil.png" alt="">
+                                    </div>
+                                    <p class="sugestao-texto">Thiago André</p>
+                                </div>
+                                <div class="col-3 fundo borda-sugestao">
+                                    <div class="img-fluid mt-2">
+                                        <img src="/Front_end/foto-perfil.png" alt="">
+                                    </div>
+                                    <p class="sugestao-texto">Thiago André</p>
+                                </div>
+                                <div class="col-3 fundo borda-sugestao">
+                                    <div class="img-fluid mt-2">
+                                        <img src="/Front_end/foto-perfil.png" alt="">
+                                    </div>
+                                    <p class="sugestao-texto">Thiago André</p>
+                                </div>
+                                <div class="col-3 fundo">
+                                    <div class="img-fluid mt-2">
+                                        <img src="/Front_end/foto-perfil.png" alt="">
+                                    </div>
+                                    <p class="sugestao-texto">Thiago André</p>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-1 ">
+                            <button class="btn btn-primary"></button>
+                    
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+
+                <div id="explorar" class="mt-2">
+                    <p class="no-margin">explorar</p>
+                </div>
+
+            </div>
+
+            <!--Fim Centro-->
+
+            <!--Começo Coluna Direita-->
+            <div class="col-md d-none d-md-block" bg-transparent " style="padding: 0; ">
+                <div class="bg-white p-2 " style="border-radius: 10px; ">
+                    <h4>meus amigos <span>(0)</span></h4>
+                    <div class="mt-1 p-1 " style="background: #eef7ff; ">
+                        <p class="no-margin " style="font-size: 0.8em; ">você ainda não adicionou nenhum amigo</p>
+                    </div>
+                    <div class="campos mt-2 " style="border-bottom: 1px solid white; ">
+                        <div class="mb-1 "></div>
+                        <button class="btn btn-sm botao ">
+                            <a class="texto-botao ">Adicionar amigos</a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-2 mt-2 " style="border-radius: 10px; ">
+                    <h4>minhas comunidades <span>(0)</span></h4>
+
+                    <div class="campos mt-2 " style="border-bottom: 1px solid white; ">
+                        <div class="mb-1 "></div>
+                        <button class="btn btn-sm botao ">
+                            <a class="texto-botao ">Adicionar comunidades</a>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fim Coluna Direita-->
+
+
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
