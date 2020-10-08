@@ -1,0 +1,95 @@
+#mini-nav a:hover{
+    text-decoration: none;
+}
+
+#mini-nav span {
+    font-size: 0.9em;
+}
+
+.texto-info-comunidade {
+    text-align: right;
+    vertical-align: top;
+    width: 90px;
+    font-size: 0.9em;
+
+}
+
+.tabela-header {
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.td-left {
+    padding-left: 5%;
+    text-align: left;
+}
+
+.td-right {
+    padding-right: 5%;
+    text-align: right;
+}
+
+.bg-listrado-1 {
+    background: #ddeefe;
+}
+
+.bg-listrado-2 {
+    background: #eff8ff;
+}
+
+#todos-topicos {
+    font-size: 0.9em;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+#galeria-membros td {
+    background: #f0f0f0;
+    border: 4px solid white;
+}
+
+#galeria-membros img {
+    padding: 5px;
+}
+
+.color-gray {
+    color: rgb(104, 101, 101);
+}
+
+.gray-and-bold {
+    color: rgb(104, 101, 101);
+    font-weight: 500;
+}
+a{
+    color: rgba(68, 68, 219, 0.712);
+}
+#todos-topicos {
+    font-size: 0.9em;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+#galeria-membros td {
+    background: #f0f0f0;
+    border: 4px solid white;
+}
+
+#galeria-membros img {
+    padding: 5px;
+}
+
+.borda-top {
+    border-top: 1px solid rgba(128, 128, 128, 0.144);
+}
+.img-resposta {
+    width: 80px;
+    display: inline-block;
+    height: auto;
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+.resposta{
+    float: left;
+    display: block;
+    border-bottom: 2px solid white;
+}

@@ -52,14 +52,38 @@ class Route extends Bootstrap {
 
 		$routes['comunidades'] = array(
 			'route' => '/comunidades',
-			'controller' => 'AppController',
+			'controller' => 'ComunidadeController',
 			'action' => 'comunidades'
 		);
 
 		$routes['pesquisa_comunidade'] = array(
 			'route' => '/pesquisa_comunidade',
-			'controller' => 'AppController',
+			'controller' => 'ComunidadeController',
 			'action' => 'pesquisa_comunidade'
+		);
+
+		$routes['comunidade_page'] = array(
+			'route' => '/comunidade_page',
+			'controller' => 'ComunidadeController',
+			'action' => 'comunidade_page'
+		);
+
+		$routes['novo_topico'] = array(
+			'route' => '/novo_topico',
+			'controller' => 'ComunidadeController',
+			'action' => 'novo_topico'
+		);
+
+		$routes['forum'] = array(
+			'route' => '/forum',
+			'controller' => 'ComunidadeController',
+			'action' => 'forum'
+		);
+
+		$routes['topico'] = array(
+			'route' => '/topico',
+			'controller' => 'ComunidadeController',
+			'action' => 'topico'
 		);
 
 
