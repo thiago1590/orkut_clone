@@ -9,6 +9,11 @@
                         <div>
                             <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
                             <p class="mt-2 mb-1 info-nome">Thiago André</p>
+                            <?php 	session_start();
+                            print_r($_SESSION); 
+                            echo $_SESSION['id'];
+                            echo 'aa'
+                            ?>
                             <div class="campos">
                                 <div class="mt-2 mb-2">
                                     <span><img src="/Front_end/icons/perfil.png" alt=""></span>

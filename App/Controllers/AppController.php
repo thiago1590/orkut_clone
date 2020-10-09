@@ -11,9 +11,9 @@ class AppController extends Action {
 
 	public function timeline() {
 
-        /*
+        
 		$this->validaAutenticacao();
-			
+		/*	
 		//recuperação dos tweets
 		$tweet = Container::getModel('Tweet');
 
@@ -46,6 +46,9 @@ class AppController extends Action {
 	public function amigos(){
 		$this->render('amigos','layout2');
 	}
+	public function encontrar_amigos(){
+		$this->render('encontrar_amigos','layout2');
+	}
 	
 	
 	
@@ -57,7 +60,7 @@ class AppController extends Action {
 
 		if(!isset($_SESSION['id']) || $_SESSION['id'] == '' || !isset($_SESSION['nome']) || $_SESSION['nome'] == '') {
 			header('Location: /?login=erro');
-		}	
+		} 
 
 	}
 	

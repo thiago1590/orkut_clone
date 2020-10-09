@@ -30,18 +30,18 @@
          <div class="col">
          <select class="form-control" name="mes">
              <option>Mês</option>
-             <option value="1">Janeiro</option>
-             <option value="2">Fevereiro</option>
-             <option value="3">Março</option>
-             <option value="4">Abril</option>
-             <option value="5">Maio</option>
-             <option value="6">Junho</option>
-             <option value="7">Julho</option>
-             <option value="8">Agosto</option>
-             <option value="9">Setembro</option>
-             <option value="10">Outubro</option>
-             <option value="11">Novembro</option>
-             <option value="12">Dezembro</option>
+             <option value="Janeiro">Janeiro</option>
+             <option value="Fevereiro">Fevereiro</option>
+             <option value="Março">Março</option>
+             <option value="Abril">Abril</option>
+             <option value="Maio">Maio</option>
+             <option value="Junho">Junho</option>
+             <option value="Julho">Julho</option>
+             <option value="Agosto">Agosto</option>
+             <option value="Setembro">Setembro</option>
+             <option value="Outubro">Outubro</option>
+             <option value="Novembro">Novembro</option>
+             <option value="Dezembro">Dezembro</option>
              </select>
          </div>
          <div class="col">
@@ -72,7 +72,15 @@
                  </select>
          </div>
      </div>
-     
+     <button class="btn btn-success mt-3 ml d-none d-lg-block" type="submit">Cadastrar-se</button>
+     <button type="submit" class="btn btn-color mb-3 mt-2 btn-block d-lg-none">Cadastrar </button>
+
+     <?php 
+     if($this->view->cadastro == 'true'){ ?>
+        <span class="text text-success size9">Cadastro realizado com sucesso!</span>
+                <?php  } ?>
+        
+
 <div>
 
 </div>

@@ -21,13 +21,15 @@ class Usuario extends Model {
 
     public function salvar() {
 
-		$query = "insert into usuarios(nome, email, senha, sobrenome)
-		values(:nome, :email, :senha, :sobrenome)";
+		$query = "insert into usuarios(nome,sobrenome, email, senha, data )
+		values(:nome,:sobrenome, :email, :senha, :data)";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':nome', $this->__get('nome'));
-		$stmt->bindValue(':email', $this->__get('email'));
-		$stmt->bindValue(':senha', $this->__get('senha')); //md5() -> hash 32 caracteres
 		$stmt->bindValue(':sobrenome', $this->__get('sobrenome'));
+		$stmt->bindValue(':email', $this->__get('email'));
+		$stmt->bindValue(':senha', $this->__get('senha'));
+		$stmt->bindValue(':data', $this->__get('data'));
+		
 		$stmt->execute();
 
 		return $this;

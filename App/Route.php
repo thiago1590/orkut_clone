@@ -86,6 +86,18 @@ class Route extends Bootstrap {
 			'action' => 'topico'
 		);
 
+		$routes['encontrar_amigos'] = array(
+			'route' => '/encontrar_amigos',
+			'controller' => 'AppController',
+			'action' => 'encontrar_amigos'
+		);
+
+		$routes['sair'] = array(
+			'route' => '/sair',
+			'controller' => 'AuthController',
+			'action' => 'sair'
+		);
+
 
 		$this->setRoutes($routes);
 	}

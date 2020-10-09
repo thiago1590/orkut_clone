@@ -84,10 +84,19 @@
             padding: 3px;
             border: 1px solid #ddd;
         }
-        .resposta{
+
+        .resposta {
             float: left;
             display: block;
             border-bottom: 2px solid white;
+        }
+
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
         }
     </style>
 </head>
@@ -168,70 +177,64 @@
 
         <div class="row h-100">
 
-            <!--Layout para SM-->
-
-
-
-            <div class="col-12 d-md-none">
-                <div class="areas p-2">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="/public/img/logo-teste.jpg" alt="">
-                        </div>
-                        <div class="col p-3">
-                            <a style="font-size: 1.3em;" href="">Eu odeio acordar cedo</a> <br>
-                            <button class="btn btn-sm botao mt-2">
-                                <img src="/Front_end/icons/deixar.png" alt="">
-                                <a class="texto-botao">deixar comunidade</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <!-- Fim Layout para SM-->
-
             <!--Coluna Esquerda-->
 
 
             <div class="col-md-2 d-none d-md-block" style="padding: 0;">
                 <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda">
+                    <div id="conteudo-esquerda" class="ml-1">
                         <div>
-
-                            <img class=" center" src="/Front_end/foto-perfil.png" alt="">
-
-                            <p class="mt-2 mb-1 info-nome">Eu Odeio Acordar Cedo</p>
+                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
+                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
                             <div class="campos">
-                                <div class=" mb-2">
-                                    <span><img src="/Front_end/icons/participar.png" alt=""></span>
+                                <div class="mt-2 mb-2">
+                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
                                     <a href="">
-                                        <p class="no-margin texto-info">participar</p>
+                                        <p class="no-margin texto-info">perfil</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">recados</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">fotos</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">vídeos</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">depoimentos</p>
                                     </a> <br>
                                 </div>
                             </div>
-
-                            <span><img src="/Front_end/icons/forum.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">fórum</p>
-                            </a> <br>
-                            <span><img src="/Front_end/icons/enquetes.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">enquetes</p>
-                            </a> <br>
-                            <span><img src="/Front_end/icons/eventos.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">eventos</p>
-                            </a> <br>
-                            <span><img src="/Front_end/icons/membros.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">membros</p>
-                            </a> <br>
-
-
-
+                            <div class="campos">
+                                <div class="mb-2">
+                                    <h4>Apps</h4>
+                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">adicionar apps</p>
+                                    </a> <br>
+                                </div>
+                            </div>
+                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
+                                <div class="mt-2">
+                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">listas</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">atualizações</p>
+                                    </a> <br>
+                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                    <a href="">
+                                        <p class="no-margin texto-info">configurações</p>
+                                    </a> <br>
+                                </div>
+                            </div>
                             <div>
 
                             </div>
@@ -247,65 +250,52 @@
                 <div class="bg-white p-2  areas">
 
                     <!--Título e Nav-->
-                    <h3 style="font-weight: 400;">Nome tópico</h3>
+                    <h3 style="font-weight: 400;">Encontrar amigos</h3>
                     <div class="p-1" id="mini-nav">
                         <span><a href="">Início ></a></span>
-                        <span><a href=""> Comunidades > </a></span>
-                        <span><a href=""> Eu Odeio Acordar Cedo > </a></span>
-                        <span><a href=""> Fórum ></a></span>
-                        <span style="color:gray"> Nome Tópico</span>
+                        <span style="color:gray"> Pesquisar</span>
                     </div>
                     <!--Fim Título e Nav-->
 
-                    <!--Respostas-->
+                    <!--sugestoes amigos-->
 
-                    <div class="clearfix" style="background: #f0f7ff;">
+                    <p class="no-margin size9">Pesquisar amigos:</p>
+                    <span><input type="text"></span>
+                    <span>
+                        <button class="btn btn-sm botao mb-1">
+                            <a class="texto-botao">pesquisar</a>
+                        </button>
+                    </span>
+                    <div class="clearfix mt-2" style="background: #f0f7ff;">
 
-                        <div style="border-bottom:4px solid white ;" class="clearfix"> <!--Resposta 1-->
-                            
+                        <div style="border-bottom:4px solid white ;" class="clearfix">
+
                             <div class="resposta">
                                 <img class="img-resposta ml-2" src="/Front_end/foto-perfil.png" alt="">
                             </div>
-                            <div style="float: left; width: 84%;  display: block;">
+                            <div style="float: left;" class="mt-3 pt-1">
                                 <div class="ml-2" style="float: left;">
-                                    <a href="">Nicolle</a>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis molestias fugiat
-                                        officia cum? Quasi laudantium exercitationem iusto obcaecati eum labore rem
-                                        dolores. Mollitia eveniet quo, molestiae sunt dolorum illum nihil!</p>
+                                    <a class="" href="">Nicolle</a>
+
                                 </div>
 
                             </div>
-                        </div> <!--Fim Resposta 1-->
-
-                        <div> <!--Resposta 2-->
-                            
-                            <div class="resposta">
-                                <img class="img-resposta ml-2" src="/Front_end/foto-perfil.png" alt="">
-                            </div>
-                            <div style="float: left; width: 84%;  display: block;">
-                                <div class="ml-2" style="float: left;">
-                                    <a href="">Diego</a>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis molestias fugiat
-                                        officia cum? Quasi laudantium exercitationem iusto obcaecati eum labore rem
-                                        dolores. Mollitia eveniet quo, molestiae sunt dolorum illum nihil!</p>
-                                </div>
-
-                            </div>
-                        </div> <!--Fim Resposta 2-->
-
-
-                    </div>
-
-                    <!--Fim Respostas-->
-
-                    <div class="clearfix mt-1 borda-top">
-
-                        <div class="ml-2">
-                            <button class="btn btn-sm botao mt-2">
-                                <a class="texto-botao">responder</a>
-                            </button>
                         </div>
+
+                        <div class="resposta">
+                            <img class="img-resposta ml-2" src="/Front_end/foto-perfil.png" alt="">
+                        </div>
+                        <div style="float: left;" class="mt-3 pt-1">
+                            <div class="ml-2" style="float: left;">
+                                <a href="">Diego</a>
+                            </div>
+
+                        </div>
+
                     </div>
+
+                    <!--Fim sugestoes amigos-->
+
 
                 </div>
 

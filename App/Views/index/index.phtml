@@ -28,7 +28,6 @@
                 
                 <div class="mb-3 pb-1">
                 <?php require("cadastro_codigo.php") ?>
-                <button type="submit" class="btn btn-color mb-3 mt-2 btn-block">Cadastrar </button>
                 </div>
                 </div>
                 
@@ -76,6 +75,10 @@
                                 <button type="submit" class="btn btn-primary">Entrar </button>
                             </div>
                         </div>
+                        <?php if($this->view->login == 'erro'){ ?>
+                            <span class="text text-danger size9">E-mail e/ou senha inválido(s)</span>
+                        <?php  } ?>
+                        
                     </form>
                 </div>
                 
@@ -85,7 +88,7 @@
                 <h2 class="mt-5 ml-4">Ainda não possui cadastro no Orkut?</h2>
 
                 <?php require("cadastro_codigo.php") ?>
-                <button class="btn btn-success mt-3 ml-4" type="submit">Cadastrar-se</button>
+
 
             </div>
             <!--Fim Coluna Direita-->
