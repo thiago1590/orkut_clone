@@ -16,7 +16,7 @@
      <div class="row mt-3">
          <div class="col">
              <select class="form-control" name="dia">
-                 <option value="">Dia</option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> 
+                 <option value="false">Dia</option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> 
                  <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> 
                  <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> 
                  <option value="12">12</option> <option value="13">13</option> <option value="14">14</option> <option value="15">15</option> 
@@ -29,7 +29,7 @@
          </div>
          <div class="col">
          <select class="form-control" name="mes">
-             <option>Mês</option>
+             <option value="false">Mês</option>
              <option value="Janeiro">Janeiro</option>
              <option value="Fevereiro">Fevereiro</option>
              <option value="Março">Março</option>
@@ -46,7 +46,7 @@
          </div>
          <div class="col">
              <select name="ano" class="form-control">
-                 <option>Ano</option> <option value="2020">2020</option> <option value="2019">2019</option> <option value="2018">2018</option>
+                 <option value="false">Ano</option> <option value="2020">2020</option> <option value="2019">2019</option> <option value="2018">2018</option>
                  <option value="2017">2017</option> <option value="2016">2016</option> <option value="2015">2015</option> <option value="2014">2014</option>
                  <option value="2013">2013</option> <option value="2012">2012</option> <option value="2011">2011</option> <option value="2010">2010</option>
                  <option value="2009">2009</option> <option value="2008">2008</option> <option value="2007">2007</option> <option value="2006">2006</option>
@@ -79,6 +79,11 @@
      if($this->view->cadastro == 'true'){ ?>
         <span class="text text-success size9">Cadastro realizado com sucesso!</span>
                 <?php  } ?>
+    <?php 
+     if($this->view->cadastro == 'false'){ ?>
+        <span class="text text-danger size9">Erro no cadastro. Verifique seus dados.</span>
+                <?php  } ?>
+
         
 
 <div>

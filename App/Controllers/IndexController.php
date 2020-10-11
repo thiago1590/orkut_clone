@@ -28,10 +28,15 @@ class IndexController extends Action {
 		$usuario->__set('email', $_POST['email']);
 		$usuario->__set('senha', md5($_POST['senha']));
 		$usuario->__set('sobrenome', $_POST['sobrenome']);
+		$usuario->__set('dia', $_POST['dia']);
+		$usuario->__set('mes', $_POST['mes']);
+		$usuario->__set('ano', $_POST['ano']);
 		$usuario->__set('data', $data);
 
 		$this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
 		$this->view->cadastro = isset($_GET['cadastro']) ? $_GET['cadastro'] : '';
+
+		$this->view->nome = $_POST['nome'];
 
 		if($usuario->validarCadastro() && count($usuario->getUsuarioPorEmail()) == 0) {
 		
@@ -48,7 +53,7 @@ class IndexController extends Action {
 
 			$this->view->erroCadastro = true;
 
-			$this->render('index','layout1');
+			header('Location: /?cadastro=false');
 		}
 
 	}
