@@ -185,9 +185,11 @@ img {
 }
 
 .texto-perfil {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: rgb(105, 105, 243);
     text-align: center;
+    line-height: 1;
+    display: block;
 }
 
 #explorar {
@@ -301,4 +303,24 @@ img {
 .nav-item a:hover{
     color: white;
     text-decoration: underline;
+}
+.owl-prev span {
+    width: 14px;
+    height: 14px;
+    background: url(../img/sprite.png?v=234256) -556px 0;
+    display: inline-block;
+    color: transparent;
+}
+.btn-adicionar {
+    font-size: 0.9em;
+    color: black;
+    text-align: center;
+    line-height: 1;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 5px;
+    
 }

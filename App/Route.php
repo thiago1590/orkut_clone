@@ -98,6 +98,17 @@ class Route extends Bootstrap {
 			'action' => 'sair'
 		);
 
+		$routes['frase'] = array(
+			'route' => '/frase',
+			'controller' => 'AppController',
+			'action' => 'frase'
+		);
+
+		$routes['setRecado'] = array(
+			'route' => '/setRecado',
+			'controller' => 'AppController',
+			'action' => 'setRecado'
+		);
 
 		$this->setRoutes($routes);
 	}

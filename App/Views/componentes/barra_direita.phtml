@@ -1,0 +1,145 @@
+
+<div class="col-md d-none d-md-block mt-2" style="padding: 0;">
+                <div class="bg-white p-2" style="border-radius: 10px;">
+                    <h4>meus amigos <span>(0)</span></h4>
+                    <?php 
+                        if($this->view->friends == "" || $this->view->friends == null){ ?>
+                             <div class="mt-1 p-1" style="background: #eef7ff;">
+                        <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
+                    </div>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                        <button class="btn btn-sm botao">
+                            <a class="texto-botao" href="encontrar_amigos">Adicionar amigos</a>
+                        </button>
+
+                    </div>
+                       <?php } else{ ?>
+                        <table style="width: 100%;" id="galeria-membros">
+                    
+
+                        <tr>
+                            <?php 
+
+                                foreach($this->view->friends[0] as $friends){ ?>
+                                    <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href="">
+                                    <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
+                                </a>
+                            </td>
+                                <?php  } 
+                                ?>
+                        </tr>
+
+                        <tr>
+                        <?php 
+                            
+                        if($this->view->friends[1] != null){
+                        foreach($this->view->friends[1] as $friends){ ?>
+                            <td>
+                        <img src="/Front_end/foto-perfil.png" alt="">
+                        <a href="">
+                            <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
+                        </a>
+                    </td>
+                        <?php  }}
+
+                        ?>
+                        </tr>
+                       
+                       <tr>
+                       <?php 
+                            
+                            if(isset($this->view->friends[2])){
+                            foreach($this->view->friends[2] as $friends){ ?>
+                                <td>
+                            <img src="/Front_end/foto-perfil.png" alt="">
+                            <a href="">
+                                <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
+                            </a>
+                        </td>
+                            <?php  }}
+    
+                            ?>
+                       </tr>
+                         
+                    </table>
+                       <?php } 
+                       
+                       ?> 
+                    
+                    
+                   
+                </div>
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>minhas comunidades <span>(0)</span></h4>
+
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+
+                    <?php if(isset($this->view->comunidade[0])) { ?>
+                        <table style="width: 100%;" id="galeria-membros">
+                    
+                        <tr>
+                            <?php 
+                             
+                              
+                                
+                                foreach($this->view->comunidade[0] as $comunidade){ ?>
+                                    <td>
+                                <img src="/Front_end/foto-perfil.png" alt="">
+                                <a href="">
+                                    <p class="no-margin" style="text-align: center;"><?= $comunidade['nome'] ?></p>
+                                </a>
+                            </td>
+                                <?php  } 
+                                ?>
+                        </tr>
+
+                        <tr>
+                        <?php 
+                            
+                        if($this->view->comunidade[1] != null){
+                        foreach($this->view->comunidade[1] as $comunidade){ ?>
+                            <td>
+                        <img src="/Front_end/foto-perfil.png" alt="">
+                        <a href="">
+                            <p class="no-margin" style="text-align: center;"><?= $comunidade['nome'] ?></p>
+                        </a>
+                    </td>
+                        <?php  }}
+
+                        ?>
+                        </tr>
+                       
+                       <tr>
+                       <?php 
+                            
+                            if(isset($this->view->comunidade[2])){
+                            foreach($this->view->comunidade[2] as $friends){ ?>
+                                <td>
+                            <img src="/Front_end/foto-perfil.png" alt="">
+                            <a href="">
+                                <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
+                            </a>
+                        </td>
+                            <?php  }}
+    
+                            ?>
+                       </tr>
+                         
+                    </table> <?php  
+                    } else{ ?>
+                                 <button class="btn btn-sm botao">
+                            <a href="pesquisa_comunidade" class="texto-botao">Adicionar comunidades</a>
+                        </button>
+                    <?php  }
+                    ?>
+                   
+                    </div>
+                </div>
+
+            </div>
+           

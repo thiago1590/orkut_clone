@@ -10,6 +10,21 @@ class ComunidadeController extends Action {
 
 
     public function comunidades(){
+		session_start();
+
+		/*teste */
+		$amigos = Container::getModel('Amigos');
+
+		$amigos->__set('id_usuario', $_SESSION['id']);
+
+		$this->view->friends = $amigos->getAllFriends();
+		/*teste */
+
+		$comunidade = Container::getModel('Comunidade');
+
+		$comunidade->__set('id_usuario', $_SESSION['id']);
+
+		$this->view->comunidade = $comunidade->getAllComunidades();
 		$this->render('comunidades','layout2');
     }
     

@@ -108,73 +108,7 @@
 
             <!-- Fim Layout para SM-->
 
-            <!--Coluna Esquerda-->
-
-
-            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda" class="ml-1">
-                        <div>
-                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
-                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
-                            <div class="campos">
-                                <div class="mt-2 mb-2">
-                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">perfil</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">recados</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">fotos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">vídeos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">depoimentos</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos">
-                                <div class="mb-2">
-                                    <h4>Apps</h4>
-                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">adicionar apps</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
-                                <div class="mt-2">
-                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">listas</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">atualizações</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">configurações</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Fim Coluna Esquerda-->
+            <?php require("App\Views\componentes\barra_esquerda.phtml") ?>
 
             <!--Coluna Centro-->
             <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
@@ -185,40 +119,47 @@
                     </div>
 
 
-                    <div class="row mx-2 mt-2" id="frase-perfil">
+                    <div class="row mx-2 mt-2 p-1" id="frase-perfil">    
                         <div class="col-8">
-                            <a href="">
-                                <p class="no-margin">Qual é a sua frase de perfil?</p>
-                            </a>
+                                <p id="p-frase" class="no-margin pt-1"><?php 
+                                if($this->view->info_usuario['frase'] == null || $this->view->info_usuario['frase'] == ''){  
+                                    echo 'Qual é a sua frase de perfil?';}  else{
+                                     echo $this->view->info_usuario['frase']; }  
+                                     ?>
+                                </p>
                         </div>
                         <div class="col-4">
-
+                        <button onclick=" setFrase()" style="height:30px; float:right" class="btn btn-sm botao">
+                            <a  class="texto-botao">Editar</a>
+                        </button>
                         </div>
                     </div>
 
-                    <div class="row ml-2 mt-3">
+                   
+
+                    <div class="row ml-2 mt-3 campos py-2 mr-2">
                         <div class="menu-geral">
                             <p class="no-margin texto-menu">recados</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/recados.png" width="25%" alt="">1
+                            <img class="no-margin mr-1" src="/Front_end/icons/recados.png" width="25%" alt="">0
                         </div>
                         <div class="menu-geral">
                             <p class="no-margin texto-menu">fotos</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/fotos.png" width="50%" alt="">1
+                            <img class="no-margin mr-1" src="/Front_end/icons/fotos.png" width="50%" alt="">0
                         </div>
                         <div class="menu-geral">
                             <p class="no-margin texto-menu">videos</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/videos.png" width="40%" alt="">1
+                            <img class="no-margin mr-1" src="/Front_end/icons/videos.png" width="40%" alt="">0
                         </div>
                         <div class="menu-geral">
                             <p class="no-margin texto-menu">fas</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/fas.png" width="52%" alt="">1
+                            <img class="no-margin mr-1" src="/Front_end/icons/fas.png" width="52%" alt="">0
                         </div>
                         <div class="menu-geral">
                             <p class="no-margin texto-menu">mensagens</p>
-                            <img class="no-margin mr-1" src="/Front_end/icons/mensagens.png" width="25%" alt="">1
+                            <img class="no-margin mr-1" src="/Front_end/icons/mensagens.png" width="25%" alt="">0
                         </div>
                     </div>
-                    <div class="row ml-2 mt-3 mb-3">
+                    <div class="row ml-2 mt-3 mb-3 mr-2 pb-2" style="border-bottom:1px solid #b7e8fa">
                         <div class="menu-geral">
                             <p class="no-margin texto-menu">confiável</p>
                             <img class="no-margin mr-1" src="/Front_end/icons/confiavel.png" alt="">
@@ -242,12 +183,10 @@
 
                     <div id="social-info">
                         <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">aniversario: 1 de janeiro de 1999</p>
+                            <p class="no-margin">aniversário: <?= $this->view->info_usuario['data']; ?> </p>
                         </div>
+                       
                         <div class="no-margin social-info2 py-2">
-                            <p class="no-margin">relacionamento: solteiro(a)</p>
-                        </div>
-                        <div class="no-margin social-info1 py-2">
                             <p class="no-margin">país: Brasil</p>
                         </div>
                     </div>
@@ -260,35 +199,20 @@
 
             <!--Fim Centro-->
 
-            <!--Começo Coluna Direita-->
-            <div class="col-md d-none d-md-block mt-2" style="padding: 0;">
-                <div class="bg-white p-2" style="border-radius: 10px;">
-                    <h4>meus amigos <span>(0)</span></h4>
-                    <div class="mt-1 p-1" style="background: #eef7ff;">
-                        <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
-                    </div>
-                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                        <div class="mb-1"></div>
-                        <button class="btn btn-sm botao">
-                            <a class="texto-botao" href="encontrar_amigos">Adicionar amigos</a>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
-                    <h4>minhas comunidades <span>(0)</span></h4>
-
-                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                        <div class="mb-1"></div>
-                        <button class="btn btn-sm botao">
-                            <a href="pesquisa_comunidade" class="texto-botao">Adicionar comunidades</a>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-            <!--Fim Coluna Direita-->
+            <?php require("App\Views\componentes\barra_direita.phtml") ?>
 
 
         </div>
     </div>
+
+    
+
+
+    <script>
+        
+        function setFrase(){
+            $('#frase-perfil').html('<div><form action="/frase" method="post"> <input type="text" name="frase" class="mb-1" style="width:100%; height:25px">  <button type="submit" style="height:30px;" class="btn btn-sm botao"><a class="texto-botao">atualizar</a></button><button style="height:30px;" class="btn btn-sm botao"><a href="/perfil" class="texto-botao">cancelar</a></button> </form></div>');
+        }
+        
+    </script>
+                  

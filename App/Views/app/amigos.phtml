@@ -82,15 +82,21 @@
                     <div id="explorar" style="padding: 2px 5px;" class="mt-2">
                         <p class="no-margin">todos os amigos</p>
                     </div>
-                    <div class="p-2 mt-3" style="background: #f0f7ff;">
+                    <?php 
+                        foreach($this->view->friends as $friends){
+                            ?>
+                                <div class="p-2 mt-3" style="background: #f0f7ff;">
                         <img src="/Front_end/foto-perfil.png" width="80px" alt="">
-                        <p style="display: inline;" class="no-margin">Roberta </p>
+                        <p style="display: inline;" class="no-margin"><?=
+                        $friends['nome'] ?>
+                         </p>
                     </div>
+                        <?php  } 
+                    ?>
 
-                    <div class="p-2 mt-3" style="background: #f0f7ff;">
-                        <img src="/Front_end/foto-perfil.png" width="80px" alt="">
-                        <p style="display: inline;" class="no-margin">David </p>
-                    </div>
+                    
+
+
                 </div>
 
             </div>
@@ -109,7 +115,7 @@
                         <a style="font-size:0.9em" href="">família</a>
                         <a style="font-size:0.9em" href="">melhores amigos(as)</a>
                         <a style="font-size:0.9em" href="">trabalho</a>
-                           
+
                     </div>
                 </div>
 
@@ -126,7 +132,7 @@
                         <a style="font-size:0.9em" href="">família</a>
                         <a style="font-size:0.9em" href="">melhores amigos(as)</a>
                         <a style="font-size:0.9em" href="">trabalho</a>
-                           
+
                     </div>
                 </div>
 

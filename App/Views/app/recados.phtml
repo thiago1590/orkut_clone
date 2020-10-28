@@ -129,21 +129,24 @@
         <div class="col-md-9 bg-transparent mr-1 mt-2">
             <div class="areas ">
 
-                <form class="p-2 mb-1" action="">
+                <form class="p-2 mb-1" action="/setRecado" method="post">
                     <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.116);">
-                        <textarea placeholder="digite o texto ou cole HTML" name="" id="" rows="4" cols="75"></textarea>
+                        <textarea placeholder="digite o texto ou cole HTML" name="recado" rows="4" cols="75"></textarea>
                     </div>
-                </form>
 
-                <div class="mx-2 ">
-                    <button class="btn btn-sm botao shadow-sm mb-3">
+                    <div class="mx-2 ">
+                    <button type="submit" class="btn btn-sm botao shadow-sm mb-3">
                         <a class="texto-botao">enviar recado</a>
                     </button>
+
                 </div>
+                </form>
+
+                
 
             </div>
 
-            <div class="bg-white clearfix mt-2" style="border-radius: 5px;">
+            <div class="bg-white clearfix mt-2 mb-3" style="border-radius: 5px;">
                 <div class=" ml-2" style="border-bottom: 1px solid rgba(128, 128, 128, 0.24);">
                     <h3>Minha página de recados (0)</h3>
                     <div class="p-1 mb-2">
@@ -152,24 +155,53 @@
                     </div>
                 </div>
 
-            
-             
 
-            <div class="px-2 mt-2">
+             
+             <?php 
+                 foreach($this->view->recados as $recados) { ?>
+
+               <div class="px-2 mt-2 my-3 clearfix" style=" border-bottom:1px solid #b7e8fa">
+               
+                    <div style="float:left; width:10%">
+                    <img src="/Front_end/foto-perfil.png"  width="85px" alt="">
+                    </div>
+                    <div style="float:left; width:75%; wrap" class="ml-2">
+                        <p class="no-margin">Thiago André:</p>
+                        <p class="no-margin size8 quebrar-linha">
+                            <?= $recados['recado'] ?>
+                        </p>
+                    </div>
+
+                    <div style="float:left; width:10%; display:inline-block;" class=" ml-3 mt-4 pb-2 ">
+                        <button class=" btn btn-sm botao"><a href="" class="texto-botao">apagar</a></button>
+                    </div>
+
+            </div> 
+                
+
+                <?php } ?> 
+                <!--
+                <div class="px-2 mt-2">
                 <div style="float:left">
                 <img src="/Front_end/foto-perfil.png"  width="85px" alt="">
-            </div>
-            <div class="row">
-                <div class="col-9">
+                </div>
+                <div class="row">
+                    <div class="col-9">
                     <p class="no-margin">Thiago André:</p>
                     <p class="no-margin size8 quebrar-linha">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quisquam similique facilis vel nostrum maiores sapiente cumque eligendi! Alias natus amet provident! Architecto dolorem nam vero veniam dicta error consectetur.
                     </p>
                 </div>
+
                 <div class="col d-flex d-flex align-items-start ">
                     <button class=" btn btn-sm botao"><a href="" class="texto-botao">apagar</a></button>
                 </div>
-            </div>
+
+            </div>  -->
+             
+               
+             
+
             </div>
 
                 </div>
