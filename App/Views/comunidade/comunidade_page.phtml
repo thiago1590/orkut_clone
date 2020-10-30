@@ -13,7 +13,7 @@
                             <img src="/public/img/logo-teste.jpg" alt="">
                         </div>
                         <div class="col p-3">
-                            <a style="font-size: 1.3em;" href="">Eu odeio acordar cedo</a> <br>
+                            <a style="font-size: 1.3em;" href=""><?= $this->view->comunidade['nome'] ?></a> <br>
                             <button class="btn btn-sm botao mt-2">
                                 <img src="/Front_end/icons/deixar.png" alt="">
                                 <a class="texto-botao">deixar comunidade</a>
@@ -74,7 +74,7 @@
                     <div id="conteudo-esquerda">
                         <div>
                             <img class=" center" src="/Front_end/foto-perfil.png" alt="">
-                            <p class="mt-2 mb-1 info-nome">Eu Odeio Acordar Cedo</p>
+                            <p class="mt-2 mb-1 info-nome"><?= $this->view->comunidades[0]['nome'] ?></p>
 
                             <div class="campos">
                                 <div class=" mb-2">
@@ -115,8 +115,7 @@
             <div class="col-md-7 bg-transparent mr-1">
 
                 <div class="bg-white p-2  d-none d-md-block" id="info-gerais"> <!--Infos Comunidade-->
-
-                    <h3 style="font-weight: 400;">Eu Odeio Acordar Cedo</h3> <!--Titulo e mini-nav-->
+                    <h3 style="font-weight: 400;"><?= $this->view->comunidades[0]['nome'] ?></h3> <!--Titulo e mini-nav-->
                     <div class="p-1" id="mini-nav">
                         <span><a href="">Início ></a></span>
                         <span><a href=""> Comunidades </a></span>
@@ -126,13 +125,11 @@
 
                     <div class="mt-2">
                         <div class="no-margin  py-2">
-                            <table >
+                            <table style="width:100%">
                                 <tr class="bg-listrado-1">
                                     <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">descricao:</td>
-                                    <td class="size9 py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quo
-                                        sunt doloribus perspiciatis? Quo, repudiandae molestias officiis eveniet
-                                        quisquam eius maiores doloribus voluptatem neque similique dolores rerum sin!
-                                    </td>
+                                    <td class="size9 py-2"><?= $this->view->comunidades[0]['descrição'] ?>
+                                    </td>   
                                 </tr>
                                 <tr class="bg-listrado-2">
                                     <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">idioma:</td>
@@ -141,7 +138,7 @@
                                 </tr>
                                 <tr class="bg-listrado-1">
                                     <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">categoria:</td>
-                                    <td class="size9 py-2"> Outros
+                                    <td class="size9 py-2"> <?= $this->view->comunidades[0]['categoria'] ?>
                                     </td>
                                 </tr>
                                 <tr class="bg-listrado-2">

@@ -56,10 +56,10 @@ class Route extends Bootstrap {
 			'action' => 'comunidades'
 		);
 
-		$routes['pesquisa_comunidade'] = array(
-			'route' => '/pesquisa_comunidade',
-			'controller' => 'ComunidadeController',
-			'action' => 'pesquisa_comunidade'
+		$routes['pesquisar'] = array(
+			'route' => '/pesquisar',
+			'controller' => 'AppController',
+			'action' => 'pesquisar'
 		);
 
 		$routes['comunidade_page'] = array(
@@ -109,6 +109,15 @@ class Route extends Bootstrap {
 			'controller' => 'AppController',
 			'action' => 'setRecado'
 		);
+		$routes['create_comunidade'] = array(
+			'route' => '/create_comunidade',
+			'controller' => 'ComunidadeController',
+			'action' => 'createComunidade'
+		);
+		
+
+
+		
 
 		$this->setRoutes($routes);
 	}

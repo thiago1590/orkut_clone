@@ -30,24 +30,25 @@ class AppController extends Action {
 
 		$usuario->valida_sorte();
 		$this->render('timeline','layout2');
-		
+
 	}
 
 	public function perfil(){
 		session_start();
+		$user_id = $submit_id =
 		$usuario = Container::getModel('Usuario');
 		$amigos = Container::getModel('Amigos');
 		$comunidade = Container::getModel('Comunidade');
 
-		$amigos->__set('id_usuario', $_SESSION['id']);
-		$usuario->__set('id', $_SESSION['id']);
-		$comunidade->__set('id_usuario', $_SESSION['id']);
+		$amigos->__set('id_usuario',  $_GET['id']);
+		$usuario->__set('id',  $_GET['id']);
+		$comunidade->__set('id_usuario',  $_GET['id']);
 
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->comunidades = $comunidade->getLastComunidades();
 		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
 		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
-		
+
 
 		$this->render('perfil','layout2');
 	}
@@ -88,13 +89,9 @@ class AppController extends Action {
 		$usuario->__set('frase', $_POST['frase']);
 		$usuario->set_frase();
 		$this->view->info_usuario = $usuario->getInfoUsuario();
-		$this->render('perfil','layout2');
+		$id = $_SESSION['id'];
+		header("Location: /perfil?id=$id");
 	}
-	
-	
-	
-	
-
 
 	public function validaAutenticacao() {
 
@@ -102,12 +99,21 @@ class AppController extends Action {
 
 		if(!isset($_SESSION['id']) || $_SESSION['id'] == '' || !isset($_SESSION['nome']) || $_SESSION['nome'] == '') {
 			header('Location: /?login=erro');
-		} 
+		}
 
 	}
-	
 
-    
+	public function pesquisar(){
+		session_start();
+		$usuario = Container::getModel('Usuario');
+		$usuario->__set('pesquisa', $_POST['pesquisa']);
+		$this->view->info_usuarios = $usuario->pesquisar();
+		$id = $_SESSION['id'];
+		$this->render('pesquisar','layout2');
+    }
+
+
+
 }
 
 ?>

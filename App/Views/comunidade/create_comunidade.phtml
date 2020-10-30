@@ -1,0 +1,42 @@
+<div class="container bg-white mt-2 areas" style="width:55%">
+    <h3>Criar comunidade</h3>
+    <div class="p-1 mb-2">
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span> 
+                        <span><a style="font-size: 0.9em;" href="">Comunidades</a></span> 
+                        <span style="color: gray; font-size: 0.9em;">>Criar Comunidades </span>
+                    </div>
+                    <div class="mx">
+                    <table style="width:100%;">
+                                <form action="/comunidade_page?action=save" method="post" enctype="multipart/form-data">
+                                <tr class="bg-listrado-1">
+                                    <td class="pr-3 py-2 texto-info-comunidade" style="vertical-align: top;padding-left:25%">nome:</td>
+                                    <td class="size9 py-2"> <input name="nome" type="text">
+                                    </td>   
+                                </tr>
+                                <tr class="bg-listrado-2">
+                                    <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">categoria:</td>
+                                    <td class="size9 py-2"> <select name="categoria" id=""> <option value="Alunos e escolas">Alunos e escolas</option> </select>
+                                    </td>
+                                </tr>
+                                <tr class="bg-listrado-1">
+                                    <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">imagem:</td>
+                                    <td class="size9 py-2"> <input type="file" required name="imagem">
+                                    </td>
+                                </tr>
+                                <tr class="bg-listrado-2">
+                                    <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">descricao:</td>
+                                    <td class="size9 py-2"> <textarea  style="width:70%" name="descricao" id="" cols="" rows="5"></textarea>
+                                    </td>
+                                </tr>
+                                </form>
+                            </table>
+                            <div class="py-2">
+                                <button class="btn btn-sm botao" style="line-height:12px">
+                                <a href="pesquisa_comunidade" type="submit" class="texto-botao">criar comunidade</a>
+                            </button>
+                            <button class="btn btn-sm botao" style="line-height:12px">
+                                <a href="/comunidades" class="texto-botao">Cancelar</a>
+                            </button>
+                            </div>
+                    </div>
+</div>

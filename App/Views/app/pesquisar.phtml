@@ -71,27 +71,61 @@
         <!--Fim Coluna Esquerda-->
 
             <!--Coluna Centro-->
-            <div class="col-md-7 bg-transparent mr-1">
-                <div class="bg-white p-2" id="info-gerais">
+            <div class="col-md-7 bg-transparent mr-1 ">
+                <div class="bg-white p-2 pb-4" id="info-gerais">
 
-                    <h3 style="font-size:1.5em">Resultado de pesquisa para odeio acordar cedo</h3>
+                    <h3 style="font-size:1.5em">Resultado de pesquisa para</h3>
                     <div class="p-1 mb-2">
                         <span><a style="font-size: 0.9em;" href="">Início</a></span> <span
                             style="color: gray; font-size: 0.9em;">> Pesquisar</span>
                     </div>
-                    <div id="explorar" style="padding: 2px 5px;" class="mt-2">
-                        <p class="no-margin">comunidades</p>
-                    </div>
-                    <div class="p-2 mt-3" style="background: #f0f7ff;">
-                        <img src="/Front_end/foto-perfil.png" width="80px" alt="">
-                        <a class="no-margin" href="/comunidade_page">Eu odeio Acordar Cedo </a>
+
+                    <div class="clearfix border-bottom">
+                        <div id="explorar1" style="padding: 1px 5px; float:left" class="mt-2">
+                            <a href="#" class="no-margin">usuários</a>
+                        </div>
+                        <div id="explorar2" style="margin-left:10px; padding: 1px 5px; float:left" class="mt-2">
+                            <a href="#" class="no-margin">comunidades</a>
+                        </div>
                     </div>
 
-                    <div class="p-2 mt-3" style="background: #f0f7ff;">
-                        <img src="/Front_end/foto-perfil.png" width="80px" alt="">
-                        <a class="no-margin" href="/comunidade_page">Eu odeio Acordar Cedo </a>
+                    <div id="pesquisa_novamente">
+                        <p class="my-2 size9">pesquisar novamente:</p>
+                        <form action="" class="clearfix">
+                            <input type="text" style="line-height:5px">
+                            <button style="line-height:15px"; class="btn btn-sm botao ml-2 mb-1 px-2" >
+                            <a href="pesquisa_comunidade" class="texto-botao">pesquisar</a>
+                        </button>
+                        </form>
+                        <div style="position:absolute; right:0px" class="pr-4">
+                            <p class="size8 no-margin">< anterior | <a href="">próxima</a> ></p>
+                        </div>
                     </div>
+
+                    <div>
+
+                    
+                    <?php 
+                    foreach($this->view->info_usuarios as $usuarios){ ?>
+
+                     <div class="p-2 mt-3" style="background: #f0f7ff;">
+                        <img src="/Front_end/foto-perfil.png" width="80px" alt="">
+                        <a class="no-margin" href="/perfil?id=<?=$usuarios['id']?>"><?= $usuarios['nome'] ?> </a>
+                    </div>
+
+                   <?php }
+                   
+                   ?>
+
+                    
+                   
+                        
+                    
+
+                    
                 </div>
+                
+               
 
             </div>
 

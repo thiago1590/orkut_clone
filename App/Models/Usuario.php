@@ -6,18 +6,21 @@ use MF\Model\Model;
 class Usuario extends Model {
     private $id;
 	private $nome;
+	private $sobrenome;
 	private $email;
 	private $senha;
-	private $sobrenome;
-	private $dia;
-	private $mes;
-	private $ano;
 	private $data;
 	private $sorte_de_hoje;
 	private $data_sorte;
 	private $frase;
-	
 
+
+	private $dia;
+	private $mes;
+	private $ano;
+	private $pesquisa;
+	
+	
     public function __get($atributo) {
 		return $this->$atributo;
 	} 
@@ -26,10 +29,10 @@ class Usuario extends Model {
 		$this->$atributo = $valor;
 	}
 
-    public function salvar() {
+	public function salvar() {
 
-		$query = "insert into usuarios(nome,sobrenome, email, senha, data )
-		values(:nome,:sobrenome, :email, :senha, :data)";
+		$query = "insert into usuarios(nome,sobrenome,email,senha,data )
+		values(:nome,:sobrenome,:email,:senha,:data)";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':nome', $this->__get('nome'));
 		$stmt->bindValue(':sobrenome', $this->__get('sobrenome'));
@@ -40,7 +43,10 @@ class Usuario extends Model {
 		$stmt->execute();
 
 		return $this;
-    }
+	}
+
+	
+	
     
     public function validarCadastro() {
 		$valido = true;
@@ -144,10 +150,9 @@ class Usuario extends Model {
 	}
 	
 	public function get_sorte(){
-		$id = $this->getInfoUsuario();
 		$query = "select sorte_de_hoje,data_sorte from usuarios where id =:id";
 		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(':id',$id['id']);
+		$stmt->bindValue(':id',$this->__get('id'));
 		$stmt->execute();
 		return $stmt->fetch(\PDO::FETCH_ASSOC);
 	}
@@ -194,6 +199,15 @@ class Usuario extends Model {
 		$stmt->bindValue(':id',$infos['id']);
 		$stmt->execute();
 		return $this;
+	}
+
+	public function pesquisar(){
+		$query = "select nome,id from usuarios where nome like CONCAT('%',:pesquisa, '%') ";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':pesquisa', $this->__get('pesquisa'));
+		$stmt->execute();
+
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 
 	
