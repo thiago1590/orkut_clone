@@ -1,17 +1,17 @@
 <!--Coluna Esquerda-->
-
-
 <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda" class="ml-1">
+                <div class="bg-white p-2 mr-1" style="border-radius: 7px;">
+                    <div id="conteudo-esquerda">
                         <div>
-                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
+                            <img class="fix-size-img" src="/uploads/<?=$this->view->info_usuario['image']?>" alt="">
                             <p class="mt-2 mb-1 info-nome">Thiago André</p>
                             <div class="campos">
                                 <div class="mt-2 mb-2">
                                     <span><img src="/Front_end/icons/perfil.png" alt=""></span>
                                     <a href="">
                                         <p class="no-margin texto-info">perfil</p>
+                                    </a>  <a style="float:right" class="mr-1" href="/editar_perfil">
+                                        <p class="no-margin texto-info">editar</p>
                                     </a> <br>
                                     <span><img src="/Front_end/icons/recados.png" alt=""></span>
                                     <a href="">

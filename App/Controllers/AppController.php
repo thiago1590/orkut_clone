@@ -66,22 +66,58 @@ class AppController extends Action {
 	public function recados(){
 		session_start();
 		$recado = Container::getModel('Recados');
+		$usuario = Container::getModel('Usuario');
+		$usuario->__set('id', $_SESSION['id']);
 		$recado->__set('id', $_SESSION['id']);
 		$this->view->recados = $recado -> getRecados();
+		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->render('recados','layout2');
 	}
 	public function amigos(){
 		session_start();
 		$amigos = Container::getModel('Amigos');
-
+		$usuario = Container::getModel('Usuario');
+		$usuario->__set('id', $_SESSION['id']);
 		$amigos->__set('id_usuario', $_SESSION['id']);
-
+		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->friends = $amigos->getAllFriends();
 		$this->render('amigos','layout2');
 	}
 	public function encontrar_amigos(){
 		$this->render('encontrar_amigos','layout2');
 	}
+
+	public function editar_perfil(){
+		session_start();
+		$usuario = Container::getModel('Usuario');
+		$usuario->__set('id', $_SESSION['id']);
+		$this->view->info_usuario = $usuario->getInfoUsuario();
+		$this->render('editar_perfil','layout2');
+	}
+
+	public function addImage(){
+		session_start();
+		$usuario = Container::getModel('Usuario');
+
+		$arquivo_nome = $this->decode($_POST['base64'],'thiago');
+
+		$usuario->__set('id', $_SESSION['id']);
+		$usuario->__set('imagem',$arquivo_nome);
+		$usuario->setImagem();
+		
+		//header("Location: /timeline");
+	}
+
+	public function decode ($code, $username) {
+		list($type, $code) = explode(';', $code);
+		list(, $code) = explode(',', $code);
+		$code = base64_decode($code);
+		file_put_contents('uploads/filename.jpg', $code);
+		$arquivo_nome = $_SESSION['id'].".jpg";
+		file_put_contents('uploads/'.$arquivo_nome, $code);
+		return $arquivo_nome;
+		}
+
 	public function frase(){
 		session_start();
 		$usuario = Container::getModel('Usuario');

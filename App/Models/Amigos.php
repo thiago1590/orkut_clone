@@ -18,7 +18,7 @@ class Amigos extends Model {
 
  
     public function getLast9Friends(){
-      $query = "select u.nome, u.id
+      $query = "select u.nome,u.image, u.id
       from usuarios u join amigos a on u.id = a.id_usuario_seguindo
        where u.id in
        (select id_usuario_seguindo from amigos where id_usuario = :id) 
@@ -31,7 +31,7 @@ class Amigos extends Model {
     }
 
     public function getAllFriends(){
-      $query = "select u.nome, u.id
+      $query = "select u.nome,u.image, u.id
       from usuarios u join amigos a on u.id = a.id_usuario_seguindo
        where u.id in
        (select id_usuario_seguindo from amigos where id_usuario = :id) 

@@ -50,20 +50,27 @@ class Comunidade extends Model {
     public function createComunidade(){
       $current_date = date("Y-m-d");
       $query = "insert into comunidades (nome,categoria,descrição,data,imagem) values
-      (:nome,:categoria,:descrição,:data,:imagem)";
+      (:nome,:categoria,:descricao,:data,:imagem)";
 
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':nome',$this->__get('nome'));
       $stmt->bindValue(':categoria',$this->__get('categoria'));
-      $stmt->bindValue(':descrição',$this->__get('descrição'));
-      $stmt->bindValue(':data',$this->__get('$current_date'));
+      $stmt->bindValue(':descricao',$this->__get('descricao'));
+      $stmt->bindValue(':data',$current_date);
       $stmt->bindValue(':imagem', $this->__get('imagem'));
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getLastId(){
+      $query = "select id from comunidades order by id desc limit 1";
+      $stmt = $this->db->prepare($query);
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function getComunidadesInfo(){
-      $query = "select id,nome,categoria,descrição from comunidades where id = :id_comunidade";
+      $query = "select id,nome,categoria,descrição,imagem from comunidades where id = :id_comunidade";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':id_comunidade',$this->__get('id_comunidade'));
       $stmt->execute();

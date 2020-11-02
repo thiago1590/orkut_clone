@@ -13,7 +13,7 @@ class Usuario extends Model {
 	private $sorte_de_hoje;
 	private $data_sorte;
 	private $frase;
-
+	private $imagem;
 
 	private $dia;
 	private $mes;
@@ -108,7 +108,7 @@ class Usuario extends Model {
 	}
 
 	public function getInfoUsuario() {
-		$query = "select nome,id,data,frase from usuarios where id = :id_usuario";
+		$query = "select nome,id,data,frase,image from usuarios where id = :id_usuario";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':id_usuario', $this->__get('id'));
 		$stmt->execute();
@@ -116,17 +116,15 @@ class Usuario extends Model {
 		return $stmt->fetch(\PDO::FETCH_ASSOC);
 	}
 	public function getInfoUsuarios() {
-		$query = "select nome,id from usuarios";
+		$query = "select nome,id,image from usuarios";
 		$stmt = $this->db->prepare($query);
 		$stmt->execute();
 
 		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
-	
-	
 
 	public function get_frase(){
-        $rand = rand(1,20);
+        $rand = rand(1,15);
         $query = "select * from frases_sorte where id = :rand";
         $stmt = $this->db->prepare($query);
 		$stmt->bindValue(':rand', $rand);
@@ -165,38 +163,20 @@ class Usuario extends Model {
 		}
 	}
 
-	public function get_usuarios_seguindo(){
-		$infos = $this->getInfoUsuario();
-		$query = "select id_usuario_seguindo from amigos where id_usuario = :id_usuario";
-		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(':id_usuario',$infos['id']);
-		$stmt->execute();
-
-		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-	}
-	public function get_info_usuarios_seguindo(){
-		$usuarios_seguindo = $this->get_usuarios_seguindo();
-		$usuarios_seguindo_string = '';
-		foreach($usuarios_seguindo as $id){
-			$id_string = strval($id['id_usuario_seguindo']);
-			$usuarios_seguindo_string = $usuarios_seguindo_string . $id_string .',';
-		}
-		$usuarios_seguindo_string = rtrim($usuarios_seguindo_string, ", ");
-
-		$query = "select nome from usuarios where id in ( :id_usuarios )";
-		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(':id_usuarios',$usuarios_seguindo_string);
-		$stmt->execute();
-
-		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-	}
-
 	public function set_frase(){
-		$infos = $this->getInfoUsuario();
 		$query = "update usuarios set frase = :frase where id = :id";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':frase',$this->__get('frase'));
-		$stmt->bindValue(':id',$infos['id']);
+		$stmt->bindValue(':id',$this->__get('id'));
+		$stmt->execute();
+		return $this;
+	}
+
+	public function setImagem(){
+		$query = "update usuarios set image = :imagem where id = :id";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':imagem',$this->__get('imagem'));
+		$stmt->bindValue(':id',$this->__get('id'));
 		$stmt->execute();
 		return $this;
 	}

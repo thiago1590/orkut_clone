@@ -1,72 +1,8 @@
 <div class="container mt-2" style="border-radius: 5%; ">
 
         <div class="row h-100">
-
-            <!--Coluna Esquerda-->
-            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda" class="ml-1">
-                        <div>
-                            <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
-                            <p class="mt-2 mb-1 info-nome">Thiago André</p>
-                            <div class="campos">
-                                <div class="mt-2 mb-2">
-                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">perfil</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">recados</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">fotos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">vídeos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">depoimentos</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos">
-                                <div class="mb-2">
-                                    <h4>Apps</h4>
-                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">adicionar apps</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
-                                <div class="mt-2">
-                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">listas</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">atualizações</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">configurações</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Fim Coluna Esquerda-->
+            
+            <?php require('App\Views\componentes\barra_esquerda.phtml'); ?>
 
             <!--Coluna Centro-->
             <div class="col-md-7 bg-transparent mr-1">
@@ -118,7 +54,7 @@
         <?php foreach($this->view->info_usuarios as $id_usuarios => $usuarios) { ?>
             <div class="item col px-3 pt-3 pb-5" style="background:#F0F0F0">
     <div style="height:90px">
-    <img src="Front_end\foto-perfil.png" alt="">
+    <img class="fix-size-img" src="/uploads/<?= $usuarios['image'] ?>" alt="">
    <a href="/perfil?id=<?=$usuarios['id']?>"> <p class="texto-perfil"> <?= $usuarios['nome'] ?></p></a>
    <a href="" class="btn-adicionar">Adicionar</a>
     </div>

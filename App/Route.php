@@ -114,6 +114,16 @@ class Route extends Bootstrap {
 			'controller' => 'ComunidadeController',
 			'action' => 'createComunidade'
 		);
+		$routes['editar_perfil'] = array(
+			'route' => '/editar_perfil',
+			'controller' => 'AppController',
+			'action' => 'editar_perfil'
+		);
+		$routes['addImage'] = array(
+			'route' => '/addImage',
+			'controller' => 'AppController',
+			'action' => 'addImage'
+		);
 		
 
 
