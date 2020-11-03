@@ -22,20 +22,7 @@ class ComunidadeController extends Action {
 		$this->view->comunidade = $comunidade->getAllComunidades();
 		$this->render('comunidades','layout2');
     }
-    
-	public function saveImage(){
-		$comunidade = Container::getModel('Comunidade');
-		if(isset($_FILES['arquivo'])){
-			$arquivo = $_FILES['arquivo'];
-			$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-			$arquivo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-			$diretorio = "upload/";
-
-			move_uploaded_file($arquivo['tmp_name'],$diretorio.$arquivo_nome);
-		}
-		$comunidade->__set('imagem',$arquivo_nome);
-		$comunidade->saveImage();
-	}
+   
 	
     
 	public function comunidade_page(){

@@ -42,7 +42,41 @@ class Amigos extends Model {
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function seguir($id_usuario_seguindo){
+      $query = "insert into amigos (id_usuario,id_usuario_seguindo) values
+      (:id_usuario, :id_usuario_seguindo)";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+      $stmt->bindValue(':id_usuario_seguindo',$id_usuario_seguindo);
+
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
+    
+    public function deixar_de_seguir($id_usuario_seguindo){
+      $query = "delete from amigos where id_usuario = :id_usuario and id_usuario_seguindo = :id_usuario_seguindo";
+      $stmt = $this->db->prepare($query);
+
+      $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+      $stmt->bindValue(':id_usuario_seguindo',$id_usuario_seguindo);
+
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
+
+    public function usuario_seguindo_sn($id_usuario_seguindo){
+      $query = "select count(*) as num from amigos where id_usuario= :id_usuario and id_usuario_seguindo = :id_usuario_seguindo";
+      $stmt = $this->db->prepare($query);
+        
+        $stmt->bindValue(':id_usuario',$this->__get('id'));
+        $stmt->bindValue(':id_usuario_seguindo',$id_usuario_seguindo);
   
+      $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);;
+    }
 
     
 }

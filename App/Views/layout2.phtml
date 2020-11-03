@@ -97,7 +97,7 @@
                     <a href="/perfil?id=<?= $_SESSION['id'] ?>" class="nav-link">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/recados" class="nav-link">Página de recados</a>
+                    <a href="/recados?id=<?= $_SESSION['id'] ?>" class="nav-link">Página de recados</a>
                 </li>
                 <li class="nav-item">
                     <a href="/amigos" class="nav-link">Amigos</a>
@@ -131,8 +131,9 @@
                 </li>
                 <li class="nav-item" style="display:block; height:100%">
                    
-                   <form action="/pesquisar" method="post">
-                   <input name="pesquisa" style="display:inline-block;line-height:center; width:58%;border-radius:5px; border:1px solid white; margin-top:6px" type="text" placeholder="pesquisar no orkut">
+                   <form action="/pesquisar?exp=1">
+                   <input style="display:none", name="exp", value="1">
+                   <input name="q" style="display:inline-block;line-height:center; width:58%;border-radius:5px; border:1px solid white; margin-top:6px" type="text" placeholder="pesquisar no orkut">
                     
                     <button type="submit" id="search-button"><i style="color:white" class="fa fa-search"></i></button>
                    </form>
@@ -159,7 +160,7 @@
                          <p class="no-margin texto-info2 ">perfil</p>
                      </a> <br>
                      <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                     <a href="/recados">
+                     <a href="/recados?id=<?= $_SESSION['id'] ?>">
                          <p class="no-margin texto-info2">recados</p>
                      </a> <br>
                      <span><img src="/Front_end/icons/amigos.png" alt=""></span>

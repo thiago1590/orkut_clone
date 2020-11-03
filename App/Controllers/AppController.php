@@ -10,7 +10,6 @@ class AppController extends Action {
 
 
 	public function timeline() {
-
 		$this->validaAutenticacao();
 
 		$usuario = Container::getModel('Usuario');
@@ -40,6 +39,7 @@ class AppController extends Action {
 		$amigos = Container::getModel('Amigos');
 		$comunidade = Container::getModel('Comunidade');
 
+		$amigos->__set('id',  $_SESSION['id']);
 		$amigos->__set('id_usuario',  $_GET['id']);
 		$usuario->__set('id',  $_GET['id']);
 		$comunidade->__set('id_usuario',  $_GET['id']);
@@ -48,6 +48,7 @@ class AppController extends Action {
 		$this->view->comunidades = $comunidade->getLastComunidades();
 		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
 		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
+		$this->view->seguindo = $amigos->usuario_seguindo_sn($amigos->__get('id_usuario'));
 
 
 		$this->render('perfil','layout2');
@@ -56,11 +57,14 @@ class AppController extends Action {
 	public function setRecado(){
 		session_start();
 		$recado = Container::getModel('Recados');
-		$recado->__set('id', $_SESSION['id']);
+		$id = $_GET['id'];
+		$recado->__set('id_menssageiro', $_SESSION['id']);
+		$recado->__set('id_receptor', $id);
 		$recado->__set('recado', $_POST['recado']);
 		$this->view->recados = $recado -> getRecados();
 		$recado->setRecado();
-		header("Location: /recados");
+		$recado->resetId();
+		header("Location: /recados?id=$id");
 	}
 
 	public function recados(){
@@ -68,9 +72,11 @@ class AppController extends Action {
 		$recado = Container::getModel('Recados');
 		$usuario = Container::getModel('Usuario');
 		$usuario->__set('id', $_SESSION['id']);
-		$recado->__set('id', $_SESSION['id']);
+		$recado->__set('id_menssageiro', $_SESSION['id']);
+		$recado->__set('id_receptor', $_GET['id']);
 		$this->view->recados = $recado -> getRecados();
 		$this->view->info_usuario = $usuario->getInfoUsuario();
+
 		$this->render('recados','layout2');
 	}
 	public function amigos(){
@@ -94,29 +100,6 @@ class AppController extends Action {
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->render('editar_perfil','layout2');
 	}
-
-	public function addImage(){
-		session_start();
-		$usuario = Container::getModel('Usuario');
-
-		$arquivo_nome = $this->decode($_POST['base64'],'thiago');
-
-		$usuario->__set('id', $_SESSION['id']);
-		$usuario->__set('imagem',$arquivo_nome);
-		$usuario->setImagem();
-		
-		//header("Location: /timeline");
-	}
-
-	public function decode ($code, $username) {
-		list($type, $code) = explode(';', $code);
-		list(, $code) = explode(',', $code);
-		$code = base64_decode($code);
-		file_put_contents('uploads/filename.jpg', $code);
-		$arquivo_nome = $_SESSION['id'].".jpg";
-		file_put_contents('uploads/'.$arquivo_nome, $code);
-		return $arquivo_nome;
-		}
 
 	public function frase(){
 		session_start();
@@ -142,12 +125,54 @@ class AppController extends Action {
 	public function pesquisar(){
 		session_start();
 		$usuario = Container::getModel('Usuario');
-		$usuario->__set('pesquisa', $_POST['pesquisa']);
-		$this->view->info_usuarios = $usuario->pesquisar();
-		$id = $_SESSION['id'];
+		$comunidade = Container::getModel('Comunidade');
+
+		$usuario->__set('id', $_SESSION['id']);
+		$usuario->__set('pesquisa', $_GET['q']);
+		$comunidade->__set('pesquisa', $_GET['q']);
+		$this->view->info_usuario = $usuario->getInfoUsuario();
+		$this->view->exp = $_GET['exp'];
+
+		if($_GET['exp'] == 1 ){
+			$this->view->infos = $usuario->pesquisar();
+		}
+		if($_GET['exp'] == 2 ){
+			$this->view->infos = $comunidade->pesquisar();
+		}
+		
 		$this->render('pesquisar','layout2');
     }
 
+	public function acao(){
+		session_start();
+		$amigos = Container::getModel('Amigos');
+		$recado = Container::getModel('Recados');
+		$amigos->__set('id_usuario', $_SESSION['id']);
+
+		$acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+		$id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : "";
+
+
+		if($acao == "seguir"){
+			$amigos->seguir($id_usuario_seguindo);
+			header("Location: /perfil?id=$id_usuario_seguindo");
+		} 
+		if($acao == "deixar_de_seguir"){
+			$amigos->deixar_de_seguir($id_usuario_seguindo);
+			header("Location: /perfil?id=$id_usuario_seguindo");
+		} 
+		if($acao == "apagar"){
+		$id_recado = $_GET['id_recado'];
+		$this->view->recados = $recado -> getRecados();
+		$id_recado = count($this->view->recados) - ($id_recado -1);
+		echo $id_recado;
+			$recado->__set('id',$id_recado);
+			$recado->deleteRecado();
+			$id = $_GET['id'];
+			$recado->resetId();
+			header("Location:/recados?id=$id");
+		}
+	}
 
 
 }

@@ -121,8 +121,13 @@ class Route extends Bootstrap {
 		);
 		$routes['addImage'] = array(
 			'route' => '/addImage',
-			'controller' => 'AppController',
+			'controller' => 'ImagesController',
 			'action' => 'addImage'
+		);
+		$routes['acao'] = array(
+			'route' => '/acao',
+			'controller' => 'AppController',
+			'action' => 'acao'
 		);
 		
 

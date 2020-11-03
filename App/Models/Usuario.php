@@ -190,6 +190,19 @@ class Usuario extends Model {
 		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 
+	public function usuario_seguindo_sn($id_usuario_seguindo){
+		$query = "select count(*) from amigos where id_usuario= :id_usuario and id_usuario_seguindo = :id_usuario_seguindo";
+		$stmt = $this->db->prepare($query);
+      
+      $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+      $stmt->bindValue(':id_usuario_seguindo',$id_usuario_seguindo);
+
+	  $stmt->execute();
+	  $array = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+	  print_r($array);
+      return $this;
+	}
+
 	
 
 

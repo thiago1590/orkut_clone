@@ -112,7 +112,11 @@ function criarCookie(value) {
                         <div>
                             <img class="fix-size-img" src="/uploads/<?= $this->view->info_usuario['image'] ?>" alt="">
                             <div style="text-align:center">
-                            <input id="add_foto_button" type="button" value="<?php $this->view->info_usuario['image'] == "foto-default.png" ? "adicionar foto" : "editar foto" ?>" class="no-margin texto-info" data-toggle="modal" data-target="#exampleModal" ></input> 
+                            <input id="add_foto_button" type="button" 
+                            value="<?php if($this->view->info_usuario['image'] == "foto-default.png") { 
+                                echo "adicionar foto";} else{
+                                echo "editar foto";} ?>" 
+                            class="no-margin texto-info" data-toggle="modal" data-target="#exampleModal" ></input> 
                            
                         </div>
                           

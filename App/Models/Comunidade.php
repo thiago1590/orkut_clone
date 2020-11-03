@@ -10,7 +10,7 @@ class Comunidade extends Model {
     private $nome;
     private $categoria;
     private $descrição;
-    private $pesquisar;
+    private $pesquisa;
     private $imagem;
 
 

@@ -1,75 +1,9 @@
 <div class="container mt-2 " style="border-radius: 5%; ">
 
         <div class="row h-100">
-
-           <!--Coluna Esquerda-->
-
-
-           <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-            <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                <div id="conteudo-esquerda" class="ml-1">
-                    <div>
-                        <img class="ml-2" src="/Front_end/foto-perfil.png" width="80%" alt="">
-                        <p class="mt-2 mb-1 info-nome">Thiago André</p>
-                        <div class="campos">
-                            <div class="mt-2 mb-2">
-                                <span><img src="/Front_end/icons/perfil.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">perfil</p>
-                                </a> <br>
-                                <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">recados</p>
-                                </a> <br>
-                                <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">fotos</p>
-                                </a> <br>
-                                <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">vídeos</p>
-                                </a> <br>
-                                <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">depoimentos</p>
-                                </a> <br>
-                            </div>
-                        </div>
-                        <div class="campos">
-                            <div class="mb-2">
-                                <h4>Apps</h4>
-                                <span><img src="/Front_end/icons/apps.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">adicionar apps</p>
-                                </a> <br>
-                            </div>
-                        </div>
-                        <div class="campos pb-2" style="border-bottom: 1px solid white;">
-                            <div class="mt-2">
-                                <span><img src="/Front_end/icons/lista.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">listas</p>
-                                </a> <br>
-                                <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">atualizações</p>
-                                </a> <br>
-                                <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
-                                <a href="">
-                                    <p class="no-margin texto-info">configurações</p>
-                                </a> <br>
-                            </div>
-                        </div>
-                        <div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Fim Coluna Esquerda-->
-
+        <?php 
+        require("App\Views\componentes\barra_esquerda.phtml");
+        ?>
             <!--Coluna Centro-->
             <div class="col-md-7 bg-transparent mr-1 ">
                 <div class="bg-white p-2 pb-4" id="info-gerais">
@@ -81,20 +15,21 @@
                     </div>
 
                     <div class="clearfix border-bottom">
-                        <div id="explorar1" style="padding: 1px 5px; float:left" class="mt-2">
-                            <a href="#" class="no-margin">usuários</a>
+                        <div id="<?= $this->view->exp == 1 ? "explorar1" : "explorar2" ?>" style="padding: 1px 5px; float:left" class="mt-2">
+                            <a href="/pesquisar?exp=1&q=<?= $_GET['q'] ?>" class="no-margin">usuários</a>
                         </div>
-                        <div id="explorar2" style="margin-left:10px; padding: 1px 5px; float:left" class="mt-2">
-                            <a href="#" class="no-margin">comunidades</a>
+                        <div id="<?= $this->view->exp == 1 ? "explorar2" : "explorar1" ?>" style="margin-left:10px; padding: 1px 5px; float:left" class="mt-2">
+                            <a href="/pesquisar?exp=2&q=<?= $_GET['q'] ?>" class="no-margin">comunidades</a>
                         </div>
                     </div>
 
                     <div id="pesquisa_novamente">
                         <p class="my-2 size9">pesquisar novamente:</p>
-                        <form action="" class="clearfix">
-                            <input type="text" style="line-height:5px">
+                        <form action="/pesquisar" class="clearfix">
+                            <input style="display:none" name="exp" value="<?= $this->view->exp == 1 ? "1" : "2" ?>" type="text">
+                            <input name = "q" type="text" style="line-height:5px">
                             <button style="line-height:15px"; class="btn btn-sm botao ml-2 mb-1 px-2" >
-                            <a href="pesquisa_comunidade" class="texto-botao">pesquisar</a>
+                            <a  class="texto-botao">pesquisar</a>
                         </button>
                         </form>
                         <div style="position:absolute; right:0px" class="pr-4">
@@ -106,7 +41,7 @@
 
                     
                     <?php 
-                    foreach($this->view->info_usuarios as $usuarios){ ?>
+                    foreach($this->view->infos as $usuarios){ ?>
 
                      <div class="p-2 mt-3" style="background: #f0f7ff;">
                         <img src="/Front_end/foto-perfil.png" width="80px" alt="">
