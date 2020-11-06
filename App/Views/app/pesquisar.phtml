@@ -16,39 +16,103 @@
 
                     <div class="clearfix border-bottom">
                         <div id="<?= $this->view->exp == 1 ? "explorar1" : "explorar2" ?>" style="padding: 1px 5px; float:left" class="mt-2">
-                            <a href="/pesquisar?exp=1&q=<?= $_GET['q'] ?>" class="no-margin">usuários</a>
+                            <a href="/pesquisar?exp=1&q=<?= $_GET['q'] ?>&p=0" class="no-margin">usuários</a>
                         </div>
                         <div id="<?= $this->view->exp == 1 ? "explorar2" : "explorar1" ?>" style="margin-left:10px; padding: 1px 5px; float:left" class="mt-2">
-                            <a href="/pesquisar?exp=2&q=<?= $_GET['q'] ?>" class="no-margin">comunidades</a>
+                            <a href="/pesquisar?exp=2&q=<?= $_GET['q'] ?>&p=0" class="no-margin">comunidades</a>
                         </div>
                     </div>
 
-                    <div id="pesquisa_novamente">
+                    <div id="pesquisa_novamente" class="pb-3">
                         <p class="my-2 size9">pesquisar novamente:</p>
                         <form action="/pesquisar" class="clearfix">
                             <input style="display:none" name="exp" value="<?= $this->view->exp == 1 ? "1" : "2" ?>" type="text">
+                            <input style="display:none" name="p" value="0" type="text">
                             <input name = "q" type="text" style="line-height:5px">
                             <button style="line-height:15px"; class="btn btn-sm botao ml-2 mb-1 px-2" >
                             <a  class="texto-botao">pesquisar</a>
                         </button>
                         </form>
-                        <div style="position:absolute; right:0px" class="pr-4">
-                            <p class="size8 no-margin">< anterior | <a href="">próxima</a> ></p>
-                        </div>
+
+                                    <div style="position:absolute; right:0px;" class="pr-4">
+                                        <p class="size8 no-margin">
+                                         
+
+                                        <form style="float:left" action="/pesquisar">
+                                        <input style="display:none" name="exp" value="<?= $_GET['exp'] ?> ">
+                                        <input style="display:none" name="q" value="<?= $_GET['q'] ?>">
+                                            <?php 
+                                                if($_GET['p'] == 0){ ?>
+                                                    <span class="size8" style=""> < anterior | </span> 
+                                               <?php } else{ ?>
+                                                <button style="background:transparent;border:none">
+                                            <a class="size8" style="color:blue"> < anterior | 
+                                            </a> 
+                                            </button>
+                                            <input style="display:none" name="p" value="<?= $this->view->anterior ?>" type="text">
+                                             <?php }
+                                            ?>
+                                             </form>
+
+                                             <form style="float:left" action="/pesquisar">
+                                            <input style="display:none" name="exp" value="<?= $_GET['exp'] ?> ">
+                                            <input style="display:none" name="q" value="<?= $_GET['q'] ?>">
+                                            <?php  
+                                                if($_GET['p'] + 1 ==  count($this->view->infos) || !isset($this->view->infos[0])){ ?>
+
+                                                    <span class="size8 pl-1" style=""> próxima > </span> 
+                                               <?php } else{ ?>
+                                                <button class="pl-1" style="background:transparent;border:none">
+                                            <a class="size8" style="color:blue"> próxima >
+                                            </a> 
+                                            </button>
+                                            <input style="display:none" name="p" value="<?= $this->view->proxima ?>" type="text">
+                                             <?php }
+                                            ?>
+                                            </form>
+                                            
+
+                                       
+                                        </p>
+                                    </div>
+                               
+                            
+                            
+                           
+                        
+
                     </div>
 
                     <div>
 
                     
                     <?php 
-                    foreach($this->view->infos as $usuarios){ ?>
+                    if(!isset($this->view->infos[0])){ ?>
+                        <p class="size9">nenhum resultado encontrado</p>
+                    <?php  }
+                    else if($this->view->exp == 1){
+                      
 
-                     <div class="p-2 mt-3" style="background: #f0f7ff;">
-                        <img src="/Front_end/foto-perfil.png" width="80px" alt="">
-                        <a class="no-margin" href="/perfil?id=<?=$usuarios['id']?>"><?= $usuarios['nome'] ?> </a>
-                    </div>
-
-                   <?php }
+                        foreach($this->view->infos[$_GET['p']] as $usuarios){ ?>
+                            <div class="p-2 mt-1" style="background: #f0f7ff;">
+                               <img src="/uploads/<?= $usuarios['image'] ?>" width="80px" alt="">
+                               <a class="no-margin" href="/perfil?id=<?=$usuarios['id']?>"><?= $usuarios['nome'] ?> </a>
+                           </div>
+       
+                          <?php }
+                    } 
+                    
+                    
+                    else{
+                        foreach($this->view->infos[$_GET['p']]  as $comunidades){ ?>
+                            <div class="p-2 mt-1" style="background: #f0f7ff;">
+                               <img src="/uploads/<?= $comunidades['imagem'] ?>" width="80px" alt="">
+                               <a class="no-margin" href="/comunidade_page?id=<?=$comunidades['id']?>"><?= $comunidades['nome'] ?> </a>
+                           </div>
+       
+                          <?php }
+                    }
+                    
                    
                    ?>
 

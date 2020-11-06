@@ -153,7 +153,7 @@ function criarCookie(value) {
                                 </form>
 
                                 <button type="button" class="btn btn-sm botao">
-                                    <a href="pesquisa_comunidade" class="texto-botao">fechar</a>
+                                    <a href="editar_perfil" class="texto-botao">fechar</a>
                                 </button>
                                     
                                 </div>
@@ -222,27 +222,27 @@ function criarCookie(value) {
             <!--Fim Coluna Esquerda-->
 
             <!--Coluna Centro-->
-            <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
+            <div class="col-md bg-transparent mr-1 d-none d-md-block">
                 <div class="bg-white p-2" id="info-gerais">
                                     
                     <h3>Editar Perfil</h3>
                     <div class="p-1 mb-2">
-                        <span><a style="font-size: 0.9em;" href="">Início</a></span> 
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span> >
                         <span><a style="font-size: 0.9em;" href="">Meu Perfil</a></span> 
                         <span style="color: gray; font-size: 0.9em;">> Editar Perfil</span>
 
                     </div>
                     <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.253);"></div>
                     <table style="width:100%;">
-                                <form action="/comunidade_page?action=save" method="post" enctype="multipart/form-data">
+                                <form action="/acao?acao=save" method="post" enctype="multipart/form-data">
                                 <tr class="bg-listrado-1">
                                     <td class="pr-3 py-2 texto-info-comunidade" style="vertical-align: top;padding-left:25%">nome:</td>
                                     <td class="size9 py-2"> <input name="nome" type="text">
                                     </td>   
                                 </tr>
-                                <tr class="bg-listrado-1">
+                                <tr class="bg-listrado-2">
                                     <td class="pr-3 py-2 texto-info-comunidade" style="vertical-align: top;padding-left:25%">sobrenome:</td>
-                                    <td class="size9 py-2"> <input name="nome" type="text">
+                                    <td class="size9 py-2"> <input name="sobrenome" type="text">
                                     </td>   
                                 </tr>
                                 <tr class="bg-listrado-1">
@@ -251,9 +251,16 @@ function criarCookie(value) {
                                     <?php require('App\Views\componentes\form_data.phtml') ?>
                                     </td>   
                                 </tr>
-                            
                                 
                             </table>
+
+                            <div class="pt-1">
+                                <button class="btn btn-sm botao" style="line-height:12px">
+                                <a type="submit" class="texto-botao">atualizar</a>
+                            </button>
+                           
+                            </div>
+                            </form>
                 </div>
 
             </div>

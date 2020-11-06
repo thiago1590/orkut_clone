@@ -182,7 +182,7 @@ class Usuario extends Model {
 	}
 
 	public function pesquisar(){
-		$query = "select nome,id from usuarios where nome like CONCAT('%',:pesquisa, '%') ";
+		$query = "select nome,id,image from usuarios where nome like CONCAT('%',:pesquisa, '%') ";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':pesquisa', $this->__get('pesquisa'));
 		$stmt->execute();
@@ -201,6 +201,20 @@ class Usuario extends Model {
 	  $array = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	  print_r($array);
       return $this;
+	}
+
+	public function editar_perfil(){
+		$query = "update usuarios
+		set nome = :nome,sobrenome= :sobrenome,data= :data
+		where id = :id" ;
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':id', $this->__get('id'));
+		$stmt->bindValue(':nome', $this->__get('nome'));
+		$stmt->bindValue(':sobrenome', $this->__get('sobrenome'));
+		$stmt->bindValue(':data', $this->__get('data'));
+		$stmt->execute();
+
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 
 	

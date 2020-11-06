@@ -18,12 +18,12 @@ class Amigos extends Model {
 
  
     public function getLast9Friends(){
-      $query = "select u.nome,u.image, u.id
-      from usuarios u join amigos a on u.id = a.id_usuario_seguindo
-       where u.id in
+      $query = "select nome,image, id
+      from usuarios
+       where id in
        (select id_usuario_seguindo from amigos where id_usuario = :id) 
        order by 
-       u.id desc limit 9";
+       id desc limit 9";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':id',$this->__get('id_usuario'));
       $stmt->execute();

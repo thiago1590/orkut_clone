@@ -9,18 +9,21 @@
                 <div class="bg-white p-2" id="info-gerais">
 
                     <h3>Amigos</h3>
-                    <div class="p-1 mb-2">
+                    <div class="p-1 mb-1">
                         <span><a style="font-size: 0.9em;" href="">Início</a></span> <span
                             style="color: gray; font-size: 0.9em;">> Amigos</span>
                     </div>
-                    <div id="explorar" style="padding: 2px 5px;" class="mt-2">
-                        <p class="no-margin">todos os amigos</p>
+                    <div class="clearfix border-bottom">
+                        <div id="explorar1" style="padding: 1px 5px; float:left" class="mt-2">
+                            <a href="" class="no-margin" style="font-size:0.8em">todos os amigos (<?= count($this->view->friends) ?>)</a>
+                        </div>
+                       
                     </div>
                     <?php 
                         foreach($this->view->friends as $friends){
                             ?>
-                                <div class="p-2 mt-3" style="background: #f0f7ff;">
-                        <img src="/Front_end/foto-perfil.png" width="80px" alt="">
+                                <div class="p-2 mt-1" style="background: #f0f7ff;">
+                        <img src="/uploads/<?= $friends['image'] ?>" width="80px" alt="">
                         <a href="/perfil_others?id=<?= $friends['id'] ?>">
                         <p style="display: inline;" class="no-margin"><?=
                         $friends['nome'] ?>

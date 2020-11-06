@@ -26,6 +26,7 @@ class ComunidadeController extends Action {
 	
     
 	public function comunidade_page(){
+		session_start();
 		$comunidade = Container::getModel('Comunidade');
 		$action = isset($_GET['action']) ? $_GET['action'] : "";
 
@@ -38,7 +39,11 @@ class ComunidadeController extends Action {
 			$comunidade->__set('id_comunidade',  $_GET['id']);
 		}
 
+		$comunidade->__set('id_usuario',$_SESSION['id']);
+		$comunidade->__set('id_comunidade',$_GET['id']);
+		
 		$this->view->comunidades = $comunidade->getComunidadesInfo();
+		$this->view->seguindo = $comunidade->comunidade_seguindo_sn();
 		$this->render('comunidade_page','layout2');
 	}
 

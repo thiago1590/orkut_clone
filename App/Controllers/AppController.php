@@ -23,6 +23,8 @@ class AppController extends Action {
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->info_usuarios = $usuario->getInfoUsuarios();
 		$this->view->comunidades = $comunidade->getLastComunidades();
+		$this->view->friends_number = count($amigos->getAllFriends());
+		$this->view->comunidades_number = count($comunidade->getAllComunidades());
 		$this->view->sorte = $usuario->get_sorte();
 		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
 		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
@@ -45,8 +47,11 @@ class AppController extends Action {
 		$comunidade->__set('id_usuario',  $_GET['id']);
 
 		$this->view->info_usuario = $usuario->getInfoUsuario();
+		$this->view->info_usuarios = $usuario->getInfoUsuarios();
 		$this->view->comunidades = $comunidade->getLastComunidades();
 		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
+		$this->view->friends_number = count($amigos->getAllFriends());
+		$this->view->comunidades_number = count($comunidade->getAllComunidades());
 		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
 		$this->view->seguindo = $amigos->usuario_seguindo_sn($amigos->__get('id_usuario'));
 
@@ -133,13 +138,23 @@ class AppController extends Action {
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->exp = $_GET['exp'];
 
+		
+		$pagina = isset($_GET['p']) ? $_GET['p'] : "";
+		$this->view->proxima = $_GET['p'] + 1;
+		$this->view->anterior = $_GET['p'] - 1;
+		if($_GET['p'] == 0){
+			$this->view->anterior = null;
+		}
+		if($_GET['p'] ==  count(array_chunk($usuario->pesquisar(), 10))){
+			$this->view->próxima = null;
+		}
 		if($_GET['exp'] == 1 ){
-			$this->view->infos = $usuario->pesquisar();
+			$this->view->infos = array_chunk($usuario->pesquisar(), 10);
 		}
 		if($_GET['exp'] == 2 ){
-			$this->view->infos = $comunidade->pesquisar();
+
+			$this->view->infos = array_chunk($comunidade->pesquisar(), 10);
 		}
-		
 		$this->render('pesquisar','layout2');
     }
 
@@ -147,11 +162,13 @@ class AppController extends Action {
 		session_start();
 		$amigos = Container::getModel('Amigos');
 		$recado = Container::getModel('Recados');
+		$comunidade = Container::getModel('Comunidade');
+		$usuario = Container::getModel('Usuario');
 		$amigos->__set('id_usuario', $_SESSION['id']);
 
 		$acao = isset($_GET['acao']) ? $_GET['acao'] : "";
 		$id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : "";
-
+		echo $acao;
 
 		if($acao == "seguir"){
 			$amigos->seguir($id_usuario_seguindo);
@@ -172,6 +189,33 @@ class AppController extends Action {
 			$recado->resetId();
 			header("Location:/recados?id=$id");
 		}
+		if($acao == "participar"){
+			$id_comunidade = $_GET['id'];
+			$comunidade->__set('id_usuario',$_SESSION['id']);
+			$comunidade->__set('id_comunidade',$id_comunidade);
+			$comunidade->participar();
+			header("Location: /comunidade_page?id=$id_comunidade");
+		} 
+		if($acao == "deixar_de_participar"){
+			$id_comunidade = $_GET['id'];
+			$comunidade->__set('id_usuario',$_SESSION['id']);
+			$comunidade->__set('id_comunidade',$id_comunidade);
+			$comunidade->deixar_de_participar();
+			header("Location: /comunidade_page?id=$id_comunidade");
+		} 
+		if($acao == "save"){
+			$usuario->__set('id', $_SESSION['id']);
+			$data = $_POST['dia'] . ' de ' . $_POST['mes'] . ' de ' . $_POST['ano'];
+			$usuario->__set('nome', $_POST['nome']);
+			$usuario->__set('sobrenome', $_POST['sobrenome']);
+			$usuario->__set('data', $data);
+			$usuario->editar_perfil();
+			echo $usuario->__get('id');
+			echo $usuario->__get('nome');
+			echo $usuario->__get('sobrenome');
+			echo $usuario->__get('data');
+			header("Location: /editar_perfil");
+		} 
 	}
 
 

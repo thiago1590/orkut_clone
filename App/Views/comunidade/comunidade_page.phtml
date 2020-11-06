@@ -72,16 +72,28 @@
             <div class="col-md-2 d-none d-md-block" style="padding: 0;">
                 <div class="bg-white p-2" style="border-radius: 7px;">
                     <div id="conteudo-esquerda">
-                        <div>
+                        <div>  
                             <img class="center fix-size-img" src="/uploads/<?= $this->view->comunidades[0]['imagem']?>" alt="">
                             <p class="mt-2 mb-1 info-nome"><?= $this->view->comunidades[0]['nome'] ?></p>
 
                             <div class="campos">
                                 <div class=" mb-2">
                                     <span><img src="/Front_end/icons/participar.png" alt=""></span>
-                                    <a href="">
+
+                                    <?php if($this->view->seguindo['num'] == 0){ ?>
+                                        <a href="/acao?acao=participar&id=<?= $_GET['id'] ?>">
                                         <p class="no-margin texto-info">participar</p>
-                                    </a> <br>
+                                    </a> 
+                                   <?php  } else { ?>
+                                    <a href="/acao?acao=deixar_de_participar&id=<?= $_GET['id'] ?>">
+                                        <p class="no-margin texto-info">deixar de participar</p>
+                                    </a> 
+                                <?php }
+                                   
+                                   ?>
+                                    
+                                    
+                                    <br>
                                 </div>
                             </div>
 

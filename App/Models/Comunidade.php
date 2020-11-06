@@ -23,20 +23,19 @@ class Comunidade extends Model {
     }
 
     public function getLastComunidades(){
-      $query = "select u.nome 
-      from usuarios u join comunidades_seguidas c on u.id = c.id_usuario
-       where u.id in
-       (select id_comunidade from comunidade where id_usuario = :id) 
-       order by 
-       u.id desc limit 9";
+      $query = "select nome,imagem,id from comunidades where id in 
+      (select id_comunidade from comunidades_seguidas where id_usuario = :id_usuario) 
+      order by id desc limit 9";
       $stmt = $this->db->prepare($query);
-      $stmt->bindValue(':id',$this->__get('id_usuario'));
+      $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    
+
     public function getAllComunidades(){
-      $query = "select c.nome,c.id
+      $query = "select c.nome,c.id,c.imagem
       from comunidades c join comunidades_seguidas cs on c.id = cs.id_comunidade
        where c.id in
        (select id_comunidade from comunidades_seguidas where id_usuario = :id) 
@@ -78,12 +77,44 @@ class Comunidade extends Model {
     }
 
     public function pesquisar(){
-      $query = "select nome,id from comunidades where nome like CONCAT('%',:pesquisa, '%') ";
+      $query = "select nome,id,imagem from comunidades where nome like CONCAT('%',:pesquisa, '%') ";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':pesquisa', $this->__get('pesquisa'));
       $stmt->execute();
   
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function participar(){
+      $query = "insert into comunidades_seguidas (id_usuario,id_comunidade) values (:id_usuario,:id_comunidade)";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+      $stmt->bindValue(':id_comunidade', $this->__get('id_comunidade'));
+      $stmt->execute();
+  
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function deixar_de_participar(){
+      $query = "delete from comunidades_seguidas where id_usuario = :id_usuario and id_comunidade = :id_comunidade";
+      $stmt = $this->db->prepare($query);
+
+      $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+      $stmt->bindValue(':id_comunidade', $this->__get('id_comunidade'));
+
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    }
+
+    public function comunidade_seguindo_sn(){
+      $query = "select count(*) as num from comunidades_seguidas where id_usuario= :id_usuario and id_comunidade = :id_comunidade";
+      $stmt = $this->db->prepare($query);
+        
+        $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+        $stmt->bindValue(':id_comunidade',$this->__get('id_comunidade'));
+  
+      $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);;
     }
 
     
