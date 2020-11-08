@@ -12,6 +12,7 @@ class Comunidade extends Model {
     private $descrição;
     private $pesquisa;
     private $imagem;
+    private $dono;
 
 
     public function __get($atributo) {
@@ -48,8 +49,8 @@ class Comunidade extends Model {
 
     public function createComunidade(){
       $current_date = date("Y-m-d");
-      $query = "insert into comunidades (nome,categoria,descrição,data,imagem) values
-      (:nome,:categoria,:descricao,:data,:imagem)";
+      $query = "insert into comunidades (nome,categoria,descrição,data,imagem,dono) values
+      (:nome,:categoria,:descricao,:data,:imagem,:dono)";
 
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':nome',$this->__get('nome'));
@@ -57,24 +58,42 @@ class Comunidade extends Model {
       $stmt->bindValue(':descricao',$this->__get('descricao'));
       $stmt->bindValue(':data',$current_date);
       $stmt->bindValue(':imagem', $this->__get('imagem'));
+      $stmt->bindValue(':dono', $this->__get('dono'));
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function getLastId(){
-      $query = "select id from comunidades order by id desc limit 1";
+      $query = "select id from comunidades order by id desc limit 1 order by id";
       $stmt = $this->db->prepare($query);
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function getComunidadesInfo(){
-      $query = "select id,nome,categoria,descrição,imagem from comunidades where id = :id_comunidade";
+      $query = "select id,nome,categoria,descrição,imagem,dono from comunidades where id = :id_comunidade";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':id_comunidade',$this->__get('id_comunidade'));
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getLast9membros(){
+      $query = "select nome,image,id from usuarios where id in (select id_usuario from comunidades_seguidas where id_comunidade = :id_comunidade) order by id desc limit 9";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_comunidade',$this->__get('id_comunidade'));
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getAllmembros(){
+      $query = "select nome,image,id,count(*) as total from usuarios where id in (select id_usuario from comunidades_seguidas where id_comunidade = :id_comunidade) order by id";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_comunidade',$this->__get('id_comunidade'));
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+  
 
     public function pesquisar(){
       $query = "select nome,id,imagem from comunidades where nome like CONCAT('%',:pesquisa, '%') ";
@@ -116,6 +135,7 @@ class Comunidade extends Model {
       $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_ASSOC);;
     }
+
 
     
 }

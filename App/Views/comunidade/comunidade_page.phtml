@@ -129,8 +129,8 @@
                 <div class="bg-white p-2  d-none d-md-block" id="info-gerais"> <!--Infos Comunidade-->
                     <h3 style="font-weight: 400;"><?= $this->view->comunidades[0]['nome'] ?></h3> <!--Titulo e mini-nav-->
                     <div class="p-1" id="mini-nav">
-                        <span><a href="">Início ></a></span>
-                        <span><a href=""> Comunidades </a></span>
+                        <span><a href="/timeline">Início ></a></span>
+                        <span><a href="/comunidades"> Comunidades </a></span>
                         <span style="color: gray;">> Meu perfil</span>
                     </div>                                                  <!--fim Titulo e mini-nav-->
 
@@ -155,7 +155,7 @@
                                 </tr>
                                 <tr class="bg-listrado-2">
                                     <td class="pr-3 pl-5 py-2 texto-info-comunidade" style="vertical-align: top;">dono:</td>
-                                    <td class="size9 py-2"> Thiago
+                                    <td class="size9 py-2"> <?php echo $this->view->comunidades[0]['dono'] ?>
                                     </td>
                                 </tr>
                                 <tr class="bg-listrado-1">
@@ -195,39 +195,25 @@
                             </td>
                         </thead>
 
-                        <tr class="bg-listrado-1">
-                            <td class="td-left py-1"><a href="/topico">Madrugantes</a></td>
-                            <td class="td-right">01:03</td>
+                        <?php foreach($this->view->lastTopics as $key => $topics){ ?>
+                            <tr class="bg-listrado-<?= $key%2 == 0 ? '1' : '2' ?>">
+                            <td class="td-left py-1"><a href="/topico"><?=$topics['topico']?></a></td>
+                            <td class="td-right"><?=$topics['data']?></td>
                         </tr>
+                        <?php } 
+                        
+                        ?>
 
-                        <tr class="bg-listrado-2">
-                            <td class="td-left py-1">
-                                <a href="/topico">O que vc faria se fosse rico</a>
-                            </td>
-                            <td class="td-right">19:43</td>
-                        </tr>
-
-                        <tr class="bg-listrado-1">
-                            <td class="td-left py-1">
-                                <a href="/topico">Qual sua sorte de hoje?</a>
-                            </td>
-                            <td class="td-right">18:43</td>
-                        </tr>
-                        <tr class="bg-listrado-2">
-                            <td class="td-left py-1">
-                                <a href="/topico">Colheia feliz ou Mini fazenda?</a>
-                            </td>
-                            <td class="td-right">18:43</td>
-                        </tr>
                     </table>
+                  
                     <div class="campos clearfix">
                         <div style="float: left;">
                             <button class="btn btn-sm botao mt-2">
-                                <a href="/novo_topico" class="texto-botao">novo tópico</a>
+                                <a href="/novo_topico?id=<?= $_GET['id'] ?>" class="texto-botao">novo tópico</a>
                             </button>
                         </div>
                         <div style="float: right;" class="mt-2">
-                            <a id="todos-topicos" href="/forum">ver todos os tópicos >></a>
+                            <a id="todos-topicos" href="/forum?id=<?= $_GET['id'] ?>">ver todos os tópicos >></a>
                         </div>
                     </div>
                 </div> <!--Fim fórum-->
@@ -239,70 +225,64 @@
             <!--Começo Coluna Direita-->
             <div class="col-md">
                 <div class="col -md bg-white p-2" style="border-radius: 10px;">
-                    <h4>membros <span>(0)</span></h4>
-                    <table style="width: 100%;" id="galeria-membros">
+                    <h4>membros <span>(<?php print_r( $this->view->total_membros) ?>)</span></h4>
+                    <?php if(isset($this->view->membros[0])) { ?>
+                        <table style="width: 100%;" id="galeria-membros">
+                        
                         <tr>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
+                            <?php 
+                             
+                              
+                                
+                                foreach($this->view->membros[0] as $key=>$membros){ ?>
+                                    <td>
+                                <img class="fix-size-img" src="/uploads/<?=$membros['image']?>" alt="">
+                                <a href="/comunidade_page?id=<?= $membros['id'] ?>" >
+                                <p class="no-margin" style="text-align: center;"><?= $membros['nome'] ?></p>
                                 </a>
                             </td>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
+                                <?php  } 
+                                ?>
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                            <td>
-                                <img src="/Front_end/foto-perfil.png" alt="">
-                                <a href="">
-                                    <p class="no-margin" style="text-align: center;">fulano</p>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
 
+                        <tr>
+                        <?php 
+                            
+                        if(isset($this->view->membros[1])){
+                        foreach($this->view->membros[1] as $membros){ ?>
+                            <td>
+                        <img class="fix-size-img" src="/uploads/<?= $membros['image'] ?>" alt="">
+                        <a href="">
+                            <p class="no-margin" style="text-align: center;"><?= $membros['nome'] ?></p>
+                        </a>
+                    </td>
+                        <?php  }}
+
+                        ?>
+                        </tr>
+                       
+                       <tr>
+                       <?php 
+                            
+                            if(isset($this->view->membros[2])){
+                            foreach($this->view->membros[2] as $membros){ ?>
+                                <td>
+                            <img src="/uploads/<?= $membros['image'] ?>" alt="">
+                            <a href="">
+                                <p class="no-margin" style="text-align: center;"><?= $membros['nome'] ?></p>
+                            </a>
+                        </td>
+                            <?php  }}
+    
+                            ?>
+                       </tr>
+                         
+                    </table> <?php  
+                    } else{ ?>
+                                 <p class="size8">essa comunidade ainda não possui membros</p>
+                    <?php  }
+                    ?>
+                
                 </div>
 
 

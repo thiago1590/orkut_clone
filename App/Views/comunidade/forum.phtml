@@ -27,27 +27,38 @@
 
             <!-- Fim Layout para SM-->
 
-            <!--Coluna Esquerda-->
+           <!--Coluna Esquerda-->
 
-
-            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
+           <div class="col-md-2 d-none d-md-block" style="padding: 0;">
+                <div class="bg-white p-2" style="border-radius: 7px;">
                     <div id="conteudo-esquerda">
-                        <div>
+                        <div>  
+                            <img class="center fix-size-img" src="/uploads/<?= $this->view->comunidades[0]['imagem']?>" alt="">
+                            <p class="mt-2 mb-1 info-nome"><?= $this->view->comunidades[0]['nome'] ?></p>
 
-                            <img class=" center" src="/Front_end/foto-perfil.png" alt="">
-
-                            <p class="mt-2 mb-1 info-nome">Eu Odeio Acordar Cedo</p>
                             <div class="campos">
                                 <div class=" mb-2">
                                     <span><img src="/Front_end/icons/participar.png" alt=""></span>
-                                    <a href="">
+
+                                    <?php if($this->view->seguindo['num'] == 0){ ?>
+                                        <a href="/acao?acao=participar&id=<?= $_GET['id'] ?>">
                                         <p class="no-margin texto-info">participar</p>
-                                    </a> <br>
+                                    </a> 
+                                   <?php  } else { ?>
+                                    <a href="/acao?acao=deixar_de_participar&id=<?= $_GET['id'] ?>">
+                                        <p class="no-margin texto-info">deixar de participar</p>
+                                    </a> 
+                                <?php }
+                                   
+                                   ?>
+                                    
+                                    
+                                    <br>
                                 </div>
                             </div>
 
-                            <span><img src="/Front_end/icons/forum.png" alt=""></span>
+                            <div> <!--nav-esquerda-->
+                                <span><img src="/Front_end/icons/forum.png" alt=""></span>
                             <a href="">
                                 <p class="no-margin texto-info">fórum</p>
                             </a> <br>
@@ -63,12 +74,8 @@
                             <a href="">
                                 <p class="no-margin texto-info">membros</p>
                             </a> <br>
-
-
-
-                            <div>
-
-                            </div>
+                            </div> <!--Fim nav-esquerda-->
+                            
                         </div>
                     </div>
                 </div>
@@ -91,20 +98,11 @@
                     <!--Fim Título e Nav-->
 
 
-                    <!--Pesquisa-->
-                    <div>
-                        <span class="size9">pesquisar neste fórum:</span>
-                        <span><input type="text"></span>
-                        <span style="vertical-align: bottom;">
-                            <button class="btn btn-sm botao mt-2">
-                                <a class="texto-botao">pesquisar</a>
-                            </button>
-                        </span>
-                    </div>
+                 
 
                     <div class="borda-top mt-1 mb-2">
                         <button class="btn btn-sm botao mt-2">
-                            <a class="texto-botao">novo tópico</a>
+                            <a href="/novo_topico?id=<?= $_GET['id'] ?>" class="texto-botao">novo tópico</a>
                         </button>
                     </div>
                     <!--Fim Pesquisa-->
@@ -120,41 +118,25 @@
                             <td style="width: 12%;">
                                 <p class="no-margin tabela-header" style="text-align: center;">autor</p>
                             </td>
-                            <td style="width: 12%;">
-                                <p class="no-margin tabela-header" style="text-align: center;">postagens</p>
-                            </td>
                             <td style="width: 12%;" class="pb-1">
-                                <p class="no-margin tabela-header" style="text-align: center;">última postagens</p>
+                                <p class="no-margin tabela-header" style="text-align: center;">última postagem</p>
                             </td>
                         </thead>
 
-                        <tr class="bg-listrado-1">
-                            <td class="td-left py-1"><a href="/topico">Madrugantes</a></td>
-                            <td style="text-align: center;">Edson</td>
-                            <td style="text-align: center;">4</td>
-                            <td style="text-align: center;">14:39</td>
-                        </tr>
 
-                        <tr class="bg-listrado-2">
-                            <td class="td-left py-1"><a href="/topico">Confessionário</a></td>
-                            <td style="text-align: center;">Fabiana</td>
-                            <td style="text-align: center;">105</td>
-                            <td style="text-align: center;">14:36</td>
+                        <?php 
+                         foreach($this->view->allTopics as $key=>$topics){ ?>
+                            <tr class="bg-listrado-<?= $key%2 == 0 ? '1' : '2' ?>">
+                            <td class="td-left py-1"><a href="/topico"><?= $topics['topico'] ?></a></td>
+                            <td style="text-align: center;font-size:0.9em"><?= $topics['nome'] ?></td>
+                            <td style="text-align: center;font-size:0.9em"><?= $topics['data'] ?></td>
                         </tr>
+                       <?php }
+                       ?>
 
-                        <tr class="bg-listrado-1">
-                            <td class="td-left py-1"><a href="/topico">Me adicionem</a></td>
-                            <td style="text-align: center;">Nicolle</td>
-                            <td style="text-align: center;">47</td>
-                            <td style="text-align: center;">13:36</td>
-                        </tr>
+                        
 
-                        <tr class="bg-listrado-2">
-                            <td class="td-left py-1"><a href="/topico">ORKUT VOLTOU</a></td>
-                            <td style="text-align: center;">Black</td>
-                            <td style="text-align: center;">101</td>
-                            <td style="text-align: center;">12:45</td>
-                        </tr>
+                       
 
 
                     </table>
@@ -166,7 +148,7 @@
                         
                         <div class="ml-2">
                             <button class="btn btn-sm botao mt-2">
-                                <a class="texto-botao">novo tópico</a>
+                                <a href="/novo_topico?id=<?= $_GET['id'] ?>" class="texto-botao">novo tópico</a>
                             </button>
                         </div>
                     </div>

@@ -129,7 +129,11 @@ class Route extends Bootstrap {
 			'controller' => 'AppController',
 			'action' => 'acao'
 		);
-		
+		$routes['criarTopico'] = array(
+			'route' => '/criarTopico',
+			'controller' => 'ComunidadeController',
+			'action' => 'criarTopico'
+		);
 
 
 		
