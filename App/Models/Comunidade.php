@@ -64,7 +64,7 @@ class Comunidade extends Model {
     }
 
     public function getLastId(){
-      $query = "select id from comunidades order by id desc limit 1 order by id";
+      $query = "select id from comunidades order by id desc limit 1";
       $stmt = $this->db->prepare($query);
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);

@@ -197,8 +197,8 @@
 
                         <?php foreach($this->view->lastTopics as $key => $topics){ ?>
                             <tr class="bg-listrado-<?= $key%2 == 0 ? '1' : '2' ?>">
-                            <td class="td-left py-1"><a href="/topico"><?=$topics['topico']?></a></td>
-                            <td class="td-right"><?=$topics['data']?></td>
+                            <td class="td-left py-1"><a href="/topico?id=<?= $_GET['id'] ?>&id_topico=<?= $topics['id'] ?>"><?=$topics['topico']?></a></td>
+                            <td class="td-right">?</td>
                         </tr>
                         <?php } 
                         

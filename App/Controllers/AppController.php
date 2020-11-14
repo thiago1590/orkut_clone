@@ -15,20 +15,24 @@ class AppController extends Action {
 		$usuario = Container::getModel('Usuario');
 		$amigos = Container::getModel('Amigos');
 		$comunidade = Container::getModel('Comunidade');
-
+		$topicos = Container::getModel('Topicos');
+		$respostas = Container::getModel('Respostas');
+		
 		$usuario->__set('id', $_SESSION['id']);
 		$amigos->__set('id_usuario', $_SESSION['id']);
 		$comunidade->__set('id_usuario', $_SESSION['id']);
 
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->info_usuarios = $usuario->getInfoUsuarios();
-		$this->view->comunidades = $comunidade->getLastComunidades();
+		$this->view->comunidades = $comunidade->getLastComunidades(); 
 		$this->view->friends_number = count($amigos->getAllFriends());
 		$this->view->comunidades_number = count($comunidade->getAllComunidades());
 		$this->view->sorte = $usuario->get_sorte();
+		$this->view->allTopics = $topicos->getAllTopics();
+		$this->view->allRespostas = $respostas->getAllRespostas();
 		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
 		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
-
+		$this->view->last_respostas = ($respostas->getLast3Respostas());
 		$usuario->valida_sorte();
 		$this->render('timeline','layout2');
 

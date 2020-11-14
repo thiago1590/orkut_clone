@@ -108,7 +108,7 @@ class Usuario extends Model {
 	}
 
 	public function getInfoUsuario() {
-		$query = "select nome,id,data,frase,image from usuarios where id = :id_usuario";
+		$query = "select nome,sobrenome,email,id,data,frase,image from usuarios where id = :id_usuario";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':id_usuario', $this->__get('id'));
 		$stmt->execute();

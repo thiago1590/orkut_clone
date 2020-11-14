@@ -5,7 +5,9 @@
             <?php require('App\Views\componentes\barra_esquerda.phtml'); ?>
 
             <!--Coluna Centro-->
+            
             <div class="col-md-7 bg-transparent mr-1">
+           
                 <div class="bg-white p-2" id="info-gerais">
                     <h3 style="font-weight: 400;">Bem-vindo(a), <?php echo $this->view->info_usuario['nome'];?> </h3>
                     <div class="row ml-2 mt-3">
@@ -42,12 +44,7 @@
 
                 </div>
         
-                
-                <div id="explorar1" class="mt-2">
-                    <p class="no-margin">explorar</p>
-                </div>
-
-        <div class="p-4 bg-white">
+        <div class="p-4 bg-white mt-2 areas">
         <div class="owl-carousel owl-theme">
         
         <?php foreach($this->view->info_usuarios as $id_usuarios => $usuarios) { ?>
@@ -59,20 +56,61 @@
     </div>
     </div>
 			<?php } ?> 
+</div>
+</div>
 
-        
-        
-
-
-
-
-
+<div id="explorar1" class="mt-2">
+                    <p class="no-margin" style="color:white">explorar</p>
+                </div>
 
 
+     <?php 
 
+    foreach($this->view->allTopics as $key=>$topics){ ?>
+     <div class="areas my-2 p-2 clearfix">
+
+        <div class="topico pb-2 mb-2"> <!-- topico -->
+            <div class="header-topic pb-2"> <!-- header -->
+                <div class="mr-2 mensagem-topico"><img width="40px" src="/uploads/<?= $topics['imagem'] ?>" alt=""></div>
+                <a href=""><?= $topics['nome_comunidade'] ?></a> <br>
+                <?= $topics['topico'] ?>
+            </div>
+        <div style="clear:both"></div>
+
+    <div class="conteudo mt-2 px-2" style="background:#f0f7ff"> <!-- conteudo -->
+    
+    <?php 
+        foreach($this->view->last_respostas[$key] as $key2=>$respostas){ ?>
+            <div class="mr-2 mt-2 mensagem-topico mb-2" style="width:100%">
+                <img width="40px" src="/uploads/<?= isset($respostas['image']) ? $respostas['image'] : ""  ?>" alt="">
+                <a href=""><?= isset($respostas['nome']) ? $respostas['nome'] : "" ?></a> 
+                <p class="no-margin py-2"><?= isset($respostas['mensagem']) ? $respostas['mensagem'] : "" ?></p>
+            </div>  
+            
+       <?php }
+
+    ?>
+    <?php 
+    
+    
+    ?>
+
+   <div style="clear:both"></div>
+</div> 
+
+<button class="btn btn-sm botao mt-2" style="line-height:15px">
+                            <a href="pesquisa_comunidade" class="texto-botao">responder</a>
+                        </button>
+    
+</div>
 
 </div>
-        </div>
+   <?php }
+
+?>
+
+
+
 
             </div>
 

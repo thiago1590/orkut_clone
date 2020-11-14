@@ -29,7 +29,8 @@ class ComunidadeController extends Action {
 		session_start();
 
 		$comunidade = Container::getModel('Comunidade');
-		$forum = Container::getModel('Forum');
+		$topicos = Container::getModel('Topicos');
+		$respostas = Container::getModel('Respostas');
 		$action = isset($_GET['action']) ? $_GET['action'] : "";
 
 		if($action=='save'){
@@ -43,12 +44,12 @@ class ComunidadeController extends Action {
  
 		$comunidade->__set('id_usuario',$_SESSION['id']);
 		$comunidade->__set('id_comunidade',$_GET['id']);
-		$forum->__set('id_comunidade',$_GET['id']);
+		$topicos->__set('id_comunidade',$_GET['id']);
 		
 		$this->view->comunidades = $comunidade->getComunidadesInfo();
 		$this->view->seguindo = $comunidade->comunidade_seguindo_sn();
-		$this->view->lastTopics = $forum->getLastTopics();
-		$this->view->allTopics = $forum->getAllTopics();
+		$this->view->lastTopics = $topicos->getLastTopics();
+		$this->view->allTopics = $topicos->getTopics();
 		$this->view->membros = array_chunk($comunidade->getLast9membros(), 3);
 		$this->view->total_membros = $comunidade->getAllMembros()[0]['total'];
 		$this->render('comunidade_page','layout2');
@@ -99,10 +100,10 @@ class ComunidadeController extends Action {
 		$comunidade->__set('id_comunidade',$_GET['id']);
 		$this->view->comunidades = $comunidade->getComunidadesInfo();
 		$this->view->seguindo = $comunidade->comunidade_seguindo_sn();
-		$forum = Container::getModel('Forum');
-		$forum->__set('id_comunidade',$_GET['id']);
-		$this->view->allTopics = $forum->getAllTopics();
-		$this->render('forum','layout2');
+		$topicos = Container::getModel('Topicos');
+		$topicos->__set('id_comunidade',$_GET['id']);
+		$this->view->allTopics = $topicos->getTopics();
+		$this->render('forum','layout2'); 
 	}
 
 	public function topico(){
@@ -111,18 +112,31 @@ class ComunidadeController extends Action {
 
 	public function criarTopico(){
 		session_start();
-		$forum = Container::getModel('Forum');
-		$id = $_POST['id'];
-		$forum->__set('id_comunidade',$id);
-		$forum->__set('id_autor',$_SESSION['id']);
-		$forum->__set('topico',$_POST['topico']);
-		$forum->__set('mensagem',$_POST['mensagem']); 
+		$topicos = Container::getModel('Topicos');
+		$respostas = Container::getModel('Respostas');
+		$id_comunidade = $_POST['id'];
+		
+		if($_GET['id_topico'] == null || $_GET['id_topico'] == ""){
+		$topicos->__set('id_comunidade',$id_comunidade);
+		$topicos->__set('id_autor',$_SESSION['id']);
+		$topicos->__set('topico',$_POST['topico']);
+		$topicos->criarTopico();
+		$id_topico = $topicos->getLastId()[0]['MAX(id)'];
+		} else{$id_topico = $_GET['id_topico'];}
+		
+		$respostas->__set('mensagem',$_POST['mensagem']); 
+		$respostas->__set('id_autor',$_SESSION['id']);
+		$respostas->__set('id_topico',$id_topico);
+
 		date_default_timezone_set('America/Sao_Paulo');
 		$mes = date("m");
 		$data = $this->setDate($mes);
-		$forum->__set('data',$data); 
-		$forum->criarTopico();
-		header("Location: /comunidade_page?id=$id");
+		
+		$respostas->__set('data',$data);
+		
+		$respostas->setResposta();
+		echo $id_topico;
+		header("Location: /comunidade_page?id=$id_comunidade");
 	}
 
 	

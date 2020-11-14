@@ -90,12 +90,12 @@
                     <div class="p-1" id="mini-nav">
                         <span><a href="/timeline">Início ></a></span> 
                         <span><a href="/comunidades"> Comunidades > </a></span> 
-                        <span><a href="/comunidade_page?id=<?= $_GET['id'] ?>"> Eu Odeio Acordar Cedo </a></span> 
+                        <span><a href="/comunidade_page?id=<?= $_GET['id']?>"> Eu Odeio Acordar Cedo </a></span> 
                         <span style="color: gray;">> Fórum</span>
                         <span style="color: gray;">> Novo tópico</span>
                     </div>
-
-                    <form action="/criarTopico" method="post">
+        
+                    <form action="/criarTopico?id=<?=$_GET['id']?>&id_topico=<?= isset($_GET['id_topico']) ? $_GET['id_topico'] : "" ?>" method="post">
                     <input name="id" display="none" type="text" style="display:none" value="<?= $_GET['id'] ?>" >
                     <div class="no-margin social-info2 py-2">
                         <table class="ml-4">
@@ -117,7 +117,9 @@
                         </table>
                     </div>
 
-                    <div class="no-margin social-info2 py-2">
+                    <?php 
+                            if(!isset($_GET['id_topico'])){ ?>
+                                 <div class="no-margin social-info2 py-2">
                         <table class="ml-4">
                             <tr class="ml-4">
                                 <td class="pr-3 texto-info-comunidade" style="vertical-align: top;">Assunto:</td>
@@ -126,6 +128,11 @@
                             </tr>
                         </table>
                     </div>
+                           <?php }
+                    
+                    ?>
+
+                   
 
                     <div class="no-margin social-info1 py-2">
                         <table class="ml-4">
