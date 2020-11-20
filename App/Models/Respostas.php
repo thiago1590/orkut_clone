@@ -10,6 +10,8 @@ class Respostas extends Model {
     private $mensagem;
     private $id_autor;
     private $data;
+    private $id_comunidade;
+    private $data2;
 
     public function __get($atributo) {
 		return $this->$atributo;
@@ -28,7 +30,7 @@ class Respostas extends Model {
         $stmt->bindValue(':mensagem',$this->__get('mensagem'));
         $stmt->bindValue(':id_autor',$this->__get('id_autor'));
         $stmt->bindValue(':data',$this->__get('data'));
-        $stmt->bindValue(':data2',date('Y-m-d H:i:s', time()));
+        $stmt->bindValue(':data2',$this->__get('data2'));
         
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -36,7 +38,7 @@ class Respostas extends Model {
 
     public function getRespostas(){
         $query = "select u.nome,u.image,r.mensagem,r.data 
-        from resposta r join usuarios u on (r.id_autor = u.id)
+        from respostas r join usuarios u on (r.id_autor = u.id)
         where id_topico = :id_topico ";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_topico',$this->__get('id_topico'));
@@ -77,6 +79,32 @@ class Respostas extends Model {
            }
            $resultado = array_reverse($resultado);
 
+        return $resultado;
+    }
+
+    public function getIdTopicsComunidade(){
+        $query = "select id from topicos where id_comunidade = :id_comunidade order by data";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_comunidade',$this->__get('id_comunidade'));
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getLastRespostaData(){
+        $allTopics = $this->getIdTopicsComunidade();
+        $idList = array();
+        foreach($allTopics as $key=>$topicos){
+            array_push($idList,$allTopics[$key]['id']);
+        }
+        $resultado = array();
+        foreach($allTopics as $key=>$topicos){
+            $query = ("select data from respostas 
+             where id_topico = :id_topico  order by data2 limit 1");
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_topico',$idList[$key]);
+            $stmt->execute();
+            $resultado[] = $stmt->fetch(\PDO::FETCH_ASSOC);
+           }
         return $resultado;
     }
 

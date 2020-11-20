@@ -134,6 +134,18 @@ class Route extends Bootstrap {
 			'controller' => 'ComunidadeController',
 			'action' => 'criarTopico'
 		);
+		$routes['addComunidadeImage'] = array(
+			'route' => '/addComunidadeImage',
+			'controller' => 'ImagesController',
+			'action' => 'addComunidadeImage'
+		);
+		$routes['createComunidade2'] = array(
+			'route' => '/createComunidade2',
+			'controller' => 'ComunidadeController',
+			'action' => 'createComunidade2'
+		);
+
+
 
 
 		

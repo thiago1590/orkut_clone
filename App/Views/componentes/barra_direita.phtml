@@ -1,6 +1,8 @@
 
 <div class="col-md d-none d-md-block mt-2" style="padding: 0;">
-                <div class="bg-white p-2" style="border-radius: 10px;">
+               
+                    
+                  <div class="bg-white p-2" style="border-radius: 10px;">
                     <h4>meus amigos <span>
                     <a href="/amigos">(<?= $this->view->friends_number ?>)</a>
                      </span>
@@ -16,63 +18,21 @@
 
                     </div>
                        <?php } else{ ?>
-                        <table style="width: 100%;" id="galeria-membros">
-                    
 
-                        <tr>
-                        
+                        <div class="row" style="margin:auto" > 
+
                             <?php 
-
-                                foreach($this->view->friends[0] as $friends){ ?>
-                                    <td>
+                                foreach($this->view->friends as $friends){ ?>
+                                <div class="col-4 p-2 galeria-element" >
                                 <img class="fix-size-img" src="/uploads/<?= $friends['image'] ?>" alt="">
-                                <a href="/perfil?id=<?= $friends['id'] ?>">
-                                    <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
-                                </a>
-                            </td>
-                                <?php  } 
-                                ?>
-                        </tr>
-
-                        <tr>
-                        <?php 
-                            
-                        if(isset($this->view->friends[1])){
-                        foreach($this->view->friends[1] as $friends){ ?>
-                            <td>
-                        <img class="fix-size-img" src="/uploads/<?= $friends['image'] ?>" alt="">
-                        <a href="/perfil?id=<?= $friends['id'] ?>">
-                            <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
-                        </a>
-                    </td>
-                        <?php  }}
-
-                        ?>
-                        </tr>
-                       
-                       <tr>
-                       <?php 
-                            
-                            if(isset($this->view->friends[2])){
-                            foreach($this->view->friends[2] as $friends){ ?>
-                                <td>
-                            <img class="fix-size-img" src="/uploads/<?= $friends['image'] ?>" alt="">
-                            <a href="/perfil?id=<?= $friends['id'] ?>">
-                                <p class="no-margin" style="text-align: center;"><?= $friends['nome'] ?></p>
-                            </a>
-                        </td>
-                            <?php  }}
-    
-                            ?>
-                       </tr>
-                         
-                    </table>
+                                    <a href="/perfil?id=<?= $friends['id'] ?>"><p class="no-margin size9 wrap" style="text-align: center;    line-height: 1"><?= $friends['nome'] ?></p></a>
+                                </div>
+                               <?php  }?>
+                        </div>
+                        
                        <?php } 
                        
                        ?> 
-                    
-                    
-                   
                 </div>
 
                 <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
@@ -83,65 +43,18 @@
                     </h4>
                     <div class="campos mt-2" style="border-bottom: 1px solid white;">
                         <div class="mb-1"></div>
-                    <?php if(isset($this->view->comunidade[0])) { ?>
-                        <table style="width: 100%;" id="galeria-membros">
-                        
-                        <tr>
-                            <?php 
-                             
-                              
-                                
-                                foreach($this->view->comunidade[0] as $key=>$comunidade){ ?>
-                                    <td>
-                                        
-                                <img class="fix-size-img" src="/uploads/<?= $comunidade['imagem'] ?>" alt="">
-                                <a href="/comunidade_page?id=<?= $comunidade['id'] ?>" >
-                                    <p class="no-margin" style="text-align: center;"><?= $comunidade['nome'] ?></p>
-                                </a>
-                            </td>
-                                <?php  } 
-                                ?>
-                        </tr>
 
-                        <tr>
-                        <?php 
-                            
-                        if(isset($this->view->comunidade[1])){
-                        foreach($this->view->comunidade[1] as $comunidade){ ?>
-                            <td>
-                        <img class="fix-size-img" src="/uploads/<?= $comunidade['imagem'] ?>" alt="">
-                        <a href="">
-                            <p class="no-margin" style="text-align: center;"><?= $comunidade['nome'] ?></p>
-                        </a>
-                    </td>
-                        <?php  }}
+                        <div class="row" style="margin:auto" > 
 
-                        ?>
-                        </tr>
-                       
-                       <tr>
-                       <?php 
-                            
-                            if(isset($this->view->comunidade[2])){
-                            foreach($this->view->comunidade[2] as $comunidade){ ?>
-                                <td>
-                            <img src="/uploads/<?= $comunidade['imagem'] ?>" alt="">
-                            <a href="">
-                                <p class="no-margin" style="text-align: center;"><?= $comunidade['nome'] ?></p>
-                            </a>
-                        </td>
-                            <?php  }}
-    
-                            ?>
-                       </tr>
-                         
-                    </table> <?php  
-                    } else{ ?>
-                                 <button class="btn btn-sm botao">
-                            <a href="pesquisa_comunidade" class="texto-botao">Adicionar comunidades</a>
-                        </button>
-                    <?php  }
-                    ?>
+                        <?php
+                            foreach($this->view->comunidade as $comunidade){ ?>
+                            <div class="col-4 p-2 galeria-element" >
+                            <img class="fix-size-img" src="/uploads_comunidade/<?= $comunidade['imagem'] ?>" alt="">
+                                <a href="/comunidade_page?id=<?= $comunidade['id'] ?>"><p class="no-margin size9 wrap" style="text-align: center;    line-height: 1"><?= $comunidade['nome'] ?></p></a>
+                            </div>
+                        <?php  }?>
+                        </div>
+
                    
                     </div>
                 </div>

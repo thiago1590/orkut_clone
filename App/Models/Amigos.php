@@ -29,14 +29,37 @@ class Amigos extends Model {
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-
-    public function getAllFriends(){
-      $query = "select u.nome,u.image, u.id
-      from usuarios u join amigos a on u.id = a.id_usuario_seguindo
-       where u.id in
+    public function getLast3Friends(){
+      $query = "select nome,image, id
+      from usuarios
+       where id in
        (select id_usuario_seguindo from amigos where id_usuario = :id) 
        order by 
-       u.id desc ";
+       id desc limit 3";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id',$this->__get('id_usuario'));
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getAllFriends(){
+      $query = "select nome,image,id
+      from usuarios
+       where id in
+       (select id_usuario_seguindo from amigos where id_usuario = :id) 
+       order by id desc";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id',$this->__get('id_usuario'));
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getIdFriends(){
+      $query = "select id
+      from usuarios
+       where id in
+       (select id_usuario_seguindo from amigos where id_usuario = :id) 
+       order by id desc";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':id',$this->__get('id_usuario'));
       $stmt->execute();

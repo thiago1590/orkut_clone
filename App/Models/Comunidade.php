@@ -33,6 +33,15 @@ class Comunidade extends Model {
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getLast3Comunidades(){
+      $query = "select nome,imagem,id from comunidades where id in 
+      (select id_comunidade from comunidades_seguidas where id_usuario = :id_usuario) 
+      order by id desc limit 3";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+      $stmt->execute();
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
     
 
     public function getAllComunidades(){
@@ -49,18 +58,26 @@ class Comunidade extends Model {
 
     public function createComunidade(){
       $current_date = date("Y-m-d");
-      $query = "insert into comunidades (nome,categoria,descrição,data,imagem,dono) values
-      (:nome,:categoria,:descricao,:data,:imagem,:dono)";
+      $query = "insert into comunidades (nome,categoria,descrição,data,dono) values
+      (:nome,:categoria,:descricao,:data,:dono)";
 
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':nome',$this->__get('nome'));
       $stmt->bindValue(':categoria',$this->__get('categoria'));
       $stmt->bindValue(':descricao',$this->__get('descricao'));
       $stmt->bindValue(':data',$current_date);
-      $stmt->bindValue(':imagem', $this->__get('imagem'));
       $stmt->bindValue(':dono', $this->__get('dono'));
       $stmt->execute();
       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function setImagem(){
+      $query = "update comunidades set imagem = :imagem where id = :id";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':imagem',$this->__get('imagem'));
+      $stmt->bindValue(':id',$this->__get('id'));
+      $stmt->execute();
+      return $this;
     }
 
     public function getLastId(){

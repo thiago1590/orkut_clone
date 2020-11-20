@@ -31,15 +31,15 @@ class Usuario extends Model {
 
 	public function salvar() {
 
-		$query = "insert into usuarios(nome,sobrenome,email,senha,data )
-		values(:nome,:sobrenome,:email,:senha,:data)";
+		$query = "insert into usuarios(nome,sobrenome,email,senha,data,image )
+		values(:nome,:sobrenome,:email,:senha,:data,:image)";
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':nome', $this->__get('nome'));
 		$stmt->bindValue(':sobrenome', $this->__get('sobrenome'));
 		$stmt->bindValue(':email', $this->__get('email'));
 		$stmt->bindValue(':senha', $this->__get('senha'));
 		$stmt->bindValue(':data', $this->__get('data'));
-		
+		$stmt->bindValue(':image', 'foto-default.png');
 		$stmt->execute();
 
 		return $this;
@@ -189,6 +189,8 @@ class Usuario extends Model {
 
 		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
+
+	
 
 	public function usuario_seguindo_sn($id_usuario_seguindo){
 		$query = "select count(*) from amigos where id_usuario= :id_usuario and id_usuario_seguindo = :id_usuario_seguindo";

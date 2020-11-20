@@ -1,154 +1,98 @@
 <div class="container mt-2 " style="border-radius: 5%; ">
 
-        <div class="row h-100">
+    <div class="row h-100">
 
-            <!--Layout para SM-->
+        <!--Layout para SM-->
 
 
 
-            <div class="col-12 d-md-none">
+        <div class="col-12 d-md-none">
                 <div class="areas p-2">
                     <div class="row">
                         <div class="col-3">
-                            <img src="/public/img/logo-teste.jpg" alt="">
+                        <img class="fix-size-img" src="/uploads_comunidade/<?= $this->view->comunidades[0]['imagem'] ?>" alt="">
                         </div>
-                        <div class="col p-3">
-                            <a style="font-size: 1.3em;" href="">Eu odeio acordar cedo</a> <br>
-                            <button class="btn btn-sm botao mt-2">
+                        <div class="col">
+                            <a style="font-size: 1.3em;" href=""><?= $this->view->comunidades[0]['nome']?></a> <br>
+                            <?php if ($this->view->seguindo['num'] == 0) { ?>
+                                    <button class="btn btn-sm botao mt-2">
                                 <img src="/Front_end/icons/deixar.png" alt="">
-                                <a class="texto-botao">deixar comunidade</a>
+                                <a href="/acao?acao=participar&id=<?= $_GET['id'] ?>" class="texto-botao">participar</a>
                             </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <!-- Fim Layout para SM-->
-
-            <!--Coluna Esquerda-->
-
-
-            <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-                <div class="bg-white p-2 mr-1 pt-4" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda">
-                        <div>
-
-                            <img class=" center" src="/Front_end/foto-perfil.png" alt="">
-
-                            <p class="mt-2 mb-1 info-nome">Eu Odeio Acordar Cedo</p>
-                            <div class="campos">
-                                <div class=" mb-2">
-                                    <span><img src="/Front_end/icons/participar.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">participar</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-
-                            <span><img src="/Front_end/icons/forum.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">fórum</p>
-                            </a> <br>
-                            <span><img src="/Front_end/icons/enquetes.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">enquetes</p>
-                            </a> <br>
-                            <span><img src="/Front_end/icons/eventos.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">eventos</p>
-                            </a> <br>
-                            <span><img src="/Front_end/icons/membros.png" alt=""></span>
-                            <a href="">
-                                <p class="no-margin texto-info">membros</p>
-                            </a> <br>
-
-
-
-                            <div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Fim Coluna Esquerda-->
-
-            <!--Coluna Centro-->
-            <div class="col bg-transparent mr-1 mt-2">
-                <div class="bg-white p-2  areas">
-
-                    <!--Título e Nav-->
-                    <h3 style="font-weight: 400;">Nome tópico</h3>
-                    <div class="p-1" id="mini-nav">
-                        <span><a href="">Início ></a></span>
-                        <span><a href=""> Comunidades > </a></span>
-                        <span><a href=""> Eu Odeio Acordar Cedo > </a></span>
-                        <span><a href=""> Fórum ></a></span>
-                        <span style="color:gray"> Nome Tópico</span>
-                    </div>
-                    <!--Fim Título e Nav-->
-
-                    <!--Respostas-->
-
-                    <div class="clearfix" style="background: #f0f7ff;">
-
-                        <div style="border-bottom:4px solid white ;" class="clearfix"> <!--Resposta 1-->
-                            
-                            <div class="resposta">
-                                <img class="img-resposta ml-2" src="/Front_end/foto-perfil.png" alt="">
-                            </div>
-                            <div style="float: left; width: 84%;  display: block;">
-                                <div class="ml-2" style="float: left;">
-                                    <a href="">Nicolle</a>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis molestias fugiat
-                                        officia cum? Quasi laudantium exercitationem iusto obcaecati eum labore rem
-                                        dolores. Mollitia eveniet quo, molestiae sunt dolorum illum nihil!</p>
-                                </div>
-
-                            </div>
-                        </div> <!--Fim Resposta 1-->
-
-                        <div> <!--Resposta 2-->
-                            
-                            <div class="resposta">
-                                <img class="img-resposta ml-2" src="/Front_end/foto-perfil.png" alt="">
-                            </div>
-                            <div style="float: left; width: 84%;  display: block;">
-                                <div class="ml-2" style="float: left;">
-                                    <a href="">Diego</a>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis molestias fugiat
-                                        officia cum? Quasi laudantium exercitationem iusto obcaecati eum labore rem
-                                        dolores. Mollitia eveniet quo, molestiae sunt dolorum illum nihil!</p>
-                                </div>
-
-                            </div>
-                        </div> <!--Fim Resposta 2-->
-
-
-                    </div>
-
-                    <!--Fim Respostas-->
-
-                    <div class="clearfix mt-1 borda-top">
-
-                        <div class="ml-2">
-                            <button class="btn btn-sm botao mt-2">
-                                <a href="novo_topico?id=<?= $_GET['id']?>&id_topico=<?= $_GET['id_topico'] ?>" class="texto-botao">responder</a>
+                                <?php  } else { ?> 
+                                    <button class="btn btn-sm botao mt-2">
+                                <img src="/Front_end/icons/deixar.png" alt="">
+                                <a href="/acao?acao=deixar_de_participar&id=<?= $_GET['id'] ?>" class="texto-botao">deixar comunidade</a>
                             </button>
+                                <?php } ?>
                         </div>
                     </div>
+                </div>
+                
+            </div>
 
+
+        <!-- Fim Layout para SM-->
+
+        <?php require('App/Views/componentes/barra_esquerda_comunidade.phtml'); ?>
+
+        <!--Coluna Centro-->
+        <div class="col bg-transparent mr-1 mt-2">
+            <div class="bg-white p-2  areas">
+
+                <!--Título e Nav-->
+                <h3 style="font-weight: 400;">Nome tópico</h3>
+                <div class="p-1" id="mini-nav">
+                    <span><a href="">Início ></a></span>
+                    <span><a href=""> Comunidades > </a></span>
+                    <span><a href=""> Eu Odeio Acordar Cedo > </a></span>
+                    <span><a href=""> Fórum ></a></span>
+                    <span style="color:gray"> Nome Tópico</span>
+                </div>
+                <!--Fim Título e Nav-->
+
+                <!--Respostas-->
+
+                <div class="clearfix" style="background: #f0f7ff;">
+
+                    <?php
+                    foreach ($this->view->respostas as $key => $respostas) { ?>
+
+                        <div style="border-bottom:4px solid white ;" class="clearfix">
+
+                            <div class="resposta">
+                                <img class="img-resposta ml-2" src="/uploads/<?= $respostas['image'] ?>" alt="">
+                            </div>
+                            <div style="float: left;display: block;">
+                                <div class="ml-2" style="float: left;">
+                                    <a href=""><?= $respostas['nome'] ?></a>
+                                    <p><?= $respostas['mensagem'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }
+                    ?>
+                </div>
+
+                <!--Fim Respostas-->
+
+                <div class="clearfix mt-1 borda-top">
+
+                    <div class="ml-2">
+                        <button class="btn btn-sm botao mt-2">
+                            <a href="novo_topico?id=<?= $_GET['id'] ?>&id_topico=<?= $_GET['id_topico'] ?>" class="texto-botao">responder</a>
+                        </button>
+                    </div>
                 </div>
 
             </div>
-
-            <!--Fim Centro-->
-
-
-
 
         </div>
+
+        <!--Fim Centro-->
+
+
+
+
     </div>
+</div>

@@ -3,122 +3,138 @@
         <div class="row h-100">
 
             <!--Layout para SM-->
-            <div class="col d-block d-md-none bg-transparent">
+        <div class="col d-block d-md-none bg-transparent">
 
-                <div class="areas p-1">
-                    <div class="row">
-                        <div class="col-3 ">
-                            <img src="/Front_end/foto-perfil.png" class="mt-3" alt="">
-                        </div>
-                        <div class="col-9">
-                            <p class="info-nome">Thiago André</p>
-                            <div class="clearfix">
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">recados</p>
-                                    <img src="/Front_end/icons/recados.png" alt=""> 2
-                                </div>
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">fotos</p>
-                                    <img src="/Front_end/icons/fotos.png" alt=""> 2
-                                </div>
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">vídeos</p>
-                                    <img src="/Front_end/icons/videos.png" alt=""> 2
-                                </div>
-                                <div style="float: left;" class="mr-2">
-                                    <p class="no-margin size8">fãs</p>
-                                    <img src="/Front_end/icons/fas.png" alt=""> 2
-                                </div>
-                                <br><br>
-
-
-                                <div class="row pl-3">
-                                    <div class="menu-geral">
-                                        <p class="no-margin texto-menu">confiável</p>
-                                        <img class="no-margin mr-1" src="/Front_end/icons/confiavel.png" alt="">
-                                    </div>
-                                    <div class="menu-geral">
-                                        <p class="no-margin texto-menu">legal</p>
-                                        <img class="no-margin mr-1" src="/Front_end/icons/legal.png" alt="">
-                                    </div>
-                                    <div class="menu-geral">
-                                        <p class="no-margin texto-menu">sexy</p>
-                                        <img class="no-margin mr-1" src="/Front_end/icons/coracoes.png" alt="">
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-3 ">
-
-                        </div>
-                    </div>
+<div class="areas p-1">
+    <div class="row">
+        <div class="col-3 ">
+            <img class="fix-size-img ml-1" src="/uploads/<?= $this->view->info_usuario['image'] ?>" class="mt-3" alt="">
+        </div>
+        <div class="col-9">
+            <p class="info-nome"><?= $this->view->info_usuario['nome'] ?></p>
+            <div class="clearfix">
+                <div style="float: left;" class="mr-2 ml-1 size9">
+                    <p class="no-margin size8 texto-menu">recados</p>
+                    <img src="/Front_end/icons/recados.png" alt=""> <span class="size8">2</span>
                 </div>
-
-                <div class="col areas p-2 mt-2">
-                    <div id="social" class="mt-2">
-                        <p class="no-margin">social</p>
-                    </div>
-
-
-                    <div id="social-info">
-                        <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">aniversario: 1 de janeiro de 1999</p>
-                        </div>
-                        <div class="no-margin social-info2 py-2">
-                            <p class="no-margin">relacionamento: solteiro(a)</p>
-                        </div>
-                        <div class="no-margin social-info1 py-2">
-                            <p class="no-margin">país: Brasil</p>
-                        </div>
-                    </div>
+                <div style="float: left;" class="mr-2 size9">
+                    <p class="no-margin texto-menu">fotos</p>
+                    <img src="/Front_end/icons/fotos.png" alt=""> <span class="size8">2</span>
                 </div>
+                <div style="float: left;" class="mr-2 size9">
+                    <p class="no-margin size8 texto-menu">vídeos</p>
+                    <img src="/Front_end/icons/videos.png" alt=""> <span class="size8">2</span>
+                </div>
+                <div style="float: left;" class="mr-2 size9">
+                    <p class="no-margin size8 texto-menu">fãs</p>
+                    <img src="/Front_end/icons/fas.png" alt=""> <span class="size8">2</span>
+                </div>
+                <br><br>
 
-                <div class="col-md mt-2" style="padding: 0;">
-                    <div class="bg-white p-2" style="border-radius: 10px;">
-                        <h4>meus amigos <span>(0)</span></h4>
-                        <div class="mt-1 p-1" style="background: #eef7ff;">
-                            <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
-                        </div>
-                        <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                            <div class="mb-1"></div>
-                            <button class="btn btn-sm botao">
-                                <a class="texto-botao" href="encontrar_amigos">Adicionar amigos</a>
-                            </button>
-                        </div>
+
+                <div class="row pl-3">
+                    <div class="menu-geral  size9">
+                        <p class="no-margin texto-menu">confiável</p>
+                        <img class="no-margin mr-1" src="/Front_end/icons/confiavel.png" alt="">
+                    </div>
+                    <div class="menu-geral  size9">
+                        <p class="no-margin texto-menu">legal</p>
+                        <img class="no-margin mr-1" src="/Front_end/icons/legal.png" alt="">
+                    </div>
+                    <div class="menu-geral  size9">
+                        <p class="no-margin texto-menu">sexy</p>
+                        <img class="no-margin mr-1" src="/Front_end/icons/coracoes.png" alt="">
                     </div>
 
-                    <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
-                        <h4>minhas comunidades <span>(0)</span></h4>
-
-                        <div class="campos mt-2" style="border-bottom: 1px solid white;">
-                            <div class="mb-1"></div>
-                            <button class="btn btn-sm botao">
-                                <a class="texto-botao" href="pesquisa_comunidade">Adicionar comunidades</a>
-                            </button>
-                        </div>
-                    </div>
 
                 </div>
 
             </div>
+        </div>
+        <div class="col-3 ">
+
+        </div>
+    </div>
+</div>
+
+<div class="col areas p-2 mt-2">
+    <div id="social" class="mt-2">
+        <p class="no-margin">social</p>
+    </div>
 
 
-            <!-- Fim Layout para SM-->
+    <div id="social-info">
+        <div class="no-margin social-info1 py-2">
+            <p class="no-margin">aniversário: <?= $this->view->info_usuario['data'] ?></p>
+        </div>
+        <div class="no-margin social-info2 py-2">
+            <p class="no-margin">relacionamento: solteiro(a)</p>
+        </div>
+        <div class="no-margin social-info1 py-2">
+            <p class="no-margin">país: Brasil</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md mt-2" style="padding: 0;">
+    <div class="bg-white p-2" style="border-radius: 10px;">
+        <h4>meus amigos <span> <a href="/amigos">(<?= $this->view->friends_number ?>)</a> </span></h4>
+        <div class="row" style="margin:auto">
+            <?php
+
+            if (isset($this->view->friends3[0])) {
+                foreach ($this->view->friends3 as $key => $friends) { ?>
+
+
+                    <div class="col" style="background:#F0F0F0;border:3px solid white">
+                        <img class="fix-size-img px-3 pt-1" src="uploads/<?= $this->view->friends[$key]['image'] ?>" alt="">
+                        <p class="texto-perfil"><?= $this->view->friends[$key]['nome'] ?></p>
+                    </div>
+
+            <?php }
+            }
+            ?>
+        </div>
+    </div>
+
+    <div class="bg-white p-2 my-2" style="border-radius: 10px;">
+        <h4>minhas comunidades <span><a href="/comunidades">(<?= $this->view->comunidades_number ?>)</a></span></h4>
+        <div class="row" style="margin:auto">
+            <?php
+
+            if (isset($this->view->comunidades3[0])) {
+                foreach ($this->view->comunidades3 as $key => $comunidades) { ?>
+
+
+                    <div class="col" style="background:#F0F0F0;border:3px solid white">
+                        <img class="fix-size-img px-3 pt-1" src="uploads_comunidade/<?= $this->view->comunidades[$key]['imagem'] ?>" alt="">
+                        <a href="/comunidade_page?id=<?= $comunidades['id'] ?>""><p class="texto-perfil"><?= $this->view->comunidades[$key]['nome'] ?></p></a>
+                    </div>
+
+            <?php }
+            }
+            ?>
+        </div>
+       
+
+</div>
+
+</div>
+</div>
+
+<!-- Fim Layout para SM-->
 
             <?php 
                 if($_GET['id'] == $_SESSION['id']){
-                    require("App\Views\componentes\barra_esquerda.phtml");
+                    require('App/Views/componentes/barra_esquerda.phtml');
                 } else {
-                    require("App\Views\componentes\barra_esquerda_perfil_others.phtml");
+                    require('App/Views/componentes/barra_esquerda_perfil_others.phtml');
                 }
              ?>
 
             <!--Coluna Centro-->
-            <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
-                <div class="bg-white p-2" id="info-gerais">
+            <div class="col-md-6 col-lg-7 bg-transparent mr-1 d-none d-md-block">
+                <div class="bg-white p-2" id="info-gerais"> 
                     <h3 style="font-weight: 400;"><?= $this->view->info_usuario['nome'] ?></h3>
                     <div class="p-1">
                         <span><a href="">Início</a></span> <span style="color: gray;">> Meu perfil</span>
@@ -222,7 +238,7 @@
 
             <!--Fim Centro-->
 
-            <?php require("App\Views\componentes\barra_direita.phtml") ?>
+            <?php require_once('App/Views/componentes/barra_direita.phtml'); ?>
 
 
         </div>

@@ -21,17 +21,25 @@ class AppController extends Action {
 		$usuario->__set('id', $_SESSION['id']);
 		$amigos->__set('id_usuario', $_SESSION['id']);
 		$comunidade->__set('id_usuario', $_SESSION['id']);
+		
+		$arrayIds = $amigos->getIdFriends();
+		$ids = array();
+        foreach($arrayIds as $id){
+			if($id['id'] != $_SESSION['id']){
+			 $ids[] = $id['id'];}
+			}
 
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->info_usuarios = $usuario->getInfoUsuarios();
 		$this->view->comunidades = $comunidade->getLastComunidades(); 
 		$this->view->friends_number = count($amigos->getAllFriends());
+		$this->view->idFriends = $ids;
 		$this->view->comunidades_number = count($comunidade->getAllComunidades());
 		$this->view->sorte = $usuario->get_sorte();
 		$this->view->allTopics = $topicos->getAllTopics();
 		$this->view->allRespostas = $respostas->getAllRespostas();
-		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
-		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
+		$this->view->friends = $amigos->getLast9Friends();
+		$this->view->comunidade = $comunidade->getLastComunidades();
 		$this->view->last_respostas = ($respostas->getLast3Respostas());
 		$usuario->valida_sorte();
 		$this->render('timeline','layout2');
@@ -52,11 +60,13 @@ class AppController extends Action {
 
 		$this->view->info_usuario = $usuario->getInfoUsuario();
 		$this->view->info_usuarios = $usuario->getInfoUsuarios();
-		$this->view->comunidades = $comunidade->getLastComunidades();
-		$this->view->friends = array_chunk($amigos->getLast9Friends(), 3);
+		$this->view->comunidades = $comunidade->getLastComunidades(); 
+		$this->view->comunidades3 = $comunidade->getLast3Comunidades();
+		$this->view->friends = $amigos->getLast9Friends();
+		$this->view->friends3 = $amigos->getLast3Friends();
+		$this->view->comunidade = $comunidade->getLastComunidades();
 		$this->view->friends_number = count($amigos->getAllFriends());
 		$this->view->comunidades_number = count($comunidade->getAllComunidades());
-		$this->view->comunidade = array_chunk($comunidade->getLastComunidades(), 3);
 		$this->view->seguindo = $amigos->usuario_seguindo_sn($amigos->__get('id_usuario'));
 
 
@@ -172,14 +182,19 @@ class AppController extends Action {
 
 		$acao = isset($_GET['acao']) ? $_GET['acao'] : "";
 		$id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : "";
-		echo $acao;
 
 		if($acao == "seguir"){
 			$amigos->seguir($id_usuario_seguindo);
+			if(isset($_GET['r'])){
+				header("Location: /timeline");
+			} else
 			header("Location: /perfil?id=$id_usuario_seguindo");
 		} 
 		if($acao == "deixar_de_seguir"){
 			$amigos->deixar_de_seguir($id_usuario_seguindo);
+			if(isset($_GET['r'])){
+				header("Location: /timeline");
+			} else
 			header("Location: /perfil?id=$id_usuario_seguindo");
 		} 
 		if($acao == "apagar"){

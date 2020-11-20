@@ -1,67 +1,69 @@
 <!--Coluna Esquerda-->
 <div class="col-md-2 d-none d-md-block" style="padding: 0;">
-                <div class="bg-white p-2 mr-1" style="border-radius: 7px;">
-                    <div id="conteudo-esquerda">
-                        <div>
-                            <img class="fix-size-img" src="/uploads/<?=$this->view->info_usuario['image']?>" alt="">
-                            <p class="mt-2 mb-1 info-nome"><?=$this->view->info_usuario['nome'] ." ".$this->view->info_usuario['sobrenome'] ?></p>
-                            <div class="campos">
-                                <div class="mt-2 mb-2">
-                                    <span><img src="/Front_end/icons/perfil.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">perfil</p>
-                                    </a>  <a style="float:right" class="mr-1" href="/editar_perfil">
-                                        <p class="no-margin texto-info">editar</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/recados.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">recados</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/fotos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">fotos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/videos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">vídeos</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">depoimentos</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos">
-                                <div class="mb-2">
-                                    <h4>Apps</h4>
-                                    <span><img src="/Front_end/icons/apps.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">adicionar apps</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div class="campos pb-2" style="border-bottom: 1px solid white;">
-                                <div class="mt-2">
-                                    <span><img src="/Front_end/icons/lista.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">listas</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">atualizações</p>
-                                    </a> <br>
-                                    <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
-                                    <a href="">
-                                        <p class="no-margin texto-info">configurações</p>
-                                    </a> <br>
-                                </div>
-                            </div>
-                            <div>
-
-                            </div>
-                        </div>
+    <div class="bg-white p-2 mr-1" style="border-radius: 7px;">
+        <div id="conteudo-esquerda">
+            <div>
+                <img class="fix-size-img" src="/uploads/<?= $this->view->info_usuario['image'] ?>" alt="">
+                <p class="mt-2 mb-1 info-nome" style="font-size:0.8em"><?= $this->view->info_usuario['nome'] . " " . $this->view->info_usuario['sobrenome'] ?></p>
+                <div class="barra-esquerda">
+                <div class="campos">
+                    <div class="mt-2 mb-2">
+                        <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                        <a href="/perfil?id=<?= $_SESSION['id'] ?>">
+                            <p class="no-margin texto-info">perfil</p>
+                        </a> <a style="float:right" class="mr-1" href="/editar_perfil">
+                            <p class="no-margin texto-info">editar</p>
+                        </a> <br>
+                        <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                        <a href="/recados?id=<?= $_SESSION['id'] ?>">
+                            <p class="no-margin texto-info">recados</p>
+                        </a> <br>
+                        <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">fotos</p>
+                        </a> <br>
+                        <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">vídeos</p>
+                        </a> <br>
+                        <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">depoimentos</p>
+                        </a> <br>
                     </div>
                 </div>
-            </div>
+                <div class="campos">
+                    <div class="mb-2">
+                        <h4>Apps</h4>
+                        <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">adicionar apps</p>
+                        </a> <br>
+                    </div>
+                </div>
+                <div class="campos pb-2" style="border-bottom: 1px solid white;">
+                    <div class="mt-2">
+                        <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">listas</p>
+                        </a> <br>
+                        <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">atualizações</p>
+                        </a> <br>
+                        <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                        <a href="">
+                            <p class="no-margin texto-info">configurações</p>
+                        </a> <br>
+                    </div>
+                </div>
+                <div>
 
-            <!--Fim Coluna Esquerda-->
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Fim Coluna Esquerda-->

@@ -2,7 +2,7 @@
 
         <div class="row h-100">
 
-            <?php require('App\Views\componentes\barra_esquerda.phtml'); ?>
+            <?php require_once('App/Views/componentes/barra_esquerda.phtml');?>
             
         <!--Coluna Centro-->
         <div class="col-md-9 bg-transparent mr-1 mt-2">
@@ -41,21 +41,22 @@
 
                <div class="px-2 mt-2 my-3 clearfix" style=" border-bottom:1px solid #b7e8fa">
                
-                    <div style="float:left; width:10%">
+                    <div style="float:left;">
                     <img src="/uploads/<?= $recados['image'] ?>"  width="85px" alt="">
                     </div>
-                    <div class="ml-3" style="float:left; width:75%; wrap" class="ml-2">
+
+                    <div class="ml-3" style="float:left" class="ml-2">
                         <p class="no-margin"><?= $recados['nome'] ?></p>
-                        <p class="no-margin size8 quebrar-linha">
+                        <p class="no-margin size8 ">
                             <?= $recados['recado'] ?>
                         </p>
                     </div>
-                    <?php  ?>
-                    <div style="float:left; width:10%; display:inline-block;" class=" ml-3 mt-4 pb-2 ">
+
+                    <div style="float:right;" class=" ml-3 mt-4 pb-2 ">
                         <button class=" btn btn-sm botao"><a href="/acao?id=<?= $_GET['id']?>&acao=apagar&id_recado=<?=$key+1 ?>" class="texto-botao">apagar</a></button>
                     </div>
 
-            </div> 
+            </div>  
                 
 
                 <?php } ?> 

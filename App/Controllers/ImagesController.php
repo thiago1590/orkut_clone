@@ -11,7 +11,7 @@ class ImagesController extends Action {
 		session_start();
 		$usuario = Container::getModel('Usuario');
 
-		$arquivo_nome = $this->decode($_POST['base64'],'thiago');
+		$arquivo_nome = $this->decode($_POST['base64'],'thiago',$_SESSION['id'],"");
 
 		$usuario->__set('id', $_SESSION['id']);
 		$usuario->__set('imagem',$arquivo_nome);
@@ -21,27 +21,31 @@ class ImagesController extends Action {
     }
 
      
-	public function saveImage(){
+	public function addComunidadeImage(){
+		session_start();
 		$comunidade = Container::getModel('Comunidade');
-		if(isset($_FILES['arquivo'])){
-			$arquivo = $_FILES['arquivo'];
-			$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-			$arquivo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-			$diretorio = "upload/";
 
-			move_uploaded_file($arquivo['tmp_name'],$diretorio.$arquivo_nome);
-		}
+		$arquivo_nome = $this->decode($_POST['base64'],'thiago',$_POST['id'],"_comunidade");
+
+		$comunidade->__set('id', $_POST['id']);
 		$comunidade->__set('imagem',$arquivo_nome);
-		$comunidade->saveImage();
+		echo $comunidade->__get('id');
+		echo "aaa";
+		echo $comunidade->__get('imagem');
+		$comunidade->setImagem();
+		echo $_POST['id'];
+		$image = $comunidade->__get('imagem');
+		header("Location: /createComunidade2?image=$image");
 	}
+
     
-    public function decode ($code, $username) {
+    public function decode ($code, $username,$name,$path) {
 		list($type, $code) = explode(';', $code);
 		list(, $code) = explode(',', $code);
 		$code = base64_decode($code);
 		file_put_contents('uploads/filename.jpg', $code);
-		$arquivo_nome = $_SESSION['id'].".jpg";
-		file_put_contents('uploads/'.$arquivo_nome, $code);
+		$arquivo_nome = $name .".jpg";
+		file_put_contents('uploads'. $path . "/"  .$arquivo_nome, $code);
 		return $arquivo_nome;
 		}
 

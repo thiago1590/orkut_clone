@@ -11,13 +11,6 @@ $(document).ready(function(){
   });
 });
 
-function criarCookie(value) { 
-    var data = new Date();
-    data.setTime(data.getTime() + 60000);
-    document.cookie = "primeiroCookie="+value+"; expires="+data.toUTCString()+"; path=/";
-    return "sucesso";
-} 
-
 </script>
 
 <div class="container mt-2 " style="border-radius: 5%; ">
@@ -235,7 +228,7 @@ function criarCookie(value) {
                     <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.253);"></div>
                     <table style="width:100%;">
                                 <form action="/acao?acao=save" method="post" enctype="multipart/form-data">
-                                <tr class="bg-listrado-1">
+                                <tr class="bg-listrado-1">      
                                     <td class="pr-3 py-2 texto-info-comunidade" style="vertical-align: top;padding-left:25%">nome:</td>
                                     <td class="size9 py-2"> <input name="nome" type="text">
                                     </td>   
@@ -248,8 +241,8 @@ function criarCookie(value) {
                                 <tr class="bg-listrado-1">
                                     <td class="pr-3 py-2 texto-info-comunidade" style="vertical-align: top;padding-left:25%">data:</td>
                                     <td class="size9 py-2"> 
-                                    <?php require('App\Views\componentes\form_data.phtml') ?>
-                                    </td>   
+                                    <?php require('App/Views/componentes/form_data.phtml') ?>
+                                    </td>
                                 </tr>
                                 
                             </table>

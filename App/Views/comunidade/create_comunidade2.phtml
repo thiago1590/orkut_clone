@@ -1,0 +1,103 @@
+
+<script>
+$(document).ready(function(){
+  $(".exportt").click(function(){
+    var imageData = $('.image-editor').cropit('export',{
+             type: 'image/jpeg',
+         quality: 0.33,
+            });
+            $("#hidden_base64").val(imageData);
+  });
+});
+
+function criarCookie(value) { 
+    var data = new Date();
+    data.setTime(data.getTime() + 60000);
+    document.cookie = "primeiroCookie="+value+"; expires="+data.toUTCString()+"; path=/";
+    return "sucesso";
+} 
+
+</script>
+
+<div class="container bg-white mt-2 areas" style="width:55%">
+    <h3>Criar comunidade</h3>
+    <div class="p-1 mb-2">
+                        <span><a style="font-size: 0.9em;" href="">Início</a></span>
+                        <span><a style="font-size: 0.9em;" href="">Comunidades</a></span>
+                        <span style="color: gray; font-size: 0.9em;">>Criar Comunidades </span>
+                    </div>
+                    <div class="mx">
+                    <table style="width:100%;">
+                                <div class="">
+                                    <h4 style="font-size:1.4em;">Selecione a imagem:</h4>
+                                   
+                                        <div class="pb-2 pt-2">
+                                            <div>
+                                            <input id="add_foto_butto" type="button"
+                                            value="adicionar foto"
+                                            class="btn btn-light btn-sm border border-dark" data-toggle="modal" data-target="#exampleModal" ></input>
+                                       </div>
+                                        <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                           <div class="modal-content">
+                                             <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar fotos</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                           </div>
+                                     <div class="modal-body">
+                                        <div class="image-editor">
+                                            <input type="file" class="cropit-image-input form-control-file mb-3">
+                                            <div style="max-width: none;" class="cropit-preview img-size"></div>
+                                            <div style="max-width: none;" class="image-size-label">
+                                                Resize image
+                                            </div>
+                                            <input type="range" class="cropit-image-zoom-input">
+                                            </div>
+
+                                </div>
+                                <div class="modal-footer">
+
+                                <form action="/addComunidadeImage" method="post">
+                                      <input style="display:none" name="id" value="<?=  $this->view->id  ?>" type="text">
+                                      <input style="display:none" name="base64" id="hidden_base64" type="text">
+                                      <button style="float:left" type="submit" class="btn btn-sm botao exportt">
+                                      <a class="texto-botao">recortar</a>           
+                                    </button>
+                                </form>
+
+                                <button type="button" class="btn btn-sm botao">
+                                    <a href="create_comunidade" class="texto-botao">fechar</a>
+                                </button>
+
+                                </div>
+                                </div>
+                            </div>
+
+                            </div>
+                                    
+                                </div>
+                               
+                               <?php 
+                                if(isset($_GET['image'])){ ?>
+                                        <img width="150" style="border: 1px solid black" src="uploads_comunidade/<?= $_GET['image'] ?>" alt="">
+                                        
+                                        
+                               <?php }
+                               
+                               ?>
+
+                            <form action="/comunidade_page?id=<?=$this->view->id?>" method="post" enctype="multipart/form-data">
+                            <div class="py-2">
+                                <button class="btn btn-sm botao" style="line-height:12px">
+                                <a type="submit" class="texto-botao">criar</a>
+                            </button>
+                            <button class="btn btn-sm botao" style="line-height:12px">
+                                <a href="/comunidades" class="texto-botao">Cancelar</a>
+                            </button>
+                            </div>
+                            </form>
+                    </div>
+</div>

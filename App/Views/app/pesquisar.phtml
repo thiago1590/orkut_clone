@@ -2,7 +2,7 @@
 
         <div class="row h-100">
         <?php 
-        require("App\Views\componentes\barra_esquerda.phtml");
+        require_once('App/Views/componentes/barra_esquerda.phtml');
         ?>
             <!--Coluna Centro-->
             <div class="col-md-7 bg-transparent mr-1 ">
@@ -106,7 +106,7 @@
                     else{
                         foreach($this->view->infos[$_GET['p']]  as $comunidades){ ?>
                             <div class="p-2 mt-1" style="background: #f0f7ff;">
-                               <img src="/uploads/<?= $comunidades['imagem'] ?>" width="80px" alt="">
+                               <img src="/uploads_comunidade/<?= $comunidades['imagem'] ?>" width="80px" alt="">
                                <a class="no-margin" href="/comunidade_page?id=<?=$comunidades['id']?>"><?= $comunidades['nome'] ?> </a>
                            </div>
        
