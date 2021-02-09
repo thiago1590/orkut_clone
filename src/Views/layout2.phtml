@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orkut</title>
+    <link rel="icon" href="https://www.orkut.br.com/assets/img/favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style2.css">
+
+    <link rel="stylesheet" href="/lib//owlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/lib/owlCarousel/dist/assets/owl.theme.default.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/jquery.cropit.js"></script>
+
+    <script src="https://kit.fontawesome.com/833591d3ed.js" crossorigin="anonymous"></script>
+
+
+
+    <style>
+        .texto-info2 {
+            font-size: 0.9em;
+            color: #3a8ab2;
+            font-family: Verdana, Arial, sans-serif;
+            display: inline-block;
+        }
+
+        .nav-item a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        #galeria-membros td {
+            background: #f0f0f0;
+            border: 4px solid white;
+        }
+
+        #galeria-membros img {
+            padding: 5px;
+        }
+
+        .borda-top {
+            border-top: 1px solid rgba(128, 128, 128, 0.144);
+        }
+
+        .img-resposta {
+            width: 80px;
+            display: inline-block;
+            height: auto;
+            padding: 3px;
+            border: 1px solid #ddd;
+        }
+
+        .resposta {
+            float: left;
+            display: block;
+            border-bottom: 2px solid white;
+        }
+
+
+
+        .owl-prev {
+            left: -20px;
+        }
+
+        .owl-next {
+            right: -20px;
+        }
+
+        .owl-prev,
+        .owl-next {
+            position: absolute;
+            top: 40%;
+        }
+
+        .owl-prev span,
+        .owl-next span {
+            font-size: 60px;
+            color: #787878;
+        }
+
+        #explorar1 {
+            padding: 1% 11%;
+            background: #7091bd;
+            display: inline-block;
+            border-radius: 8px 8px 0 0;
+            border-right: 1px solid #7091bd;
+            border-left: 1px solid #7091bd;
+            border-top: 1px solid #7091bd;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+
+        <nav class="navbar navbar-expand-md py-0 " id="nav">
+            <div class="container">
+                <!--Logo-->
+                <a href="/timeline" class="navbar-left"><img src="/Front_end/logo.png"></a>
+
+                <div class="d-none d-md-block collapse navbar-collapse" style="width:100%">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="/timeline" class="nav-link">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/perfil?id=<?= $_SESSION['id'] ?>" class="nav-link">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/recados?id=<?= $_SESSION['id'] ?>" class="nav-link">Página de recados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/amigos" class="nav-link">Amigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/comunidades" class="nav-link">Comunidades</a>
+                        </li>
+                    </ul>
+
+                    <!--Navegação-->
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="/sair" class="nav-link" style="padding-top:10px;">Sair</a>
+                            </li>
+                            <form action="/pesquisar?exp=1&p=0">
+                                <input style="display:none" , name="exp" , value="1">
+                                <input name="q" style="display:inline-block;line-height:center; ;border-radius:5px; border:1px solid white; margin-top:6px" type="text" placeholder="pesquisar no orkut">
+                                <input style="display:none" , name="p" , value="0">
+                                <button type="submit" id="search-button"><i style="color:white" class="fa fa-search"></i></button>
+                            </form>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+
+                <!--Menu botões para SM-->
+                <form action="/pesquisar?exp=1&p=0" id="menu-sm" class="p-0 navbar-toggler d-md-none d-block" style="margin-left:auto; ">
+                    <input style="display:none" , name="exp" , value="1">
+                    <input style="display:none" , name="p" , value="0">
+                    <input name="q" placeholder="pesquisar" size="6" type="text" class="mb-2" style="border-radius:5px; border:1px solid white;">
+                    <button type="submit" class="navbar-toggler ml-auto">
+                        <span><i class="fas fa-search" style="color:#fff; font-size:28px;"></i></span>
+                    </button>
+                </form>
+
+
+                </form>
+
+
+
+
+                <button onclick="myFunction()" class="navbar-toggler" data-toggle="collapse" data-target="#nav-target2">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="nav-target2">
+                    <div class="areas d-md-none">
+                        <div>
+                            <img class=" mx-auto d-block" style="margin-left:auto; margin-right:auto" width="40%" src="uploads/<?= $this->view->info_usuario['image'] ?>" alt="">
+                        </div>
+                        <div class="campos mt-2">
+                            <p class="info-nome p-2" style="text-align: center;">Thiago André</p>
+                        </div>
+
+                        <div class="mx-3 my-2">
+                            <span><img src="Front_end\icons\inicio.png" alt=""></span>
+                            <a href="/timeline">
+                                <p class="no-margin texto-info2 ">inicio</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/perfil.png" alt=""></span>
+                            <a href="/perfil?id=<?= $_SESSION['id'] ?>">
+                                <p class="no-margin texto-info2 ">perfil</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/recados.png" alt=""></span>
+                            <a href="/recados?id=<?= $_SESSION['id'] ?>">
+                                <p class="no-margin texto-info2">recados</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/amigos.png" alt=""></span>
+                            <a href="/amigos">
+                                <p class="no-margin texto-info2 ">amigos</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/comunidades.png" alt=""></span>
+                            <a href="/comunidades">
+                                <p class="no-margin texto-info2 ">comunidades</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/fotos.png" alt=""></span>
+                            <a href="/timeline">
+                                <p class="no-margin texto-info2">fotos</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/videos.png" alt=""></span>
+                            <a href="/timeline">
+                                <p class="no-margin texto-info2">vídeos</p>
+                            </a> <br>
+                            <span><img src="/Front_end/icons/depoimentos.png" alt=""></span>
+                            <a href="/depoimentos">
+                                <p class="no-margin texto-info2">depoimentos</p>
+                            </a> <br>
+                        </div>
+
+                        <div class="campos mx-3 my-2">
+                            <div class="mb-2">
+                                <h4>Apps</h4>
+                                <span><img src="/Front_end/icons/apps.png" alt=""></span>
+                                <a href="/timeline">
+                                    <p class="no-margin texto-info2">adicionar apps</p>
+                                </a> <br>
+                            </div>
+                        </div>
+                        <div class=" pb-2 mx-3 my-2" style="border-bottom: 1px solid white;">
+                            <div class="mt-2">
+                                <span><img src="/Front_end/icons/lista.png" alt=""></span>
+                                <a href="/timeline">
+                                    <p class="no-margin texto-info2">listas</p>
+                                </a> <br>
+                                <span><img src="/Front_end/icons/atualizaçoes.png" alt=""></span>
+                                <a href="/timeline">
+                                    <p class="no-margin texto-info2">atualizações</p>
+                                </a> <br>
+                                <span><img src="/Front_end/icons/configuracao.png" alt=""></span>
+                                <a href="/timeline">
+                                    <p class="no-margin texto-info2">configurações</p>
+                                </a> <br>
+                                <span><img src="/Front_end/icons/sair.png" alt=""></span>
+                                <a href="/sair">
+                                    <p class="no-margin texto-info2">sair</p>
+                                </a> <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+    </div>
+
+    <body>
+        <?= $this->content() ?>
+    </body>
+
+    <script>
+        var x = document.getElementById("nav-target2");
+        x.style.display = "none";
+
+        function myFunction() {
+            var x = document.getElementById("nav-target2");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="/lib/owlCarousel/dist/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                navText: ["<", ">"],
+                items: 4,
+                dots: false,
+                loop: true,
+                margin: 15,
+                nav: true,
+                navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                responsive: {
+                    0: {
+                        items: 3
+                    },
+                    550: {
+                        items: 4
+                    }
+                }
+            });
+        })
+    </script>
+
+    <script>
+        $(function() {
+            $('.image-editor').cropit({
+                exportZoom: 1.25,
+                imageBackground: true,
+                imageBackgroundBorderWidth: 20,
+                imageState: {
+                    src: 'http://lorempixel.com/500/400/',
+                },
+            });
+
+            $('.rotate-cw').click(function() {
+                $('.image-editor').cropit('rotateCW');
+            });
+            $('.rotate-ccw').click(function() {
+                $('.image-editor').cropit('rotateCCW');
+            });
+
+            $('.export').click(function() {
+                var imageData = $('.image-editor').cropit('export');
+                window.open(imageData);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

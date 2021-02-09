@@ -1,0 +1,166 @@
+<div class="container mt-2 " style="border-radius: 5%; ">
+
+    <div class="row h-100">
+
+        <!--Layout para SM-->
+        <!--Coluna Centro-->
+        <div class="col-md-7 bg-transparent mr-1 d-md-none">
+            <div class="bg-white p-2" id="info-gerais">
+
+                <h3>Comunidades</h3>
+                <div class="p-1 mb-2">
+                    <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Comunidades</span>
+                </div>
+                <p class="size9">Compartilhe suas paixões. Conheça pessoas que têm interesses em comum. Troque idéias. Planeje eventos...</p>
+                <p class="size9">Você pode pesquisar comunidades ou criar sua própria comunidade.</p>
+
+            </div>
+
+            <div class="bg-white p-2 mt-2" id="info-gerais">
+
+                <h4>Suas comunidades(<?= count($this->view->comunidade) ?>)</h4>
+                <table style="width: 100%; margin: 0 auto;">
+                    <thead>
+                        <td style="padding: 10px;" class="td-left">
+                            <p class="no-margin tabela-header">nome</p>
+                        </td>
+
+                    </thead>
+
+
+                    <?php
+                    foreach ($this->view->comunidade as $key => $comunidade) {
+                    ?>
+                        <tr class="
+                                    <?php if ($key % 2 == 0) {
+                                        echo 'bg-listrado-1';
+                                    } else echo 'bg-listrado-2';
+                                    ?>
+                                    ">
+                            <td class="td-left py-1"><a href="/comunidade_page?id=<?= $comunidade['id'] ?>"><?= $comunidade['nome'] ?></a></td>
+                        </tr>
+                    <?php  }
+                    ?>
+
+
+
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="col-md p-2 d-md-none " style="padding: 0;">
+
+            <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                <h4>todas as comunidades<span>(0)</span></h4>
+
+                <div class="campos mt-2" style="border-bottom: 1px solid white;">
+
+                    <p class="no-margin pb-2" style="font-size:0.9em">pesquisar por nome:</p>
+                    <form action="/pesquisar?exp=1&p=0">
+                        <input name="q" type="text" style="line-height: normal; width: 100%;">
+                        <div class="row mt-2">
+
+                            <input style="display:none" , name="exp" , value="1">
+
+                            <input style="display:none" , name="p" , value="0">
+
+                            <button type="submit" style="display: block;" class="btn btn-sm botao mt-1 ml-3">
+                                <a class="texto-botao">pesquisar</a>
+                            </button>
+                    </form>
+
+                    
+                    <button style="display: block;" class="btn btn-sm botao mt-1 ml-3">
+                    <a href="create_comunidade" class="texto-botao">criar comunidade</a>
+                </button>
+                  
+                </div>
+            </div>
+        </div>
+        <!--Fim Centro-->
+    </div>
+
+    <!--Fim Layout para SM-->
+
+    <?php require('App/Views/componentes/barra_esquerda.phtml'); ?>
+
+    <!--Coluna Centro-->
+    <div class="col-md-7 bg-transparent mr-1 d-none d-md-block">
+        <div class="bg-white p-2" id="info-gerais">
+
+            <h3>Comunidades</h3>
+            <div class="p-1 mb-2">
+                <span><a style="font-size: 0.9em;" href="">Início</a></span> <span style="color: gray; font-size: 0.9em;">> Comunidades</span>
+            </div>
+
+
+            <div class="clearfix border-bottom ml-2">
+                <div id="explorar1" style="padding: 1px 5px; float:left" class="mt-2">
+                    <a href="" class="no-margin" style="font-size:0.8em">todas (<?= count($this->view->comunidade) ?>)</a>
+                </div>
+
+            </div>
+            <?php
+            foreach ($this->view->comunidade as $key => $comunidade) {
+            ?>
+                <div class="p-2 mt-1" style="background: #f0f7ff;">
+                    <img src="/uploads_comunidade/<?= $comunidade['imagem'] ?>" width="80px" alt="">
+                    <a href="/comunidade_page?id=<?= $comunidade['id'] ?>">
+                        <p style="display: inline;" class="no-margin"><?=
+                                                                            $comunidade['nome'] ?>
+                        </p>
+                    </a>
+                </div>
+            <?php  }
+            ?>
+
+
+        </div>
+
+    </div>
+
+    <!--Fim Centro-->
+
+    <!--Começo Coluna Direita-->
+    <div class="col-md d-none d-md-block" style="padding: 0;">
+
+        <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+            <h4>todas as comunidades<span>(0)</span></h4>
+
+            <div class="campos mt-2" style="border-bottom: 1px solid white;">
+
+                <p class="no-margin mb-1" style="font-size:0.9em">pesquisar por nome:</p>
+                <form action="/pesquisar?exp=1&p=0">
+                    <input style="display:none" , name="exp" , value="1">
+                    <input name="q" type="text" style="line-height: normal; width: 100%;">
+                    <input style="display:none" , name="p" , value="0">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <button type="submit" style="display: block;" class="btn btn-sm botao mt-1">
+                                <a class="texto-botao">pesquisar</a>
+                            </button>
+                        </div>
+                        <div class="col-lg-8">
+                </form>
+                <button style="display: block;" class="btn btn-sm botao mt-1">
+                    <a href="create_comunidade" class="texto-botao">criar comunidade</a>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!--Fim Coluna Direita-->
+
+
+</div>
+</div>

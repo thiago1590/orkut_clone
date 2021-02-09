@@ -1,0 +1,94 @@
+
+<div class="col-md d-none d-md-block mt-2" style="padding: 0;">
+               
+                    
+                  <div class="bg-white p-2" style="border-radius: 10px;">
+                    <h4>meus amigos <span>
+                    <a href="/amigos">(<?= $this->view->friends_number ?>)</a>
+                     </span>
+                     </h4>
+                    <?php 
+                        if($this->view->friends == "" || $this->view->friends == null){ ?>
+                             <div class="mt-1 p-1" style="background: #eef7ff;">
+                        <p class="no-margin" style="font-size: 0.8em;">você ainda não adicionou nenhum amigo</p>
+                    </div>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                        <form action="/pesquisar">
+                    <input style="display:none" , name="exp" , value="1">
+                    <input style="display:none" , name="p" , value="0">
+                    <input style="display:none" , name="q" , value="">
+                    <button class="btn btn-sm botao mt-2" style="line-height:15px">
+                            <a class="texto-botao">encontrar usuários</a>
+                        </button>
+                </form>
+
+                    </div>
+                       <?php } else{ ?>
+
+                        <div class="row" style="margin:auto" > 
+
+                            <?php 
+                                foreach($this->view->friends as $friends){ ?>
+                                <div class="col-4 p-2 galeria-element" >
+                                <img class="fix-size-img" src="/uploads/<?= $friends['image'] ?>" alt="">
+                                    <a href="/perfil?id=<?= $friends['id'] ?>"><p class="no-margin size9 wrap" style="text-align: center;    line-height: 1"><?= $friends['nome'] ?></p></a>
+                                </div>
+                               <?php  }?>
+                        </div>
+                        
+                       <?php } 
+                       
+                       ?> 
+                </div>
+
+                <div class="bg-white p-2 mt-2" style="border-radius: 10px;">
+                    <h4>minhas comunidades 
+                    <span>
+                    <a href="/comunidades">(<?= $this->view->comunidades_number ?>)</a>
+                    </span>
+                    </h4>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+
+                        <div class="row" style="margin:auto" > 
+
+                        
+
+
+                        
+                        <?php 
+                        if($this->view->comunidade == "" || $this->view->comunidade == null){ ?>
+                            <div class="mt-1 p-1" style="background: #eef7ff;">
+                        <p class="no-margin" style="font-size: 0.8em;">você ainda não participa de nenhuma comunidade</p>
+                    </div>
+                    <div class="campos mt-2" style="border-bottom: 1px solid white;">
+                        <div class="mb-1"></div>
+                       
+                        <form action="/pesquisar">
+                    <input style="display:none" , name="exp" , value="2">
+                    <input style="display:none" , name="p" , value="0">
+                    <input style="display:none" , name="q" , value="">
+                    <button class="btn btn-sm botao mt-2" style="line-height:15px">
+                            <a class="texto-botao">encontrar comunidade</a>
+                        </button>
+                </form>
+                        <?php } else{
+
+                            foreach($this->view->comunidade as $comunidade){ ?>
+                            <div class="col-4 p-2 galeria-element" >
+                            <img class="fix-size-img" src="/uploads_comunidade/<?= $comunidade['imagem'] ?>" alt="">
+                                <a href="/comunidade_page?id=<?= $comunidade['id'] ?>"><p class="no-margin size9 wrap" style="text-align: center;    line-height: 1"><?= $comunidade['nome'] ?></p></a>
+                            </div>
+                            <?php }
+                        }
+                        ?>
+                        
+                        </div>
+
+                   
+                    </div>
+                </div>
+
+            </div>
+           
