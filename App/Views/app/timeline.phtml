@@ -1,0 +1,235 @@
+<div class="container mt-2" style="border-radius: 5%; ">
+
+    <div class="row h-100">
+
+        <?php require 'App/Views/componentes/barra_esquerda.phtml'; ?>
+
+        <!--Coluna Centro-->
+
+        <div class="col-md-6 col-lg-7 bg-transparent mr-1">
+
+            <div class="bg-white p-2" id="info-gerais">
+                <h3 style="font-weight: 400;font-size:1.5em">
+                    Bem-vindo(a), <?php echo $this->view->info_usuario['nome']; ?>
+                </h3>
+                <div class="row mt-3" style="margin:auto">
+                    <div class="menu-geral" style="line-height:1.2">
+                        <p class="no-margin">recados</p>
+                        <img class="no-margin mr-1" 
+                        src="/assets/images/icons/recados.png" 
+                        width="25%">
+                        <span class="size8 pl-1">0</span>
+                    </div>
+                    <div class="menu-geral" style="line-height:1.2">
+                        <p class="no-margin">fotos</p>
+                        <img class="no-margin mr-1" 
+                        src="/assets/images/icons/fotos.png" 
+                        width="50%">
+                        <span class="size8 pl-1">0</span>
+                    </div>
+                    <div class="menu-geral" style="line-height:1.2">
+                        <p class="no-margin">videos</p>
+                        <img class="no-margin mr-1" 
+                        src="/assets/images/icons/videos.png" 
+                        width="40%" alt="">
+                        <span class="size8 pl-1">0</span>
+                    </div>
+                    <div class="menu-geral" style="line-height:1.2">
+                        <p class="no-margin">fas</p>
+                        <img class="no-margin mr-1" 
+                        src="/assets/images/icons/fas.png" 
+                        width="52%" alt="">
+                        <span class="size8 pl-1">0</span>
+                    </div>
+                    <div class="menu-geral" style="line-height:1.2">
+                        <p class="no-margin">mensagens</p>
+                        <img class="no-margin mr-1" 
+                        src="/assets/images/icons/mensagens.png" 
+                        width="25%">
+                        <span class="size8 pl-1">0</span>
+                    </div>
+                </div>
+                <div id="infos-timeline">
+                    <div class="mt-4 mr-3 ml-1">
+                        <h4>Visualizações de seu perfil:</h4>
+                        <p class="no-margin"">
+                            Desde Jul. 2017: 0</p>
+                    </div>
+                    <div class="mt-3 ml-1">
+                        <h4>Sorte de hoje:</h4>
+                        <p class="no-margin">
+                            <?php echo $this->view->sorte['sorte_de_hoje']; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inicio Carousel geral -->
+            <div class="p-4 bg-white d-block d-md-none d-lg-block mt-2 areas">
+                <div class="owl-carousel owl-theme">
+                    <?php foreach ($this->view->info_usuarios as $id_usuarios => $usuarios) { ?>
+                    
+                        <div class="item col pt-3 pb-3" style="background:#F0F0F0">
+                            <div>
+                                <img class="fix-size-img" 
+                                src="/uploads/<?= $usuarios['image'] ?>">
+                                <a href="/perfil?id=<?= $usuarios['id'] ?>">
+                                    <p class="texto-perfil"> <?= $usuarios['nome'] ?></p>
+                                </a> 
+                                <?php   
+                                    if($usuarios['id'] == $this->view->info_usuario['id']){ ?>
+                                        <a style="background:white;color:#0000EE;font-size:0.1em" 
+                                            class="btn-adicionar pt-1" href=""> .
+                                        </a>
+                                    <?php }
+                                    elseif(in_array($usuarios['id'], $this->view->idFriends)){ ?>
+                                        <a 
+                                        style="background:white;color:#0000EE;
+                                        color: rgb(105, 105, 243);" 
+                                        class="btn-adicionar pt-1" 
+                                        href="/acao?acao=deixar_de_seguir&id_usuario=
+                                        <?= $usuarios['id'] ?>&r=t">
+                                        remover
+                                    </a>
+                                  <?php }
+                                  
+                                  else{ ?>
+                                    <a 
+                                      style="background:white;color:#0000EE;  
+                                      color: rgb(105, 105, 243);" 
+                                      class="btn-adicionar pt-1" 
+                                      href="/acao?acao=seguir&id_usuario=<?= $usuarios['id'] ?>&r=t">
+                                      adicionar
+                                    </a>
+                                 <?php  }
+                                
+                                ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                </div>
+            <!-- Fim carousel geral -->
+
+            <!-- Inicio Carousel MD -->
+
+            <div class="p-4 bg-white  mt-2 areas d-none d-md-block d-lg-none">
+                <div class="owl-carousel owl-theme">
+                    <?php foreach ($this->view->info_usuarios as $id_usuarios => $usuarios) { ?>
+                    
+                        <div class="item col pt-2 p-2" style="background:#F0F0F0">
+                            <div style="height:90px">
+                                <img class="fix-size-img" src="/uploads/<?= $usuarios['image'] ?>" alt="">
+                                <a href="/perfil?id=<?= $usuarios['id'] ?>">
+                                    <p class="texto-perfil"> <?= $usuarios['nome'] ?></p>
+                                </a> 
+
+                                <?php   
+                                    if($usuarios['id'] == $this->view->info_usuario['id']){ ?>
+                                          <a 
+                                          style="background:white;color:#0000EE;
+                                          font-size:0.1em" 
+                                          class="btn-adicionar pt-1" href="">
+                                        .
+                                    </a>
+                                    <?php }
+                                    elseif(in_array($usuarios['id'], $this->view->idFriends)){ ?>
+                                        <a style="background:white;color:#0000EE;  
+                                        color: rgb(105, 105, 243);" 
+                                        class="btn-adicionar pt-1" 
+                                        href="/acao?acao=deixar_de_seguir&id_usuario=
+                                        <?= $usuarios['id'] ?>&r=t">
+                                        remover
+                                    </a>
+                                  <?php }
+                                  
+                                  else{ ?>
+                                    <a style="background:white;color:#0000EE;  
+                                    color: rgb(105, 105, 243);" 
+                                    class="btn-adicionar pt-1" 
+                                    href="/acao?acao=seguir&id_usuario=
+                                    <?= $usuarios['id'] ?>&r=t">
+                                            adicionar
+                                    </a>
+                                 <?php  }
+                                
+                                ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div id="explorar1" class="mt-2">
+                <p class="no-margin" style="color:white">explorar</p>
+            </div>
+
+
+            <?php
+
+            foreach ($this->view->allTopics as $key => $topics) { ?>
+                <div class="areas my-2 p-2 clearfix">
+                    <div class="topico pb-2 mb-2">
+                        <!-- topico -->
+                        <div class="header-topic pb-2">
+                            <!-- header -->
+                            <div class="mr-2 mensagem-topico">
+                                <img width="40px" 
+                                src="/uploads_comunidade/<?= $topics['imagem'] ?>">
+                            </div>
+                            <a 
+                            href="/comunidade_page?id=<?= $topics['comunidade_id'] ?>">
+                            <?= $topics['nome_comunidade'] ?>
+                            </a> <br>
+                            <a href="/topico?id=<?= $topics['comunidade_id']?>
+                                &id_topico=<?= $topics['id'] ?>">
+                                <p class="no-margin" style="font-size:1.2em;color:black"><?= $topics['topico'] ?></p>
+                            </a>
+                        </div>
+                        <div style="clear:both"></div>
+
+                        <div class="conteudo mt-2 px-2" style="background:#f0f7ff">
+                            <!-- conteudo -->
+
+                            <?php
+                                foreach ($this->view->last_respostas[$key] as $key2 => $respostas) { ?>
+                                    <div class="mr-2 mt-2 mensagem-topico mb-2" style="width:100%">
+                                        <img 
+                                        width="40px" 
+                                        src="/uploads/<?= 
+                                        isset($respostas['image']) ? $respostas['image'] : "" 
+                                        ?>">
+                                        <a href="/perfil?id=<?= $respostas['id'] ?>"><?= 
+                                        isset($respostas['nome']) ? $respostas['nome'] : "" ?>
+                                        </a>
+                                        <p class="no-margin py-2 wrap"><?= 
+                                        isset($respostas['mensagem']) ? $respostas['mensagem'] : "" ?>
+                                        </p>
+                                    </div>
+                                <?php }
+                            ?>
+
+                            <div style="clear:both"></div>
+                        </div>
+
+                        <button class="btn btn-sm botao mt-2" style="line-height:15px">
+                            <a 
+                            href="novo_topico?id=<?= $_SESSION['id'] ?>&id_topico=<?= $topics['id'] ?>" 
+                            class="texto-botao">responder</a>
+                        </button>
+
+                    </div>
+
+                </div>
+            <?php }
+
+            ?>
+
+        </div>
+
+        <!--Fim Centro-->
+
+        <?php require "App/Views/componentes/barra_direita.phtml" ?>
+
+    </div>
+</div>

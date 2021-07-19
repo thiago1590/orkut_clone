@@ -1,0 +1,68 @@
+.texto-info2 {
+    font-size: 0.9em;
+    color: #3a8ab2;
+    font-family: Verdana, Arial, sans-serif;
+    display: inline-block;
+}
+
+.nav-item a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#galeria-membros td {
+    background: #f0f0f0;
+    border: 4px solid white;
+}
+
+#galeria-membros img {
+    padding: 5px;
+}
+
+.borda-top {
+    border-top: 1px solid rgba(128, 128, 128, 0.144);
+}
+
+.img-resposta {
+    width: 80px;
+    display: inline-block;
+    height: auto;
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+.resposta {
+    float: left;
+    display: block;
+    border-bottom: 2px solid white;
+}
+
+.owl-prev {
+    left: -20px;
+}
+
+.owl-next {
+    right: -20px;
+}
+
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 40%;
+}
+
+.owl-prev span,
+.owl-next span {
+    font-size: 60px;
+    color: #787878;
+}
+
+#explorar1 {
+    padding: 1% 11%;
+    background: #7091bd;
+    display: inline-block;
+    border-radius: 8px 8px 0 0;
+    border-right: 1px solid #7091bd;
+    border-left: 1px solid #7091bd;
+    border-top: 1px solid #7091bd;
+}

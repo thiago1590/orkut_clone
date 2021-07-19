@@ -1,0 +1,115 @@
+<div class="container mt-2 " style="border-radius: 5%; ">
+
+        <div class="row h-100">
+
+            <!--Layout para SM-->
+
+            <div class="col-12 d-md-none">
+                <div class="areas p-2">
+                    <div class="row">
+                        <div class="col-3">
+                        <img class="fix-size-img" 
+                        src="/uploads_comunidade/<?= $this->view->comunidades[0]['imagem'] ?>" alt="">
+                        </div>
+                        <div class="col">
+                            <a style="font-size: 1.3em;" 
+                            href=""><?= $this->view->comunidades[0]['nome']?></a> <br>
+                                <?php if ($this->view->seguindo['num'] == 0) { ?>
+                                    <button class="btn btn-sm botao mt-2">
+                                <img src="/assets/icons/deixar.png" alt="">
+                                <a href="/acao?acao=participar&id=<?= $_GET['id'] ?>" 
+                                class="texto-botao">participar</a>
+                            </button>
+                                <?php  } else { ?> 
+                                    <button class="btn btn-sm botao mt-2">
+                                <img src="/assets/icons/deixar.png" alt="">
+                                <a href="/acao?acao=deixar_de_participar&id=<?= $_GET['id'] ?>" 
+                                class="texto-botao">deixar comunidade</a>
+                            </button>
+                                <?php } ?>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Fim Layout para SM-->
+
+            <?php require('App\Views\componentes\barra_esquerda_comunidade.phtml'); ?>
+
+            <!--Coluna Centro-->
+            <div class="col bg-transparent mr-1 mt-2">
+                <div class="bg-white p-2  areas">
+
+                    <!--Título e Nav-->
+                    <h3 style="font-weight: 400;">Fórum</h3>
+                    <div class="p-1" id="mini-nav">
+                        <span><a href="">Início ></a></span>
+                        <span><a href=""> Comunidades > </a></span>
+                        <span><a href=""> Eu Odeio Acordar Cedo </a></span>
+                        <span style="color: gray;">> Fórum</span>
+                    </div>
+                    <!--Fim Título e Nav-->
+
+                    <div class="borda-top mt-1 mb-2">
+                        <button class="btn btn-sm botao mt-2">
+                            <a href="/novo_topico?id=<?= $_GET['id'] ?>" 
+                            class="texto-botao">novo tópico</a>
+                        </button>
+                    </div>
+                    <!--Fim Pesquisa-->
+
+
+                    <!--Tópicos-->
+                    <table style="width: 100%; margin: 0 auto;">
+                        <thead>
+                            <td class="td-left">
+                                <p class="no-margin tabela-header" >tópico</p>
+                            </td>
+
+                            <td style="width: 12%;">
+                                <p class="no-margin tabela-header" 
+                                style="text-align: center;">autor</p>
+                            </td>
+                            <td style="width: 12%;" class="pb-1">
+                                <p class="no-margin tabela-header" 
+                                style="text-align: center;">última postagem</p>
+                            </td>
+                        </thead>
+
+                        <?php 
+                         foreach($this->view->allTopics as $key=>$topics){ ?>
+                            <tr class="bg-listrado-<?= $key%2 == 0 ? '1' : '2' ?>">
+                            <td class="td-left py-1">
+                            <a href="/topico?id=<?= $_GET['id']?>&id_topico=<?=  $topics['id'] ?>">
+                            <?= $topics['topico'] ?></a></td>
+                            <td style="text-align: center;font-size:0.9em"><?= $topics['nome'] ?></td>
+                            <td style="text-align: center;font-size:0.9em"> ?</td>
+                        </tr>
+                       <?php }
+                       ?>
+
+                    </table>
+
+                    <!--Fim Tópicos-->
+
+                    <div class="clearfix mt-1 borda-top">
+                        
+                        <div class="ml-2">
+                            <button class="btn btn-sm botao mt-2">
+                                <a href="/novo_topico?id=<?= $_GET['id'] ?>" 
+                                class="texto-botao">novo tópico</a>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--Fim Centro-->
+
+        </div>
+    </div>

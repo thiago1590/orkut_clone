@@ -1,0 +1,96 @@
+<div class="container mt-2 " style="border-radius: 5%; ">
+
+    <div class="row h-100">
+
+        <!--Layout para SM-->
+
+        <div class="col-12 d-md-none">
+                <div class="areas p-2">
+                    <div class="row">
+                        <div class="col-3">
+                        <img class="fix-size-img" src="/uploads_comunidade/<?= $this->view->comunidades[0]['imagem'] ?>" alt="">
+                        </div>
+                        <div class="col">
+                            <a style="font-size: 1.3em;" href=""><?= $this->view->comunidades[0]['nome']?></a> <br>
+                            <?php if ($this->view->seguindo['num'] == 0) { ?>
+                                    <button class="btn btn-sm botao mt-2">
+                                <img src="/assets/icons/deixar.png" alt="">
+                                <a href="/acao?acao=participar&id=<?= $_GET['id'] ?>" class="texto-botao">participar</a>
+                            </button>
+                                <?php  } else { ?> 
+                                    <button class="btn btn-sm botao mt-2">
+                                <img src="/assets/icons/deixar.png" alt="">
+                                <a href="/acao?acao=deixar_de_participar&id=<?= $_GET['id'] ?>" class="texto-botao">deixar comunidade</a>
+                            </button>
+                                <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+        <!-- Fim Layout para SM-->
+
+        <?php require('App/Views/componentes/barra_esquerda_comunidade.phtml'); ?>
+
+        <!--Coluna Centro-->
+        <div class="col bg-transparent mr-1 mt-2">
+            <div class="bg-white p-2  areas">
+
+                <!--Título e Nav-->
+                <h3 style="font-weight: 400;"><?= $this->view->topicos[0]['topico'] ?></h3>
+                <div class="p-1" id="mini-nav">
+                    <span><a href="">Início ></a></span>
+                    <span><a href=""> Comunidades > </a></span>
+                    <span><a href=""> <?= $this->view->comunidades[0]['nome'] ?> > </a></span>
+                    <span><a href=""> Fórum ></a></span>
+                    <span style="color:gray"> <?= $this->view->topicos[0]['topico'] ?></span>
+                </div>
+                <!--Fim Título e Nav-->
+
+                <!--Respostas-->
+
+                <div class="clearfix" style="background: #f0f7ff;">
+
+                    <?php
+                    foreach ($this->view->respostas as $key => $respostas) { ?>
+
+                        <div style="border-bottom:4px solid white ;" class="clearfix">
+
+                            <div class="resposta">
+                                <img class="img-resposta ml-2" src="/uploads/<?= $respostas['image'] ?>" alt="">
+                            </div>
+                            <div style="float: left;display: block;">
+                                <div class="ml-2" style="float: left;">
+                                    <a href=""><?= $respostas['nome'] ?></a>
+                                    <p><?= $respostas['mensagem'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }
+                    ?>
+                </div>
+
+                <!--Fim Respostas-->
+
+                <div class="clearfix mt-1 borda-top">
+
+                    <div class="ml-2">
+                        <button class="btn btn-sm botao mt-2">
+                            <a href="novo_topico?id=<?= $_GET['id'] ?>&id_topico=<?= $_GET['id_topico'] ?>" class="texto-botao">responder</a>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Fim Centro-->
+
+
+
+
+    </div>
+</div>
